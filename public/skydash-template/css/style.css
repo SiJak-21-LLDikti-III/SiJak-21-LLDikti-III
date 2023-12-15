@@ -1,0 +1,16 @@
+/* Menghilangkan border bawaan dan memberikan border-bottom */
+.form-control {
+    border: none;
+    border-bottom: 1px solid #8d8d8d; /* Ganti warna sesuai kebutuhan Anda */
+    border-radius: 0; /* Menghilangkan sudut border, jika diperlukan */
+  }
+
+.navbar-biru .navbar-brand:hover {
+    background-color: #39387c !important; /* Ganti dengan warna biru sesuai kebutuhan Anda */
+    border-radius: 10px;
+}
+
+.custom-line {
+  border-top: 2px solid #ccc; /* Warna dan ketebalan garis dapat disesuaikan */
+  margin: 10px; /* Jarak atas dan bawah garis */
+}
