@@ -5,6 +5,7 @@ use CodeIgniter\Router\RouteCollection;
 /**
  * @var RouteCollection $routes
  */
+// $routes->get('/', 'HomeController::index');
 $routes->get('/', 'LayananPajakController::index');
 
 $routes->get('/dashboard-admin', 'DashboardAdminController::index');
