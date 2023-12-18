@@ -16,7 +16,7 @@ class App extends BaseConfig
      *
      *    http://example.com/
      */
-    public string $baseURL = 'http://sijak-21-lldikti-iii.test/';
+    public string $baseURL = 'https://sijak-21-lldikti-iii.test/';
     // public string $baseURL = 'http://localhost:8080/';
 
     /**
