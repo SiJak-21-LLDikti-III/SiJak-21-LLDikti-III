@@ -3,9 +3,9 @@
           <ul class="nav">
               <div class="ml-3 text-gray mb-2">Home</div>
               <li class="nav-item">
-                  <a class="nav-link" href="<?= base_url('dashboard-admin'); ?>">
+                  <a class="nav-link" href="<?= base_url('dashboard'); ?>">
                       <i class="icon-grid menu-icon"></i>
-                      <span class="menu-title">Dashboard</span>
+                S      <span class="menu-title">Dashboard</span>
                   </a>
               </li>
 
