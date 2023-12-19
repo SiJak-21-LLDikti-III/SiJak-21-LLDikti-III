@@ -10,7 +10,15 @@
                         <div class="form-group row">
                             <label for="input" class="col-sm-2 col-form-label">Tahun</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="input" placeholder="">
+                                <select class="form-control shadow-sm" id="year" name="year">
+                                    <?php
+                                    $currentYear = date("Y");
+                                    $startYear = $currentYear - 100; // 100 tahun terakhir
+                                    for ($year = $currentYear; $year >= $startYear; $year--) {
+                                        echo "<option value='$year'>$year</option>";
+                                    }
+                                    ?>
+                                </select>
                             </div>
                         </div>
                         <div class="form-group row">
