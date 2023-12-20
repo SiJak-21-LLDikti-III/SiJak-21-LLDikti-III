@@ -11,3 +11,4 @@ $routes->get('/layanan-pajak', 'LayananPajakController::index');
 // Admin Pages
 $routes->get('/dashboard', 'DashboardAdminController::index');
 $routes->get('/bukti-potong', 'BuktiPotongController::index');
+$routes->get('/pemotong-pajak', 'PemotongPajakController::index');
