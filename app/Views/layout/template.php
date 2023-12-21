@@ -12,8 +12,7 @@
     <link rel="stylesheet" href="<?= base_url('skydash-template/vendors/css/vendor.bundle.base.css'); ?>">
     <!-- endinject -->
     <!-- Plugin css for this page -->
-    <link rel="stylesheet"
-        href="<?= base_url('skydash-template/vendors/datatables.net-bs4/dataTables.bootstrap4.css'); ?>">
+    <link rel="stylesheet" href="<?= base_url('skydash-template/vendors/datatables.net-bs4/dataTables.bootstrap4.css'); ?>">
     <link rel="stylesheet" href="<?= base_url('skydash-template/vendors/ti-icons/css/themify-icons.css'); ?>">
     <link rel="stylesheet" type="text/css" href="<?= base_url('skydash-template/js/select.dataTables.min.css'); ?>">
     <!-- End plugin css for this page -->
@@ -61,23 +60,19 @@
                 <i class="settings-close ti-close"></i>
                 <ul class="nav nav-tabs border-top" id="setting-panel" role="tablist">
                     <li class="nav-item">
-                        <a class="nav-link active" id="todo-tab" data-toggle="tab" href="#todo-section" role="tab"
-                            aria-controls="todo-section" aria-expanded="true">TO DO LIST</a>
+                        <a class="nav-link active" id="todo-tab" data-toggle="tab" href="#todo-section" role="tab" aria-controls="todo-section" aria-expanded="true">TO DO LIST</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="chats-tab" data-toggle="tab" href="#chats-section" role="tab"
-                            aria-controls="chats-section">CHATS</a>
+                        <a class="nav-link" id="chats-tab" data-toggle="tab" href="#chats-section" role="tab" aria-controls="chats-section">CHATS</a>
                     </li>
                 </ul>
                 <div class="tab-content" id="setting-content">
-                    <div class="tab-pane fade show active scroll-wrapper" id="todo-section" role="tabpanel"
-                        aria-labelledby="todo-section">
+                    <div class="tab-pane fade show active scroll-wrapper" id="todo-section" role="tabpanel" aria-labelledby="todo-section">
                         <div class="add-items d-flex px-3 mb-0">
                             <form class="form w-100">
                                 <div class="form-group d-flex">
                                     <input type="text" class="form-control todo-list-input" placeholder="Add To-do">
-                                    <button type="submit" class="add btn btn-primary todo-list-add-btn"
-                                        id="add-task">Add</button>
+                                    <button type="submit" class="add btn btn-primary todo-list-add-btn" id="add-task">Add</button>
                                 </div>
                             </form>
                         </div>
@@ -152,15 +147,12 @@
                     <div class="tab-pane fade" id="chats-section" role="tabpanel" aria-labelledby="chats-section">
                         <div class="d-flex align-items-center justify-content-between border-bottom">
                             <p class="settings-heading border-top-0 mb-3 pl-3 pt-0 border-bottom-0 pb-0">Friends</p>
-                            <small
-                                class="settings-heading border-top-0 mb-3 pt-0 border-bottom-0 pb-0 pr-3 font-weight-normal">See
+                            <small class="settings-heading border-top-0 mb-3 pt-0 border-bottom-0 pb-0 pr-3 font-weight-normal">See
                                 All</small>
                         </div>
                         <ul class="chat-list">
                             <li class="list active">
-                                <div class="profile"><img
-                                        src="<?= base_url('skydash-template/images/faces/face1.jpg'); ?>"
-                                        alt="image"><span class="online"></span></div>
+                                <div class="profile"><img src="<?= base_url('skydash-template/images/faces/face1.jpg'); ?>" alt="image"><span class="online"></span></div>
                                 <div class="info">
                                     <p>Thomas Douglas</p>
                                     <p>Available</p>
@@ -168,9 +160,7 @@
                                 <small class="text-muted my-auto">19 min</small>
                             </li>
                             <li class="list">
-                                <div class="profile"><img
-                                        src="<?= base_url('skydash-template/images/faces/face2.jpg'); ?>"
-                                        alt="image"><span class="offline"></span></div>
+                                <div class="profile"><img src="<?= base_url('skydash-template/images/faces/face2.jpg'); ?>" alt="image"><span class="offline"></span></div>
                                 <div class="info">
                                     <div class="wrapper d-flex">
                                         <p>Catherine</p>
@@ -181,9 +171,7 @@
                                 <small class="text-muted my-auto">23 min</small>
                             </li>
                             <li class="list">
-                                <div class="profile"><img
-                                        src="<?= base_url('skydash-template/images/faces/face3.jpg'); ?>"
-                                        alt="image"><span class="online"></span></div>
+                                <div class="profile"><img src="<?= base_url('skydash-template/images/faces/face3.jpg'); ?>" alt="image"><span class="online"></span></div>
                                 <div class="info">
                                     <p>Daniel Russell</p>
                                     <p>Available</p>
@@ -191,9 +179,7 @@
                                 <small class="text-muted my-auto">14 min</small>
                             </li>
                             <li class="list">
-                                <div class="profile"><img
-                                        src="<?= base_url('skydash-template/images/faces/face4.jpg'); ?>"
-                                        alt="image"><span class="offline"></span></div>
+                                <div class="profile"><img src="<?= base_url('skydash-template/images/faces/face4.jpg'); ?>" alt="image"><span class="offline"></span></div>
                                 <div class="info">
                                     <p>James Richardson</p>
                                     <p>Away</p>
@@ -201,9 +187,7 @@
                                 <small class="text-muted my-auto">2 min</small>
                             </li>
                             <li class="list">
-                                <div class="profile"><img
-                                        src="<?= base_url('skydash-template/images/faces/face5.jpg'); ?>"
-                                        alt="image"><span class="online"></span></div>
+                                <div class="profile"><img src="<?= base_url('skydash-template/images/faces/face5.jpg'); ?>" alt="image"><span class="online"></span></div>
                                 <div class="info">
                                     <p>Madeline Kennedy</p>
                                     <p>Available</p>
@@ -211,9 +195,7 @@
                                 <small class="text-muted my-auto">5 min</small>
                             </li>
                             <li class="list">
-                                <div class="profile"><img
-                                        src="<?= base_url('skydash-template/images/faces/face6.jpg'); ?>"
-                                        alt="image"><span class="online"></span></div>
+                                <div class="profile"><img src="<?= base_url('skydash-template/images/faces/face6.jpg'); ?>" alt="image"><span class="online"></span></div>
                                 <div class="info">
                                     <p>Sarah Graves</p>
                                     <p>Available</p>
@@ -242,8 +224,7 @@
                             with <i class="ti-heart text-danger ml-1"></i></span>
                     </div>
                     <div class="d-sm-flex justify-content-center justify-content-sm-between">
-                        <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Distributed by <a
-                                href="https://www.themewagon.com/" target="_blank">Themewagon</a></span>
+                        <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Distributed by <a href="https://www.themewagon.com/" target="_blank">Themewagon</a></span>
                     </div>
                 </footer>
             </div>
@@ -256,6 +237,7 @@
     </div>
     <!-- container-scroller -->
     <!-- plugins:js -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="<?= base_url('skydash-template/vendors/js/vendor.bundle.base.js'); ?>"></script>
     <!-- endinject -->
     <!-- Plugin js for this page -->
@@ -285,6 +267,7 @@
 
     <!-- Script Lokal -->
     <script src="<?= base_url('skydash-template/js/script.js'); ?>"></script>
+    <script src="<?= base_url('js/main.js'); ?>"></script>
 
     <!-- Captcha Robot -->
     <script src='https://www.google.com/recaptcha/api.js'></script>

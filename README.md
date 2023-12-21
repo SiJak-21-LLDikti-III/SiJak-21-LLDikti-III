@@ -24,7 +24,12 @@ Sebelum Anda mulai menginstal SiJak21-Feature, pastikan Anda telah melakukan lan
     composer install
     ```
 
-2. Lakukan migrasi database dengan menjalankan perintah di terminal:
+2. hapus migrasi database dengan menjalankan perintah di terminal (opsional):
+
+    ```sh
+    php spark migrate:rollback
+    ```
+3. Lakukan migrasi database dengan menjalankan perintah di terminal:
 
     ```sh
     php spark migrate
