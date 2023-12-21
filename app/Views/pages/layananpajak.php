@@ -12,8 +12,7 @@
     <link rel="stylesheet" href="<?= base_url('skydash-template/vendors/css/vendor.bundle.base.css'); ?>">
     <!-- endinject -->
     <!-- Plugin css for this page -->
-    <link rel="stylesheet"
-        href="<?= base_url('skydash-template/vendors/datatables.net-bs4/dataTables.bootstrap4.css'); ?>">
+    <link rel="stylesheet" href="<?= base_url('skydash-template/vendors/datatables.net-bs4/dataTables.bootstrap4.css'); ?>">
     <link rel="stylesheet" href="<?= base_url('skydash-template/vendors/ti-icons/css/themify-icons.css'); ?>">
     <link rel="stylesheet" type="text/css" href="<?= base_url('skydash-template/js/select.dataTables.min.css'); ?>">
     <!-- End plugin css for this page -->
@@ -34,8 +33,7 @@
     <nav class="navbar navbar-light bg-light">
         <div class="mx-auto">
             <a class="navbar-brand" href="#">
-                <img src="<?= base_url('skydash-template/images/LogoDikbud.svg'); ?>" width="30" height="30"
-                    class="d-inline-block align-top mr-3" alt="">
+                <img src="<?= base_url('skydash-template/images/LogoDikbud.svg'); ?>" width="30" height="30" class="d-inline-block align-top mr-3" alt="">
                 <span class="font-weight-bold">DASHBOARD LLDIKTI III</span>
             </a>
         </div>
@@ -43,8 +41,7 @@
 
     <!-- Navbar Blue -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary navbar-biru">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="navbar-collapse collapse flex-column flex-md-row mx-3" id="navbarNav">
@@ -69,7 +66,7 @@
         </div>
     </nav>
 
-    <div class="content-wrapper">
+    <!-- <div class="content-wrapper">
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
@@ -144,8 +141,7 @@
                             <div class="container">
                                 <div class="form-group row justify-content-center text-center">
                                     <div class="col-sm-10">
-                                        <div class="g-recaptcha"
-                                            data-sitekey="6Ldbdg0TAAAAAI7KAf72Q6uagbWzWecTeBWmrCpJ">
+                                        <div class="g-recaptcha" data-sitekey="6Ldbdg0TAAAAAI7KAf72Q6uagbWzWecTeBWmrCpJ">
                                         </div>
                                     </div>
                                 </div>
@@ -158,7 +154,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
     <div class="content-wrapper">
         <div class="row">
@@ -171,8 +167,13 @@
                             <div class="mb-3">
                                 <img src="<?= base_url('skydash-template/images/download-cloud.svg'); ?>" alt="">
                                 <div class="font-weight-bold mt-3 mb-3">Unduh Bukti Potong Pajak</div>
-                                <button type="button" class="btn btn-primary w-100">Unduh</button>
+                                <button type="button" class="btn btn-primary w-100" onclick="unduh()" id="unduh">Unduh</button>
                             </div>
+                            <script>
+                                function unduh() {
+                                    //trigger unduh pada controller
+                                }
+                            </script>
 
                             <div class="mb-3">
                                 <img src="<?= base_url('skydash-template/images/upload-cloud.svg'); ?>" alt="">
@@ -192,15 +193,12 @@
     <!-- partial:partials/_footer.html -->
     <footer class="footer">
         <div class="d-sm-flex justify-content-center justify-content-sm-between">
-            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2021. Premium <a
-                    href="https://www.bootstrapdash.com/" target="_blank">Bootstrap admin template</a> from
+            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2021. Premium <a href="https://www.bootstrapdash.com/" target="_blank">Bootstrap admin template</a> from
                 BootstrapDash. All rights reserved.</span>
-            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with <i
-                    class="ti-heart text-danger ml-1"></i></span>
+            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with <i class="ti-heart text-danger ml-1"></i></span>
         </div>
         <div class="d-sm-flex justify-content-center justify-content-sm-between">
-            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Distributed by <a
-                    href="https://www.themewagon.com/" target="_blank">Themewagon</a></span>
+            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Distributed by <a href="https://www.themewagon.com/" target="_blank">Themewagon</a></span>
         </div>
     </footer>
     <!-- partial -->

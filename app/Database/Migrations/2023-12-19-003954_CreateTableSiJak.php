@@ -19,16 +19,18 @@ class CreateTableSiJak extends Migration
                 'type' => 'DATE',
             ],
             'npwp' => [
-                'type' => 'INTEGER',
-                'constraint' => '15',
+                'type' => 'INT',
             ],
             'nip' => [
-                'type' => 'INTEGER',
-                // 'constraint' => '',
+                'type' => 'varchar',
+                'constraint' => '255',
             ],
             'nama' => [
                 'type' => 'VARCHAR',
                 'constraint' => '255',
+            ],
+            'tgl_lahir' => [
+                'type' => 'DATE',
             ],
             'pangkat' => [
                 'type' => 'VARCHAR',
@@ -39,11 +41,11 @@ class CreateTableSiJak extends Migration
                 'constraint' => '255',
             ],
             // 'jenis_kelamin' => [
-            //     'type' => 'INTEGER',
+            //     'type' => 'INT',
             //     'constraint' => '15',
             // ],
             'nik' => [
-                'type' => 'INTEGER',
+                'type' => 'varchar',
                 'constraint' => '16',
             ],
             // 'kd_pajak' => [
@@ -51,110 +53,99 @@ class CreateTableSiJak extends Migration
             //     'constraint' => '15',
             // ],
             'gaji' => [
-                'type' => 'INTEGER',
-                'constraint' => '15',
+                'type' => 'BIGINT',
             ],
             'tj_istri' => [
-                'type' => 'INTEGER',
-                'constraint' => '15',
+                'type' => 'BIGINT',
             ],
             'tj_anak' => [
-                'type' => 'INTEGER',
-                'constraint' => '15',
+                'type' => 'BIGINT',
                 'null' => true,
             ],
             'jml_gaji' => [
-                'type' => 'INTEGER',
-                'constraint' => '15',
+                'type' => 'BIGINT',
+                'null' => true,
             ],
             'tj_perbaikan' => [
-                'type' => 'INTEGER',
-                'constraint' => '15',
+                'type' => 'BIGINT',
                 'null' => true,
             ],
             'tj_struktural' => [
-                'type' => 'INTEGER',
-                'constraint' => '15',
+                'type' => 'INT',
+                'null' => true,
             ],
             'tj_beras' => [
-                'type' => 'INTEGER',
-                'constraint' => '15',
+                'type' => 'INT',
             ],
             'jml_bruto_1' => [
-                'type' => 'INTEGER',
-                'constraint' => '15',
+                'type' => 'BIGINT',
             ],
             'tj_lain' => [
-                'type' => 'INTEGER',
-                'constraint' => '15',
+                'type' => 'INT',
                 'null' => true,
             ],
             'ph_tetap' => [
-                'type' => 'INTEGER',
-                'constraint' => '15',
+                'type' => 'INT',
+                'null' => true,
             ],
             'jml_bruto_2' => [
-                'type' => 'INTEGER',
-                'constraint' => '15',
+                'type' => 'BIGINT',
+                'null' => true,
             ],
             'biaya_jabatan' => [
-                'type' => 'INTEGER',
-                'constraint' => '15',
+                'type' => 'INT',
+                'null' => true,
             ],
             'iuran_pensiun' => [
-                'type' => 'INTEGER',
-                'constraint' => '15',
+                'type' => 'INT',
+                'null' => true,
             ],
             'jml_pengurangan' => [
-                'type' => 'INTEGER',
-                'constraint' => '15',
+                'type' => 'INT',
+                'null' => true,
             ],
             'jml_ph' => [
-                'type' => 'INTEGER',
-                'constraint' => '15',
+                'type' => 'BIGINT',
+                'null' => true,
             ],
             'ph_neto' => [
-                'type' => 'INTEGER',
-                'constraint' => '15',
+                'type' => 'INT',
                 'null' => true,
             ],
             'jml_ph_neto' => [
-                'type' => 'INTEGER',
-                'constraint' => '15',
+                'type' => 'BIGINT',
+                'null' => true,
             ],
             'ptktp' => [
-                'type' => 'INTEGER',
-                'constraint' => '15',
+                'type' => 'BIGINT',
+                'null' => true,
             ],
             'ph_kena_pajak' => [
-                'type' => 'INTEGER',
-                'constraint' => '15',
+                'type' => 'BIGINT',
+                'null' => true,
             ],
             'pph_ph' => [
-                'type' => 'INTEGER',
-                'constraint' => '15',
+                'type' => 'INT',
+                'null' => true,
             ],
             'pph_potong' => [
-                'type' => 'INTEGER',
-                'constraint' => '15',
+                'type' => 'INT',
+                'null' => true,
             ],
             'pph_utang' => [
-                'type' => 'INTEGER',
-                'constraint' => '15',
+                'type' => 'INT',
+                'null' => true,
             ],
             'pph_potong_lunas' => [
-                'type' => 'INTEGER',
-                'constraint' => '15',
+                'type' => 'INT',
                 'null' => true,
             ],
             'atas_gaji' => [
-                'type' => 'INTEGER',
-                'constraint' => '15',
+                'type' => 'INT',
                 'null' => true,
             ],
             'atas_ph' => [
-                'type' => 'INTEGER',
-                'constraint' => '15',
+                'type' => 'INT',
                 'null' => true,
             ],
         ]);

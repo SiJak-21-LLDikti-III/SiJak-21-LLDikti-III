@@ -21,7 +21,9 @@
                 </div>
             </div>
         <?php endif; ?>
-
+        <!-- Tempatkan di halaman HTML Anda -->
+        <div id="success-alert"></div>
+        <div id="error-alert"></div>
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
@@ -47,7 +49,7 @@
                                 <div class="col-sm-10">
                                     <label for="formFile" class="btn btn-primary w-100 pl-5 pr-5">
                                         <span id="fileName">Pilih File</span>
-                                        <input type="file" id="formFile" class="d-none" onchange="displayFileName(this)">
+                                        <input type="file" id="formFile" class="d-none" onchange="displayFileName(this)" accept=".xls,.xlsx">
                                     </label>
                                 </div>
                             </div>

@@ -16,7 +16,7 @@
         const file = fileInput.files[0];
 
         if (!file) {
-            alert('Pilih file terlebih dahulu.');
+            $('#error-alert').html('<div class="alert alert-danger alert-dismissible show fade" role="alert"><div class="alert-body"><button class="close" data-dismiss="alert"></button><b>Gagal ! </b>Pilih file terlebih dahulu.</div></div>');
             return;
         }
 
@@ -30,12 +30,18 @@
             processData: false,
             contentType: false,
             success: function (response) {
-                // Tambahkan logika penanganan respons di sini
-                console.log(response);
+               if (response.status === 'success') {
+                     // Tampilkan pesan keberhasilan
+                     $('#success-alert').html('<div class="alert alert-success alert-dismissible show fade" role="alert"><div class="alert-body"><button class="close" data-dismiss="alert"></button><b>Berhasil ! </b>' + response.message + '</div></div>');
+               } else {
+                     // Tampilkan pesan kesalahan
+                     $('#error-alert').html('<div class="alert alert-danger alert-dismissible show fade" role="alert"><div class="alert-body"><button class="close" data-dismiss="alert"></button><b>Gagal ! </b>' + response.message + '</div></div>');
+               }
             },
             error: function (xhr, status, error) {
-                // Tambahkan logika penanganan error di sini
-                console.error(error);
+               // Tampilkan pesan error jika terjadi kesalahan AJAX
+               $('#error-alert').html('<div class="alert alert-danger alert-dismissible show fade" role="alert"><div class="alert-body"><button class="close" data-dismiss="alert"></button><b>Gagal ! </b>'+status+' '+ error.message + '</div></div>');
+
             }
         });
     }
