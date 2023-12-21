@@ -74,20 +74,22 @@
                                     </tr>
                                 </thead>
 
-                                <tbody>
-                                    <tr>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
+                                <tbody class="text-black">
+                                    <?php foreach ($dataTable as $row) : ?>
+                                        <tr>
+                                            <td><?= $row->no ?></td>
+                                            <td><?= $row->tahun ?></td>
+                                            <td><?= $row->npwp ?></td>
+                                            <td><?= $row->nama ?></td>
+                                            <td><?= $row->pph_potong ?? 0 ?></td>
+                                            <td><?= $row->pph_utang ?? 0 ?></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                    <?php endforeach; ?>
                                 </tbody>
                             </table>
                         </div>

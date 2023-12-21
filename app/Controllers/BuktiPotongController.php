@@ -17,7 +17,13 @@ class BuktiPotongController extends BaseController
     }
     public function index()
     {
-        return view('pages/buktipotong');
+        $dataTable= $this->dataModel->getAllDataTable();
+        $data = [
+            'title' => 'Admin - Bukti Potong',
+            'dataTable' => $dataTable
+        ];
+        log_message("info", "data: ".print_r($data['dataTable'],true));
+        return view('pages/buktipotong', $data);
     }
     public function uploadExcel()
     {
