@@ -8,7 +8,10 @@ class PemotongPajakController extends BaseController
 {
     public function index()
     {
-        return view('pages/idpemotongpajak');
+        $data = [
+            'title' => 'Admin - Identitas Pemotong',
+        ];
+        return view('pages/idpemotongpajak',$data);
     }
 
     public function update($id)

@@ -6,7 +6,10 @@ class DashboardAdminController extends BaseController
 {
     public function index()
     {
-        return view('pages/dashboard');
+        $data = [
+            'title' => 'Admin - Layanan Pemotongan Pajak Penghasilan LLDIkti III',
+        ];
+        return view('pages/dashboard',$data);
     }
 
 }
