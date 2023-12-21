@@ -9,6 +9,7 @@ class DataModel extends Model
     protected $table   = 'tb_sijak';
     protected $builder;
     protected $columnNames = [];
+   
 
     public function __construct()
     {

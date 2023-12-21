@@ -14,3 +14,4 @@ $routes->get('/bukti-potong', 'BuktiPotongController::index');
 $routes->post('/excel/upload', 'BuktiPotongController::uploadExcel');
 
 $routes->get('/pemotong-pajak', 'PemotongPajakController::index');
+$routes->post('/pemotong-pajak/update/(:num)', 'PemotongPajakController::update/$1');
