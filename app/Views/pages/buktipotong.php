@@ -33,7 +33,7 @@
                             <div class="form-group row">
                                 <label for="input" class="col-sm-2 col-form-label">Tahun</label>
                                 <div class="col-sm-10">
-                                    <select class="form-control shadow-sm" id="year" name="year">
+                                    <select class="form-control shadow-sm" id="year" name="year" onchange="fetchTableData()">
                                         <?php
                                         $currentYear = date("Y");
                                         $startYear = $currentYear - 100; // 100 tahun terakhir

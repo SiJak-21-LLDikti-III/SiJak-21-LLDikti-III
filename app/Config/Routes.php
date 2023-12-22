@@ -12,6 +12,7 @@ $routes->get('/layanan-pajak', 'LayananPajakController::index');
 $routes->get('/dashboard', 'DashboardAdminController::index');
 $routes->get('/bukti-potong', 'BuktiPotongController::index');
 $routes->post('/excel/upload', 'BuktiPotongController::uploadExcel');
+$routes->get('/bukti-potong/filterTanggal/(:num)', 'BuktiPotongController::fetchData/$1');
 
 $routes->get('/pemotong-pajak', 'PemotongPajakController::index');
 $routes->post('/pemotong-pajak/update/(:num)', 'PemotongPajakController::update/$1');

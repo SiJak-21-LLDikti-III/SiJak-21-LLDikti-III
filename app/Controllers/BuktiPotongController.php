@@ -17,12 +17,12 @@ class BuktiPotongController extends BaseController
     }
     public function index()
     {
-        $dataTable= $this->dataModel->getAllDataTable();
+        $dataTable = $this->dataModel->getAllDataTable();
         $data = [
             'title' => 'Admin - Bukti Potong',
             'dataTable' => $dataTable
         ];
-        log_message("info", "data: ".print_r($data['dataTable'],true));
+        // log_message("info", "data: " . print_r($data['dataTable'], true));
         return view('pages/buktipotong', $data);
     }
     public function uploadExcel()
@@ -124,16 +124,24 @@ class BuktiPotongController extends BaseController
                         'atas_gaji' => $data[32] ?: null,
                         'atas_ph' => $data[33] ?: null,
                     ]);
-
                 }
 
                 // Setelah berhasil mengunggah file
                 return $this->response->setJSON(['status' => 'success', 'message' => 'File Excel berhasil diunggah']);
             } catch (\Exception | \Throwable $e) {
                 // Handle kesalahan jika terjadi
-                log_message("info",'Terjadi kesalahan: ' . print_r($e->getMessage(),true)) ;
+                log_message("info", 'Terjadi kesalahan: ' . print_r($e->getMessage(), true));
                 return $this->response->setJSON(['status' => 'error', 'message' => 'Terjadi kesalahan: ' . $e->getMessage()]);
             }
-        } 
+        }
+    }
+    public function fetchData($year)
+    {
+        // Ambil data dari tabel tb_sijak berdasarkan tahun
+        $data = $this->dataModel->getDataByYear($year);
+        log_message("info", "data:". print_r($data,true));
+
+        // Kembalikan data sebagai respons
+        return $this->response->setJSON($data);
     }
 }
