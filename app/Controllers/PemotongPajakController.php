@@ -11,26 +11,48 @@ class PemotongPajakController extends BaseController
         $data = [
             'title' => 'Admin - Identitas Pemotong',
         ];
-        return view('pages/idpemotongpajak',$data);
+        return view('pages/idpemotongpajak', $data);
     }
 
     public function update($id)
     {
         $modelipp = new ModelIPP();
 
+        // Ambil data terakhir berdasarkan NPWP
+        $lastRecord = $modelipp->where('npwp', $this->request->getPost('npwp'))->orderBy('id', 'DESC')->first();
+
+        // Validasi form input
+        $validationRules = [
+            'npwp' => 'required|numeric',
+            'nama_instansi' => 'required',
+            'id_sub_unit' => 'required',
+            'day' => 'required',
+            'month' => 'required',
+            'year' => 'required',
+            'nama_penandatangan' => 'required',
+        ];
+
+        if (!$this->validate($validationRules)) {
+            // Jika validasi gagal, kembalikan dengan pesan kesalahan
+            return redirect()->back()->withInput()->with('validation', $this->validator);
+        }
+
         // Dapatkan data dari formulir
-        $npwp = $this->request->getPost('npwp');
-        $nama_instansi = $this->request->getPost('nama_instansi');
-        $id_sub_unit = $this->request->getPost('id_sub_unit');
-        $tanggal = $this->request->getPost('year') . '-' . $this->request->getPost('month') . '-' . $this->request->getPost('day');
-        $nama_penandatangan = $this->request->getPost('nama_penandatangan');
+        $data['npwp'] = $this->request->getPost('npwp');
+        $data['nama_instansi'] = $this->request->getPost('nama_instansi');
+        $data['id_sub_unit'] = $this->request->getPost('id_sub_unit');
+        $data['tanggal'] = $this->request->getPost('year') . '-' . $this->request->getPost('month') . '-' . $this->request->getPost('day');
+        $data['nama_penandatangan'] = $this->request->getPost('nama_penandatangan');
+
+        // Jika data terakhir ditemukan, gunakan data tersebut
+        if (!empty($lastRecord)) {
+            $data['npwp'] = $lastRecord['npwp'];
+        }
 
         // Perbarui data di database
-        $modelipp->where('id', $id)
-            ->set(['npwp' => $npwp, 'nama_instansi' => $nama_instansi, 'id_sub_unit' => $id_sub_unit, 'tanggal' => $tanggal, 'nama_penandatangan' => $nama_penandatangan])
-            ->update();
+        $modelipp->update($id, $data);
 
-        // Redirect atau lakukan sesuatu setelah memperbarui
+        // Redirect setelah memperbarui
         return redirect()->to('/pemotong-pajak');
     }
 }
