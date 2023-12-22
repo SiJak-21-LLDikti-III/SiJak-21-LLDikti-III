@@ -19,7 +19,8 @@ class CreateTableSiJak extends Migration
                 'type' => 'DATE',
             ],
             'npwp' => [
-                'type' => 'INT',
+                'type' => 'varchar',
+                'constraint' => '255',
             ],
             'nip' => [
                 'type' => 'varchar',
