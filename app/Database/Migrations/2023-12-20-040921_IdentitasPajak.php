@@ -31,7 +31,7 @@ class IdentitasPajak extends Migration
             'tanggal' => [
                 'type' => 'DATE',
             ],
-            'nama' => [
+            'nama_penandatangan' => [
                 'type' => 'VARCHAR',
                 'constraint' => '255',
             ],

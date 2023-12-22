@@ -4,22 +4,22 @@
 
     <div class="container-fluid">
         <?php if (session()->getFlashdata('success')) : ?>
-            <div class="alert alert-success alert-dismissible show fade" role="alert">
-                <div class="alert-body">
-                    <button class="close" data-dismiss="alert"></button>
-                    <b>Berhasil !</b>
-                    <?= session()->getFlashdata('success'); ?>
-                </div>
+        <div class="alert alert-success alert-dismissible show fade" role="alert">
+            <div class="alert-body">
+                <button class="close" data-dismiss="alert"></button>
+                <b>Berhasil !</b>
+                <?= session()->getFlashdata('success'); ?>
             </div>
+        </div>
         <?php endif; ?>
         <?php if (session()->getFlashdata('error')) : ?>
-            <div class="alert alert-danger alert-dismissible show fade" role="alert">
-                <div class="alert-body">
-                    <button class="close" data-dismiss="alert"></button>
-                    <b>Gagal !</b>
-                    <?= session()->getFlashdata('error'); ?>
-                </div>
+        <div class="alert alert-danger alert-dismissible show fade" role="alert">
+            <div class="alert-body">
+                <button class="close" data-dismiss="alert"></button>
+                <b>Gagal !</b>
+                <?= session()->getFlashdata('error'); ?>
             </div>
+        </div>
         <?php endif; ?>
         <!-- Tempatkan di halaman HTML Anda -->
         <div id="success-alert"></div>
@@ -49,11 +49,13 @@
                                 <div class="col-sm-10">
                                     <label for="formFile" class="btn btn-primary w-100 pl-5 pr-5">
                                         <span id="fileName">Pilih File</span>
-                                        <input type="file" id="formFile" class="d-none" onchange="displayFileName(this)" accept=".xls,.xlsx">
+                                        <input type="file" id="formFile" class="d-none" onchange="displayFileName(this)"
+                                            accept=".xls,.xlsx">
                                     </label>
                                 </div>
                             </div>
-                            <button type="button" class="btn btn-primary w-100" onclick="uploadFile()">Unggah Bukti Potong</button>
+                            <button type="button" class="btn btn-primary w-100" onclick="uploadFile()">Unggah Bukti
+                                Potong</button>
                         </form>
 
                         <div class="table-responsive mt-4">
@@ -76,19 +78,19 @@
 
                                 <tbody class="text-black">
                                     <?php foreach ($dataTable as $row) : ?>
-                                        <tr>
-                                            <td><?= $row->no ?></td>
-                                            <td><?= $row->tahun ?></td>
-                                            <td><?= $row->npwp ?></td>
-                                            <td><?= $row->nama ?></td>
-                                            <td><?= $row->pph_potong ?? 0 ?></td>
-                                            <td><?= $row->pph_utang ?? 0 ?></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
+                                    <tr>
+                                        <td><?= $row->no ?></td>
+                                        <td><?= $row->tahun ?></td>
+                                        <td><?= $row->npwp ?></td>
+                                        <td><?= $row->nama ?></td>
+                                        <td><?= $row->pph_potong ?? 0 ?></td>
+                                        <td><?= $row->pph_utang ?? 0 ?></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
                                     <?php endforeach; ?>
                                 </tbody>
                             </table>
@@ -98,5 +100,5 @@
             </div>
         </div>
     </div>
-
-    <?= $this->endSection(); ?>
+</div>
+<?= $this->endSection(); ?>
