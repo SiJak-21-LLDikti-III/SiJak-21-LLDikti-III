@@ -10,7 +10,7 @@
     <meta name="author" content="">
     <meta name="csrf-token" content="<?= csrf_hash() ?>">
 
-    <title>Login</title>
+    <title><?= $title ?></title>
 
     <!-- Custom fonts for this template-->
 

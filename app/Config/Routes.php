@@ -7,6 +7,7 @@ use CodeIgniter\Router\RouteCollection;
  */
 $routes->get('/', 'HomeController::index');
 $routes->get('/layanan-pajak', 'LayananPajakController::index');
+$routes->get('/login', 'LoginController::index');
 
 // Admin Pages
 $routes->get('/dashboard', 'DashboardAdminController::index');
