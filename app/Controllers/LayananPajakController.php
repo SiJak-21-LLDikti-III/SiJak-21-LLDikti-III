@@ -8,7 +8,7 @@ class LayananPajakController extends BaseController
     public function index()
     {
         $data = [
-            'title' => 'Layanan Pemotongan Pajak Penghasilan LLDIkti III',
+            'title' => 'Layanan Pemotongan Pajak Penghasilan LLDikti III',
         ];
         return view('pages/layananpajak',$data);
     }
