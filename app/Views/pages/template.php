@@ -36,12 +36,12 @@
                 transform: scale(0.1);
                 -moz-transform: scale(0.1);
                 -webkit-transform: scale(0.1);
-                -moz-transform-origin: top left;
-                -webkit-transform-origin: top left;
+                /* -moz-transform-origin: top left;
+                -webkit-transform-origin: top left; */
             }
         }
         
-        .stl_layer {}
+        /* .stl_layer {} */
         
         .stl_ie {
             font-size: 1pt;
