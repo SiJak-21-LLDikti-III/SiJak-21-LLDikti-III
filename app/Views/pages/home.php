@@ -78,7 +78,7 @@
                             pembayaran Pajak Penghasilan Pasal 21 dengan memasukkan
                             Nomor Pajak Wajib Pajak (NPWP) dan tanggal lahir Anda.</p>
 
-                        <form method="POST" action="/layanan-pajak" class="w-75 mx-auto">
+                        <form method="get" action="/layanan-pajak" class="w-75 mx-auto">
                             <div class="form-group row">
                                 <label for="input" class="col-sm-2 col-form-label">NPWP</label>
                                 <div class="col-sm-10">
@@ -149,7 +149,7 @@
                             <!-- hanya bisa digunakan jika captcha -->
 
 
-                            <button type="button" class="btn btn-primary w-75 mt-4">Masuk</button>
+                            <button type="submit" class="btn btn-primary w-75 mt-4">Masuk</button>
                         </form>
                     </div>
                 </div>
@@ -202,7 +202,7 @@
     <script src="<?= base_url('skydash-template/js/script.js'); ?>"></script>
 
     <!-- Captcha Robot -->
-    <script src='https://www.google.com/recaptcha/api.js'></script>
+    <!-- <script src='https://www.google.com/recaptcha/api.js'></script> -->
 
 </body>
 
