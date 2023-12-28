@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Controllers;
+
 use App\Controllers\CetakController;
 
 class LayananPajakController extends BaseController
@@ -10,11 +11,9 @@ class LayananPajakController extends BaseController
         $data = [
             'title' => 'Layanan Pemotongan Pajak Penghasilan LLDikti III',
         ];
-        return view('pages/layananpajak',$data);
+        return view('pages/layananpajak', $data);
     }
-    public function unduh() {
-        //ambil dari cetakcontroller
-    }
-    public function upload() {
+    public function upload()
+    {
     }
 }
