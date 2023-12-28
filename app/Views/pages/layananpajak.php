@@ -82,7 +82,7 @@
                             </div>
                             <script>
                                 function unduh() {
-                                    window.location.href = "layanan-pajak/unduh";
+                                    window.open("layanan-pajak/unduh", '_blank');
                                 }
 
                                 function unduh_biasa() {
