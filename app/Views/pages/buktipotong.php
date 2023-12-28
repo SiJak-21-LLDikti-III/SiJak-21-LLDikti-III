@@ -33,7 +33,8 @@
                             <div class="form-group row">
                                 <label for="input" class="col-sm-2 col-form-label">Tahun</label>
                                 <div class="col-sm-10">
-                                    <select class="form-control shadow-sm" id="year" name="year" onchange="fetchTableData()">
+                                    <select class="form-control shadow-sm" id="year" name="year"
+                                        onchange="fetchTableData()">
                                         <?php
                                         $currentYear = date("Y");
                                         $startYear = $currentYear - 100; // 100 tahun terakhir
@@ -73,6 +74,7 @@
                                         <th>Status Unduh</th>
                                         <th>Status Bukti Bayar</th>
                                         <th>File Bukti Bayar</th>
+                                        <th>Opsi</th>
                                     </tr>
                                 </thead>
 
@@ -90,6 +92,17 @@
                                         <td></td>
                                         <td></td>
                                         <td></td>
+                                        <td>
+                                            <!-- Tombol Edit -->
+                                            <button class="btn btn-success mr-2 p-2">
+                                                <iconify-icon icon="tabler:edit" width="20"></iconify-icon>
+                                            </button>
+
+                                            <!-- Tombol Hapus -->
+                                            <button class="btn btn-danger p-2">
+                                                <iconify-icon icon="mdi:trash-outline" width="20">
+                                            </button>
+                                        </td>
                                     </tr>
                                     <?php endforeach; ?>
                                 </tbody>
