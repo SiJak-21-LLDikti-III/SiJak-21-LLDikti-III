@@ -17,6 +17,7 @@ class CetakController extends BaseController
             'title' => 'Cetak',
         ];
         $mpdf = new \Mpdf\Mpdf([
+            'mode' => 'utf-8',
             'format' => 'A4',
             'margin_left' => 12, 7,
             'margin_right' => 12, 7,
@@ -26,9 +27,15 @@ class CetakController extends BaseController
         ]);
         $mpdf->SetWatermarkImage('skydash-template/images/watermark.png', 2);
         $mpdf->showWatermarkImage = true;
+        $mpdf->SetAuthor(base64_decode('QXJpemtpIFB1dHJhIFJhaG1hbg=='));
+        $mpdf->SetCreator(base64_decode('QXJpemtpIFB1dHJhIFJhaG1hbg=='));
+        $mpdf->SetSubject('Cetak Telaah dari Sistem Rekam Jejak Perguruan Tinggi');
+        $mpdf->SetTitle(base64_decode('Rm9ybSAyIDogVGVsYWFoIFJla2FtIEplamFr'));
+        $mpdf->SetKeywords(base64_decode('UFQsIFlheWFzYW4sIFRlbGFhaCwgUERGLCBTaVJlSmFr'));
         $html = view('pages/template', $data);
         $mpdf->WriteHTML($html);
         $mpdf->Output('Cetak.pdf', 'I');
+        exit();
     }
     public function unduh() //biasa
     {
