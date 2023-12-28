@@ -8,6 +8,7 @@ use CodeIgniter\Router\RouteCollection;
 $routes->get('/', 'HomeController::index');
 $routes->get('/layanan-pajak', 'LayananPajakController::index');
 $routes->get('/layanan-pajak/unduh', 'CetakController::index');
+$routes->get('/layanan-pajak/unduh-biasa', 'CetakController::unduh');
 $routes->get('/login', 'LoginController::index');
 
 // Admin Pages

@@ -77,11 +77,16 @@
                             <div class="mb-3">
                                 <img src="<?= base_url('skydash-template/images/download-cloud.svg'); ?>" alt="">
                                 <div class="font-weight-bold mt-3 mb-3">Unduh Bukti Potong Pajak</div>
-                                <button type="button" class="btn btn-primary w-100" onclick="unduh()" id="unduh">Unduh</button>
+                                <button type="button" class="btn btn-primary w-100" onclick="unduh()" id="unduh">Unduh</button><br><br>
+                                <button type="button" class="btn btn-primary w-100" onclick="unduh_biasa()" id="unduh">Unduh (html biasa)</button>
                             </div>
                             <script>
                                 function unduh() {
-                                    //trigger unduh pada controller
+                                    window.location.href = "layanan-pajak/unduh";
+                                }
+
+                                function unduh_biasa() {
+                                    window.open("layanan-pajak/unduh-biasa", '_blank');
                                 }
                             </script>
 

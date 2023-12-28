@@ -6,11 +6,17 @@ use App\Models\CetakModel;
 
 class CetakController extends BaseController
 {
-    public function index()
+    protected $CetakModel;
+    public function __construct()
     {
-        require_once __DIR__ . '/vendor/autoload.php';
+        $this->CetakModel = new CetakModel();
+    }
+    public function index() //unduh mpdf
+    {
+        $data = [
+            'title' => 'Cetak',
+        ];
         $mpdf = new \Mpdf\Mpdf([
-            'mode' => 'utf-8',
             'format' => 'A4',
             'margin_left' => 12, 7,
             'margin_right' => 12, 7,
@@ -18,8 +24,17 @@ class CetakController extends BaseController
             'margin_bottom' => 17, 8,
             'orientation' => 'P'
         ]);
-        $mpdf->WriteHTML('<h1>Hello world!</h1>');
-        $mpdf->Output();
-        return view('pages/cetak');
+        $mpdf->SetWatermarkImage('skydash-template/images/watermark.png', 2);
+        $mpdf->showWatermarkImage = true;
+        $html = view('pages/template', $data);
+        $mpdf->WriteHTML($html);
+        $mpdf->Output('Cetak.pdf', 'I');
+    }
+    public function unduh() //biasa
+    {
+        $data = [
+            'title' => 'Cetak',
+        ];
+        return view('pages/templateV2', $data);
     }
 }
