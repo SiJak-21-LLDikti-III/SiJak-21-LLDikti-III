@@ -94,14 +94,15 @@
                                         <td></td>
                                         <td>
                                             <!-- Tombol Edit -->
-                                            <button class="btn btn-success mr-2 p-2">
+                                            <a href="<?= base_url('editbuktipotong'); ?>"
+                                                class="btn btn-success mr-2 p-2">
                                                 <iconify-icon icon="tabler:edit" width="20"></iconify-icon>
-                                            </button>
+                                            </a>
 
                                             <!-- Tombol Hapus -->
-                                            <button class="btn btn-danger p-2">
+                                            <a class="btn btn-danger p-2">
                                                 <iconify-icon icon="mdi:trash-outline" width="20">
-                                            </button>
+                                            </a>
                                         </td>
                                     </tr>
                                     <?php endforeach; ?>
