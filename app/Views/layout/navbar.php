@@ -1,10 +1,12 @@
   <!-- partial:partials/_navbar.html -->
   <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-          <a class="navbar-brand brand-logo" href="index.html"><img
-                  src="<?= base_url('skydash-template/images/logo-lldikti.svg'); ?>" class="mr-2" alt="logo" /></a>
-          <a class="navbar-brand brand-logo-mini" href="index.html"><img
-                  src="<?= base_url('skydash-template/images/Logo.svg'); ?>" alt="logo" /></a>
+          <a class="navbar-brand brand-logo" href="<?= base_url(); ?>">
+              <img src="<?= base_url('skydash-template/images/logo-lldikti.svg'); ?>" class="mr-2" alt="logo" />
+          </a>
+          <a class="navbar-brand brand-logo-mini" href="<?= base_url(); ?>">
+              <img src="<?= base_url('skydash-template/images/Logo.svg'); ?>" alt="logo" />
+          </a>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
           <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
@@ -18,22 +20,19 @@
                               <i class="icon-search"></i>
                           </span>
                       </div>
-                      <input type="text" class="form-control" id="navbar-search-input" placeholder="Search..."
-                          aria-label="search" aria-describedby="search">
+                      <input type="text" class="form-control" id="navbar-search-input" placeholder="Search..." aria-label="search" aria-describedby="search">
                   </div>
               </li>
           </ul>
           <ul class="navbar-nav navbar-nav-right">
               <li class="nav-item dropdown">
-                  <a class="nav-link count-indicator dropdown-toggle mr-2" id="notificationDropdown" href="#"
-                      data-toggle="dropdown">
+                  <a class="nav-link count-indicator dropdown-toggle mr-2" id="notificationDropdown" href="#" data-toggle="dropdown">
                       <iconify-icon icon="solar:bell-bold-duotone" width="20"></iconify-icon>
                   </a>
                   <a class="nav-link" href="">
                       <iconify-icon icon="mdi:email-variant" width="20"></iconify-icon>
                   </a>
-                  <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
-                      aria-labelledby="notificationDropdown">
+                  <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
                       <p class="mb-0 font-weight-normal float-left dropdown-header">Notifications</p>
                       <a class="dropdown-item preview-item">
                           <div class="preview-thumbnail">
@@ -77,10 +76,8 @@
                   </div>
               </li>
               <li class="nav-item nav-profile dropdown">
-                  <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" data-toggle="dropdown"
-                      id="profileDropdown">
-                      <img src="<?= base_url('skydash-template/images/faces/face28.jpg'); ?>" class="mr-2"
-                          alt="profile" />
+                  <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" data-toggle="dropdown" id="profileDropdown">
+                      <img src="<?= base_url('skydash-template/images/faces/face28.jpg'); ?>" class="mr-2" alt="profile" />
                       <div>
                           <div class="text-black">Austin Roberts</div>
                           <div class="text-small text-gray">Admin</div>
@@ -103,8 +100,7 @@
             </a>
           </li> -->
           </ul>
-          <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
-              data-toggle="offcanvas">
+          <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
               <span class="icon-menu"></span>
           </button>
       </div>
