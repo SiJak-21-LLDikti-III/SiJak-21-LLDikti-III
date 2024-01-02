@@ -79,10 +79,14 @@
                                 </thead>
 
                                 <tbody class="text-black">
-                                    <?php foreach ($dataTable as $row) : ?>
+                                    <?php foreach ($dataTable as $row) :
+                                        $mperlan = "mperlan_H04-H05";
+                                        $yearmperlan = substr($row->$mperlan, 0, 4);
+                                        ?>
+                                        
                                     <tr>
                                         <td><?= $row->no_H01 ?></td>
-                                        <td><?= $row->tahun ?></td>
+                                        <td><?= $yearmperlan ?></td>
                                         <td><?= $row->npwp_A1 ?></td>
                                         <td><?= $row->nama_A3 ?></td>
                                         <td><?= $row->pph_potong ?? 0 ?></td>
