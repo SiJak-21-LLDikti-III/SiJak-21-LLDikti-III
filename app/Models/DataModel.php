@@ -34,8 +34,15 @@ class DataModel extends Model
     }
     public function getDataByYear($year)
     {
+        // // Tambahkan logika untuk mengambil data dari tabel tb_sijak berdasarkan tahun
+        // $result = $this->db->table('tb_sijak')->where('YEAR(mperlan_H04-H05)', $year)->get()->getResult();
+
+        // return $result;
         // Tambahkan logika untuk mengambil data dari tabel tb_sijak berdasarkan tahun
-        $result = $this->db->table('tb_sijak')->where('YEAR(tahun)', $year)->get()->getResult();
+        $result = $this->db->table('tb_sijak')
+        ->like('mperlan_H04-H05', $year, 'after') // 'after' berarti mencari yang cocok pada bagian belakang string
+        ->get()
+            ->getResult();
 
         return $result;
     }
