@@ -8,16 +8,10 @@ use App\Models\dataModel;
 
 class BuktiPotongController extends BaseController
 {
-    protected $dataModel;
-
-
-    public function __construct()
-    {
-        $this->dataModel = new dataModel();
-    }
     public function index()
     {
-        $dataTable = $this->dataModel->getAllDataTable();
+        $dataModel = new dataModel();
+        $dataTable = $dataModel->getAllDataTable();
         // log_message('info',"data bukti potong :".print_r($dataTable,true));
         $data = [
             'title' => 'Admin - Bukti Potong',
@@ -28,11 +22,12 @@ class BuktiPotongController extends BaseController
     }
     public function uploadExcel()
     {
+        $dataModel = new dataModel();
         $file = $this->request->getFile('excel_file');
         if ($file->isValid() && !in_array($file->getClientExtension(), ['xls', 'xlsx'])) {
             return $this->response->setJSON(['status' => 'error', 'message' => 'File yang diunggah harus berformat .xls atau .xlsx']);
             // return redirect()->back()->with('error', 'File yang diunggah harus berformat .xls atau .xlsx');
-            
+
         }
         // log_message("info", "type: " . print_r($file, true));
         if ($file->isValid() && in_array($file->getClientExtension(), ['xls', 'xlsx'])) {
@@ -90,7 +85,7 @@ class BuktiPotongController extends BaseController
                         }
                     }
 
-                    $this->dataModel->builder->insert([
+                    $dataModel->builder->insert([
                         'no_H01' => $data[0],
                         'spt_H02' => $data[1],
                         'mperlan_H04-H05' => $data[2],
@@ -132,7 +127,7 @@ class BuktiPotongController extends BaseController
                         'status_pegawai' => $data[38] ?: '0', // Jika status_pegawai bertipe varchar, ganti '0' menjadi nilai default yang sesuai
                     ]);
 
-                    $this->dataModel->builderStatus->insert([
+                    $dataModel->builderStatus->insert([
                         'npwp' => $data[3],
                     ]);
                 }
@@ -150,8 +145,9 @@ class BuktiPotongController extends BaseController
     }
     public function fetchData($year)
     {
+        $dataModel = new dataModel();
         // Ambil data dari tabel tb_sijak berdasarkan tahun
-        $data = $this->dataModel->getDataByYear($year);
+        $data = $dataModel->getDataByYear($year);
         log_message("info", "data:" . print_r($data, true));
 
         // Kembalikan data sebagai respons
