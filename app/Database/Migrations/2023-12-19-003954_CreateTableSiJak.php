@@ -9,51 +9,61 @@ class CreateTableSiJak extends Migration
     public function up()
     {
         $this->forge->addField([
-            'no' => [
+            'no_H01' => [
                 'type' => 'INT',
                 'constraint' => 5,
                 'unsigned' => true,
                 'auto_increment' => true,
+                'null' => false,
             ],
-            'tahun' => [
-                'type' => 'DATE',
+            'mperlan_H04-H05' => [
+                'type' => 'VARCHAR',
+                'constraint' => '255',
             ],
-            'npwp' => [
+            'npwp_A1' => [
+                'type' => 'varchar',
+                'constraint' => '255',
+                'null' => false,
+            ],
+            'nip_A2' => [
                 'type' => 'varchar',
                 'constraint' => '255',
             ],
-            'nip' => [
-                'type' => 'varchar',
+            'nama_A3' => [
+                'type' => 'VARCHAR',
                 'constraint' => '255',
             ],
-            'nama' => [
+            'pangkat_A4' => [
                 'type' => 'VARCHAR',
                 'constraint' => '255',
             ],
             'tgl_lahir' => [
                 'type' => 'DATE',
             ],
-            'pangkat' => [
+            'tahun' => [
+                'type' => 'DATE',
+            ],
+            'nama_jabatan_A5' => [
                 'type' => 'VARCHAR',
                 'constraint' => '255',
             ],
-            'nama_jabatan' => [
+            'jenis_kelamin_A6' => [
                 'type' => 'VARCHAR',
-                'constraint' => '255',
+                'constraint' => '1',
             ],
-            // 'jenis_kelamin' => [
-            //     'type' => 'INT',
-            //     'constraint' => '15',
-            // ],
-            'nik' => [
+            'nik_A7' => [
                 'type' => 'varchar',
                 'constraint' => '16',
             ],
-            // 'kd_pajak' => [
-            //     'type' => 'VARCHAR',
-            //     'constraint' => '15',
-            // ],
-            'gaji' => [
+            'status_A8' => [
+                'type' => 'varchar',
+                'constraint' => '10',
+            ],
+            'kd_pajak' => [
+                'type' => 'VARCHAR',
+                'constraint' => '2',
+            ],
+            'gaji_pokok' => [
                 'type' => 'BIGINT',
             ],
             'tj_istri' => [
@@ -141,17 +151,24 @@ class CreateTableSiJak extends Migration
                 'type' => 'INT',
                 'null' => true,
             ],
-            'atas_gaji' => [
+            'atas_gaji_23A' => [
                 'type' => 'INT',
                 'null' => true,
             ],
-            'atas_ph' => [
+            'atas_ph_23B' => [
                 'type' => 'INT',
+                'null' => true,
+            ],
+            'status_pegawai' => [
+                'type' => 'Varchar',
+                'constraint' => '4',
                 'null' => true,
             ],
         ]);
 
-        $this->forge->addKey('no', true);
+        // Add primary key separately
+        $this->forge->addKey('no_H01', true);
+
         $this->forge->createTable('tb_sijak');
     }
 
