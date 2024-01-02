@@ -5,6 +5,24 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="Layanan Pemotongan Pajak Penghasilan LLDikti III" />
+    <meta name="description" content="SISTEM UNTUK MEMANTAU BUKTI PEMOTONGAN PAJAK PENGHASILAN PASAL 21 BAGI  PEGAWAI NEGERI SIPIL ATAU ANGGOTA TENTARA NASIONAL  INDONESIA ATAU ANGGOTA POLISI REPUBLIK INDONESIA ATAU  PEJABAT NEGARA ATAU PENSIUNNYA. Dibuat oleh Tim MSIB Batch 5 Lembaga Layanan Pendidikan Tinggi Wilayah III" />
+    <meta name="image" content="https://sijak21.arizkinewbie.com/public/skydash-template/images/favicon.png" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://sijak21.arizkinewbie.com/" />
+    <meta property="og:title" content="Layanan Pemotongan Pajak Penghasilan LLDikti III" />
+    <meta property="og:description" content="SISTEM UNTUK MEMANTAU BUKTI PEMOTONGAN PAJAK PENGHASILAN PASAL 21 BAGI  PEGAWAI NEGERI SIPIL ATAU ANGGOTA TENTARA NASIONAL  INDONESIA ATAU ANGGOTA POLISI REPUBLIK INDONESIA ATAU  PEJABAT NEGARA ATAU PENSIUNNYA. Dibuat oleh Tim MSIB Batch 5 Lembaga Layanan Pendidikan Tinggi Wilayah III" />
+    <meta property="og:image" content="https://sijak21.arizkinewbie.com/public/skydash-template/images/favicon.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://sijak21.arizkinewbie.com/" />
+    <meta property="twitter:title" content="Layanan Pemotongan Pajak Penghasilan LLDikti III" />
+    <meta property="twitter:description" content="SISTEM UNTUK MEMANTAU BUKTI PEMOTONGAN PAJAK PENGHASILAN PASAL 21 BAGI  PEGAWAI NEGERI SIPIL ATAU ANGGOTA TENTARA NASIONAL  INDONESIA ATAU ANGGOTA POLISI REPUBLIK INDONESIA ATAU  PEJABAT NEGARA ATAU PENSIUNNYA. Dibuat oleh Tim MSIB Batch 5 Lembaga Layanan Pendidikan Tinggi Wilayah III" />
+    <meta property="twitter:image" content="https://sijak21.arizkinewbie.com/public/skydash-template/images/favicon.png" />
     <title><?= $title ?></title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="<?= base_url('skydash-template/vendors/feather/feather.css'); ?>">
