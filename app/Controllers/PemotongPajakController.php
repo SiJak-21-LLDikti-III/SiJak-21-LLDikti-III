@@ -6,13 +6,6 @@ use App\Models\ModelIPP;
 
 class PemotongPajakController extends BaseController
 {
-    public function index()
-    {
-        $data = [
-            'title' => 'Admin - Identitas Pemotong',
-        ];
-        return view('pages/idpemotongpajak', $data);
-    }
     public function editForm()
     {
         $modelipp = new ModelIPP();
@@ -21,7 +14,10 @@ class PemotongPajakController extends BaseController
         $lastRecord = $modelipp->orderBy('id', 'DESC')->first();
 
         // Kirim data terakhir ke view
-        $data['record'] = $lastRecord;
+        $data = [
+            'title' => 'Admin - Identitas Pemotong',
+            'record' => $lastRecord, // pindahkan inisialisasi record ke sini
+        ];
 
         return view('pages/idpemotongpajak', $data);
     }
