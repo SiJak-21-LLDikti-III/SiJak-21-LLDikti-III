@@ -10,11 +10,13 @@ class CreateTableSiJak extends Migration
     {
         $this->forge->addField([
             'no_H01' => [
-                'type' => 'INT',
-                'constraint' => 5,
-                'unsigned' => true,
+                'type' => 'VARCHAR',
+                'constraint' => 255,
                 'auto_increment' => true,
                 'null' => false,
+            ],
+            'spt_H02' => [
+                'type' => 'INT',
             ],
             'mperlan_H04-H05' => [
                 'type' => 'VARCHAR',
