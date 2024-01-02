@@ -34,7 +34,8 @@
                                 <select class="form-control shadow-sm" id="day" name="day">
                                     <?php
                                     for ($day = 1; $day <= 31; $day++) {
-                                        echo "<option value='$day'>$day</option>";
+                                        $selected = (isset($record['tanggal']) && date('d', strtotime($record['tanggal'])) == $day) ? 'selected' : '';
+                                        echo "<option value='$day' $selected>$day</option>";
                                     }
                                     ?>
                                 </select>
@@ -47,8 +48,9 @@
                                         "7", "8", "9", "10", "11", "12"
                                     ];
                                     foreach ($months as $index => $month) {
+                                        $selected = (isset($record['tanggal']) && date('m', strtotime($record['tanggal'])) == $month) ? 'selected' : '';
                                         $monthNumber = $index + 1;
-                                        echo "<option value='$monthNumber'>$month</option>";
+                                        echo "<option value='$monthNumber' $selected>$month</option>";
                                     }
                                     ?>
                                 </select>
@@ -59,7 +61,8 @@
                                     $currentYear = date("Y");
                                     $startYear = $currentYear - 100; // 100 tahun terakhir
                                     for ($year = $currentYear; $year >= $startYear; $year--) {
-                                        echo "<option value='$year'>$year</option>";
+                                        $selected = (isset($record['tanggal']) && date('Y', strtotime($record['tanggal'])) == $year) ? 'selected' : '';
+                                        echo "<option value='$year' $selected>$year</option>";
                                     }
                                     ?>
                                 </select>
