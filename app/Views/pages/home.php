@@ -82,7 +82,7 @@
                             <div class="form-group row">
                                 <label for="input" class="col-sm-2 col-form-label">NPWP</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="npwp" name="npwp" placeholder="">
+                                    <input type="text" class="form-control" id="npwp" name="npwp" placeholder="" required>
                                 </div>
                             </div>
                             <div class="form-group row">
