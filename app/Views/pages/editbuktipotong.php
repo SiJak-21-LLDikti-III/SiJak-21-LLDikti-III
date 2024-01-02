@@ -39,11 +39,11 @@
                     <label for="formGroupExampleInput2">File Bukti Bayar</label>
                     <div class="row">
                         <!-- Menampilkan PDF di sebelah kiri dengan kolom 8 -->
-                        <div class="col-md-8">
-                            <iframe id="pdfViewer" src="" width="25%" height="150px"></iframe>
+                        <div>
+                            <iframe id="pdfViewer" src="" width="200px" height="150px"></iframe>
                         </div>
                         <!-- Tombol hapus di sebelah kanan dengan kolom 4 -->
-                        <div class="d-flex align-items-center justify-content-start">
+                        <div class="d-flex align-items-center justify-content-start ml-5">
                             <button class="btn btn-danger delete-button" onclick="hapusPDF()">Hapus</button>
                         </div>
                     </div>
