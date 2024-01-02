@@ -10,6 +10,7 @@ $routes->post('/checkData', 'HomeController::checkData');
 $routes->get('/layanan-pajak', 'LayananPajakController::index');
 $routes->get('/layanan-pajak/unduh-mpdf', 'CetakController::index');
 $routes->get('/layanan-pajak/unduh', 'CetakController::unduh');
+$routes->post('/layanan-pajak/unggah', 'UnggahBuktiPembayaranController::index');
 $routes->get('/login', 'LoginController::index');
 
 

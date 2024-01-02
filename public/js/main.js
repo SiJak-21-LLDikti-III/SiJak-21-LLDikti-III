@@ -98,3 +98,33 @@ function perbaruiTabel(data) {
 
    table.draw();
 }
+
+// unggah bukti pembayaran pajak
+$(document).ready(function () {
+        // Menggunakan event change pada input file
+        $('#unggahFile').change(function () {
+            var fileInput = $(this)[0];
+            var file = fileInput.files[0];
+
+            // Membuat objek FormData
+            var formData = new FormData();
+            formData.append('unggahFile', file);
+
+            // Menggunakan AJAX untuk mengunggah file
+            $.ajax({
+                url: '/layanan-pajak/unggah',
+                type: 'POST',
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function (response) {
+                    // Handle respons dari server (jika diperlukan)
+                    console.log(response);
+                },
+                error: function (error) {
+                    // Handle kesalahan (jika diperlukan)
+                    console.error(error);
+                }
+            });
+        });
+    });

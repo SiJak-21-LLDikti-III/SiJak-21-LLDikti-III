@@ -91,14 +91,22 @@
                                 }
                             </script>
 
-                            <div class="mb-3">
-                                <img src="<?= base_url('skydash-template/images/upload-cloud.svg'); ?>" alt="">
-                                <div class="font-weight-bold mt-3 mb-3">Unggah Bukti Pembayaran Pajak</div>
-                                <label for="formFile" class="btn btn-primary w-100">
-                                    <span id="fileName">Unggah</span>
-                                    <input class="d-none" type="file" id="formFile" onchange="displayFileName(this)">
-                                </label>
-                            </div>
+                            <form method="post" action="/layanan-pajak/unggah" enctype="multipart/form-data">
+                                <!-- Isi formulir Anda di sini -->
+                                <div class="mb-3">
+                                    <img src="<?= base_url('skydash-template/images/upload-cloud.svg'); ?>" alt="">
+                                    <div class="font-weight-bold mt-3 mb-3">Unggah Bukti Pembayaran Pajak</div>
+                                    <label for="unggahFile" class="btn btn-primary w-100">
+                                        <span id="fileName">Unggah</span>
+                                        <input class="d-none" type="file" id="unggahFile" name="unggahFile" accept=".pdf, .jpg, .jpeg">
+                                    </label>
+                                </div>
+
+                                <button type="submit">Submit</button>
+                            </form>
+
+
+
                         </div>
                     </div>
                 </div>
