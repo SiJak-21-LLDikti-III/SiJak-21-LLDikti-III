@@ -16,16 +16,16 @@ class IdentitasPajak extends Migration
                 'auto_increment' => true,
             ],
             'npwp' => [
-                'type' => 'INTEGER',
-                'constraint' => '15',
+                'type' => 'VARCHAR',
+                'constraint' => '255',
             ],
             'nama_instansi' => [
                 'type' => 'VARCHAR',
                 'constraint' => '255',
             ],
             'id_sub_unit' => [
-                'type' => 'INTEGER',
-                'constraint' => '19',
+                'type' => 'VARCHAR',
+                'constraint' => '255',
                 'null' => true,
             ],
             'tanggal' => [

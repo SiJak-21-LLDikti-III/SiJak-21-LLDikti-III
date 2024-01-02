@@ -28,7 +28,7 @@ class PemotongPajakController extends BaseController
 
         // Validasi form input
         $validationRules = [
-            'npwp' => 'required|numeric',
+            'npwp' => 'required',
             'nama_instansi' => 'required',
 
             'day' => 'required|numeric',
@@ -40,7 +40,6 @@ class PemotongPajakController extends BaseController
         $validationMessages = [
             'npwp' => [
                 'required' => 'NPWP harus diisi.',
-                'numeric' => 'NPWP harus berupa angka.',
             ],
             'nama_instansi' => 'Nama Instansi harus diisi.',
 
