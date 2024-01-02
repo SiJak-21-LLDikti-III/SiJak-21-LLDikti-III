@@ -128,3 +128,4 @@ nb-configuration.xml
 # Deploy
 .env
 .htaccess
+/cgi-bin
