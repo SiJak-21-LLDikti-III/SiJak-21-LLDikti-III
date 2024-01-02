@@ -164,8 +164,8 @@
                                         // Data found, display success message
                                         Swal.fire({
                                             icon: 'success',
-                                            title: 'Data Found!',
-                                            text: 'User data found in the database.',
+                                            title: 'Data ditemukan!',
+                                            text: 'Anda dapat melanjutkan ke layanan Pajak.',
                                             confirmButtonColor: '#3085d6',
                                             confirmButtonText: 'OK'
                                         }).then((result) => {
@@ -180,8 +180,8 @@
                                         // Data not found, display error message
                                         Swal.fire({
                                             icon: 'error',
-                                            title: 'Data Not Found!',
-                                            text: 'User data not found in the database.',
+                                            title: 'Data tidak ditemukan!',
+                                            text: 'Silahkan periksa kembali data Anda.',
                                             confirmButtonColor: '#3085d6',
                                             confirmButtonText: 'OK'
                                         });
