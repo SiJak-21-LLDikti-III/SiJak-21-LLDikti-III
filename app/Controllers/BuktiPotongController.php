@@ -8,10 +8,16 @@ use App\Models\dataModel;
 
 class BuktiPotongController extends BaseController
 {
+    private $dataModel;
+
+
+    public function __construct()
+    {
+        $this->dataModel = new dataModel();
+    }
     public function index()
     {
-        $dataModel = new dataModel();
-        $dataTable = $dataModel->getAllDataTable();
+        $dataTable = $this->dataModel->getAllDataTable();
         // log_message('info',"data bukti potong :".print_r($dataTable,true));
         $data = [
             'title' => 'Admin - Bukti Potong',
@@ -22,12 +28,9 @@ class BuktiPotongController extends BaseController
     }
     public function uploadExcel()
     {
-        $dataModel = new dataModel();
         $file = $this->request->getFile('excel_file');
         if ($file->isValid() && !in_array($file->getClientExtension(), ['xls', 'xlsx'])) {
             return $this->response->setJSON(['status' => 'error', 'message' => 'File yang diunggah harus berformat .xls atau .xlsx']);
-            // return redirect()->back()->with('error', 'File yang diunggah harus berformat .xls atau .xlsx');
-
         }
         // log_message("info", "type: " . print_r($file, true));
         if ($file->isValid() && in_array($file->getClientExtension(), ['xls', 'xlsx'])) {
@@ -85,7 +88,7 @@ class BuktiPotongController extends BaseController
                         }
                     }
 
-                    $dataModel->builder->insert([
+                    $this->dataModel->builder->insert([
                         'no_H01' => $data[0],
                         'spt_H02' => $data[1],
                         'mperlan_H04-H05' => $data[2],
@@ -127,28 +130,26 @@ class BuktiPotongController extends BaseController
                         'status_pegawai' => $data[38] ?: '0', // Jika status_pegawai bertipe varchar, ganti '0' menjadi nilai default yang sesuai
                     ]);
 
-                    $dataModel->builderStatus->insert([
+                    $this->dataModel->builderStatus->insert([
                         'npwp' => $data[3],
                     ]);
+
                 }
 
                 // Setelah berhasil mengunggah file
                 return $this->response->setJSON(['status' => 'success', 'message' => 'File Excel berhasil diunggah']);
-                // return redirect()->to(site_url('/bukti-potong'))->with('success', 'File Excel berhasil diunggah');
             } catch (\Exception | \Throwable $e) {
                 // Handle kesalahan jika terjadi
-                // log_message("info", 'Terjadi kesalahan: ' . print_r($e->getMessage(), true));
+                log_message("info", 'Terjadi kesalahan: ' . print_r($e->getMessage(), true));
                 return $this->response->setJSON(['status' => 'error', 'message' => 'Terjadi kesalahan: ' . $e->getMessage()]);
-                // return redirect()->back()->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
             }
         }
     }
     public function fetchData($year)
     {
-        $dataModel = new dataModel();
         // Ambil data dari tabel tb_sijak berdasarkan tahun
-        $data = $dataModel->getDataByYear($year);
-        log_message("info", "data:" . print_r($data, true));
+        $data = $this->dataModel->getDataByYear($year);
+        log_message("info", "data:". print_r($data,true));
 
         // Kembalikan data sebagai respons
         return $this->response->setJSON($data);
