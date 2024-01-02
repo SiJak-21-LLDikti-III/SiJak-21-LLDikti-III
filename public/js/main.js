@@ -63,29 +63,38 @@
       });
    }
 
-   function perbaruiTabel(data) {
-        var table = $('#myTable').DataTable();
-        table.clear();
+function perbaruiTabel(data) {
+   var table = $('#myTable').DataTable();
+   table.clear();
+   console.log('data:' + data);
+   const mperlan = "mperlan_H04-H05";
+   for (var i = 0; i < data.length; i++) {
+      var rowData = data[i];
+      var newRow = [];
 
-        for (var i = 0; i < data.length; i++) {
-            var rowData = data[i];
-            var newRow = [];
+      newRow.push(rowData.no_H01);
+      const yearFromMperlan = rowData[mperlan].substring(0, 4); // Mengambil tahun dari mperlan
+      newRow.push(yearFromMperlan);      
+      newRow.push(rowData.npwp_A1);
+      newRow.push(rowData.nama_A3);
+      newRow.push(rowData.pph_potong || 0);
+      newRow.push(rowData.pph_utang || 0);
+      newRow.push('');  // Sesuaikan dengan kolom yang ingin ditampilkan
+      newRow.push('');  // Sesuaikan dengan kolom yang ingin ditampilkan
+      newRow.push('');  // Sesuaikan dengan kolom yang ingin ditampilkan
+      newRow.push('');  // Sesuaikan dengan kolom yang ingin ditampilkan
+      newRow.push('');  // Sesuaikan dengan kolom yang ingin ditampilkan
+      newRow.push(
+         '<a href="#" class="btn btn-success mr-2 p-2" onclick="edit(' + rowData.no_H01 + ')">' +
+         '<iconify-icon icon="tabler:edit" width="20"></iconify-icon>' +
+         '</a>' +
+         '<a href="#" class="btn btn-danger p-2" onclick="hapusData(' + rowData.no_H01 + ')">' +
+         '<iconify-icon icon="mdi:trash-outline" width="20"></iconify-icon>' +
+         '</a>'
+      );
 
-            // Mengisi array newRow sesuai dengan data yang Anda terima
-            newRow.push(rowData.no);
-            newRow.push(rowData.tahun);
-            newRow.push(rowData.npwp);
-            newRow.push(rowData.nama);
-            newRow.push(rowData.pph_potong);
-            newRow.push(rowData.pph_utang);
-            newRow.push(rowData);
-            newRow.push(rowData); 
-            newRow.push(rowData);
-            newRow.push(rowData);
-            newRow.push(rowData);
+      table.row.add(newRow);
+   }
 
-            table.row.add(newRow);
-        }
-
-        table.draw();
-    }
+   table.draw();
+}

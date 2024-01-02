@@ -78,7 +78,7 @@
                             pembayaran Pajak Penghasilan Pasal 21 dengan memasukkan
                             Nomor Pajak Wajib Pajak (NPWP) dan tanggal lahir Anda.</p>
 
-                        <form method="GET" action="/layanan-pajak" class="w-75 mx-auto">
+                        <form method="GET" action="" class="w-75 mx-auto" id="form">
                             <div class="form-group row">
                                 <label for="input" class="col-sm-2 col-form-label">NPWP</label>
                                 <div class="col-sm-10">
@@ -138,19 +138,58 @@
                                     </select>
                                 </div>
                             </div>
-                            <!-- <div class="container">
-                                <div class="form-group row justify-content-center text-center">
-                                    <div class="col-sm-10">
-                                        <div class="g-recaptcha" data-sitekey="6Ldbdg0TAAAAAI7KAf72Q6uagbWzWecTeBWmrCpJ">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> -->
-                            <!-- hanya bisa digunakan jika captcha -->
-
 
                             <button type="submit" class="btn btn-primary w-75 mt-4">Masuk</button>
                         </form>
+                        <script>
+                            document.getElementById("form").addEventListener("submit", function(event) {
+                                event.preventDefault();
+
+                                const npwp = document.getElementById("npwp").value;
+                                const day = document.getElementById("day").value;
+                                const month = document.getElementById("month").value;
+                                const year = document.getElementById("year").value;
+                                const birthDate = year + '-' + month.padStart(2, '0') + '-' + day.padStart(2, '0');
+
+                                // Use AJAX to send data to the server
+                                $.ajax({
+                                    type: 'POST', // or 'GET' depending on your needs
+                                    url: '/checkData', // The method in HomeController to handle data checking
+                                    data: {
+                                        npwp: npwp,
+                                        birth: birthDate
+                                    },
+                                    dataType: 'json',
+                                    success: function(response) {
+                                        // Data found, display success message
+                                        Swal.fire({
+                                            icon: 'success',
+                                            title: 'Data ditemukan!',
+                                            text: 'Anda dapat melanjutkan ke layanan Pajak.',
+                                            confirmButtonColor: '#3085d6',
+                                            confirmButtonText: 'OK'
+                                        }).then((result) => {
+                                            // If the user clicks "OK," proceed to the specified URL
+                                            if (result.isConfirmed) {
+                                                const url = 'layanan-pajak?npwp=' + encodeURIComponent(npwp) + '&birth=' + birthDate + '&yearOption=' + year;
+                                                window.location.href = url;
+                                            }
+                                        });
+                                    },
+                                    error: function(response) {
+                                        // Data not found, display error message
+                                        Swal.fire({
+                                            icon: 'error',
+                                            title: 'Data tidak ditemukan!',
+                                            text: 'Silahkan periksa kembali data Anda.',
+                                            confirmButtonColor: '#3085d6',
+                                            confirmButtonText: 'OK'
+                                        });
+                                    }
+                                });
+                            });
+                        </script>
+
                     </div>
                 </div>
             </div>
@@ -168,8 +207,6 @@
             <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Distributed by <a href="https://www.themewagon.com/" target="_blank">Themewagon</a></span>
         </div>
     </footer>
-    <!-- partial -->
-
     <!-- plugins:js -->
     <script src="<?= base_url('skydash-template/vendors/js/vendor.bundle.base.js'); ?>"></script>
     <!-- endinject -->
@@ -187,6 +224,7 @@
     <script src="<?= base_url('skydash-template/js/settings.js'); ?>"></script>
     <script src="<?= base_url('skydash-template/js/todolist.js'); ?>"></script>
     <!-- endinject -->
+
     <!-- Custom js for this page-->
     <script src="<?= base_url('skydash-template/js/dashboard.js'); ?>"></script>
     <script src="<?= base_url('skydash-template/js/Chart.roundedBarCharts.js'); ?>"></script>
@@ -201,8 +239,8 @@
     <!-- Script Lokal -->
     <script src="<?= base_url('skydash-template/js/script.js'); ?>"></script>
 
-    <!-- Captcha Robot -->
-    <!-- <script src='https://www.google.com/recaptcha/api.js'></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
 
 </body>
 

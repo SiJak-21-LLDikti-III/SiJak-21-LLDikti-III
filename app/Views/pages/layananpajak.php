@@ -32,7 +32,7 @@
     <!-- Navbar White -->
     <nav class="navbar navbar-light bg-light">
         <div class="mx-auto">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="<?= base_url(); ?>">
                 <img src="<?= base_url('skydash-template/images/LogoDikbud.svg'); ?>" width="30" height="30" class="d-inline-block align-top mr-3" alt="">
                 <span class="font-weight-bold">DASHBOARD LLDIKTI III</span>
             </a>

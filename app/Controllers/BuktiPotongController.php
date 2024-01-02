@@ -18,7 +18,7 @@ class BuktiPotongController extends BaseController
     public function index()
     {
         $dataTable = $this->dataModel->getAllDataTable();
-        log_message('info',"data bukti potong :".print_r($dataTable,true));
+        // log_message('info',"data bukti potong :".print_r($dataTable,true));
         $data = [
             'title' => 'Admin - Bukti Potong',
             'dataTable' => $dataTable
@@ -88,43 +88,48 @@ class BuktiPotongController extends BaseController
                         }
                     }
 
-                    // Sesuaikan data dengan kolom-kolom yang sesuai di tabel 'tb_akm'
                     $this->dataModel->builder->insert([
-                        'no' => $data[0],
-                        'tahun' => date('Y-m-d', strtotime($data[1])),
-                        'npwp' => $data[2],
-                        'nip' => $data[3],
-                        'nama' => $data[4],
-                        'tgl_lahir' => $data[5],
-                        'pangkat' => $data[6],
-                        'nama_jabatan' => $data[7],
-                        'nik' => $data[8],
-                        'gaji' => $data[9],
-                        'tj_istri' => $data[10],
-                        'tj_anak' => $data[11] ?: null,
-                        'jml_gaji' => $data[12],
-                        'tj_perbaikan' => $data[13] ?: null,
-                        'tj_struktural' => $data[14],
-                        'tj_beras' => $data[15],
-                        'jml_bruto_1' => $data[16],
-                        'tj_lain' => $data[17] ?: null,
-                        'ph_tetap' => $data[18],
-                        'jml_bruto_2' => $data[19], // Sesuaikan dengan field migrasi yang benar
-                        'biaya_jabatan' => $data[20],
-                        'iuran_pensiun' => $data[21],
-                        'jml_pengurangan' => $data[22],
-                        'jml_ph' => $data[23],
-                        'ph_neto' => $data[24] ?: null,
-                        'jml_ph_neto' => $data[25],
-                        'ptktp' => $data[26],
-                        'ph_kena_pajak' => $data[27],
-                        'pph_ph' => $data[28],
-                        'pph_potong' => $data[29],
-                        'pph_utang' => $data[30],
-                        'pph_potong_lunas' => $data[31] ?: null,
-                        'atas_gaji' => $data[32] ?: null,
-                        'atas_ph' => $data[33] ?: null,
+                        'no_H01' => $data[0],
+                        'spt_H02' => $data[1],
+                        'mperlan_H04-H05' => $data[2],
+                        'npwp_A1' => $data[3],
+                        'nip_A2' => $data[4],
+                        'nama_A3' => $data[5],
+                        'pangkat_A4' => $data[6],
+                        'tgl_lahir' => date('Y-m-d', strtotime($data[7])),
+                        'nama_jabatan_A5' => $data[8],
+                        'jenis_kelamin_A6' => $data[9],
+                        'nik_A7' => $data[10],
+                        'status_A8' => $data[11],
+                        'kd_pajak' => $data[12],
+                        'gaji_pokok' => $data[13],
+                        'tj_istri' => $data[14],
+                        'tj_anak' => (int)($data[15] ?: 0),
+                        'jml_gaji' => (int)($data[16] ?: 0),
+                        'tj_perbaikan' => (int)($data[17] ?: 0),
+                        'tj_struktural' => (int)($data[18] ?: 0),
+                        'tj_beras' => (int)$data[19],
+                        'jml_bruto_1' => (int)$data[20],
+                        'tj_lain' => (int)($data[21] ?: 0),
+                        'ph_tetap' => (int)($data[22] ?: 0),
+                        'jml_bruto_2' => (int)($data[23] ?: 0),
+                        'biaya_jabatan' => (int)($data[24] ?: 0),
+                        'iuran_pensiun' => (int)($data[25] ?: 0),
+                        'jml_pengurangan' => (int)($data[26] ?: 0),
+                        'jml_ph' => (int)($data[27] ?: 0),
+                        'ph_neto' => (int)($data[28] ?: 0),
+                        'jml_ph_neto' => (int)($data[29] ?: 0),
+                        'ptktp' => (int)($data[30] ?: 0),
+                        'ph_kena_pajak' => (int)($data[31] ?: 0),
+                        'pph_ph' => (int)($data[32] ?: 0),
+                        'pph_potong' => (int)($data[33] ?: 0),
+                        'pph_utang' => (int)($data[34] ?: 0),
+                        'pph_potong_lunas' => (int)($data[35] ?: 0),
+                        'atas_gaji_23A' => (int)($data[36] ?: 0),
+                        'atas_ph_23B' => (int)($data[37] ?: 0),
+                        'status_pegawai' => $data[38] ?: '0', // Jika status_pegawai bertipe varchar, ganti '0' menjadi nilai default yang sesuai
                     ]);
+
                 }
 
                 // Setelah berhasil mengunggah file

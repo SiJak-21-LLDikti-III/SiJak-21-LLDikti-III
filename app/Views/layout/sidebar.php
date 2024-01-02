@@ -13,8 +13,7 @@
 
               <div class="ml-3 text-gray mb-2 mt-4">Pages</div>
               <li class="nav-item">
-                  <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false"
-                      aria-controls="ui-basic">
+                  <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
                       <iconify-icon icon="material-symbols:home-outline" width="25"></iconify-icon>
                       <span class="menu-title ml-1">Data PT</span>
                       <i class="menu-arrow"></i>
@@ -23,16 +22,13 @@
                       <ul class="nav flex-column sub-menu">
                           <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Buttons</a>
                           </li>
-                          <li class="nav-item"> <a class="nav-link"
-                                  href="pages/ui-features/dropdowns.html">Dropdowns</a></li>
-                          <li class="nav-item"> <a class="nav-link"
-                                  href="pages/ui-features/typography.html">Typography</a></li>
+                          <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">Dropdowns</a></li>
+                          <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Typography</a></li>
                       </ul>
                   </div>
               </li>
               <li class="nav-item">
-                  <a class="nav-link" data-toggle="collapse" href="#form-elements" aria-expanded="false"
-                      aria-controls="form-elements">
+                  <a class="nav-link" data-toggle="collapse" href="#form-elements" aria-expanded="false" aria-controls="form-elements">
                       <iconify-icon icon="ph:users" width="25"></iconify-icon>
                       <span class="menu-title ml-1">Data Dosen</span>
                       <i class="menu-arrow"></i>
