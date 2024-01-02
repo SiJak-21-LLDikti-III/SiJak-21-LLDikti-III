@@ -13,19 +13,19 @@
                         <div class="form-group row">
                             <label for="input" class="col-sm-2 col-form-label">NPWP Instansi Pemerintah</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control p-0" id="npwp" name="npwp" pattern="[0-9]+" title="Hanya angka yang diperbolehkan" required value="<?= old('npwp', $record['npwp'] ?? ''); ?>">
+                                <input type="text" class="form-control p-0" id="npwp" name="npwp" pattern="[0-9]+" title="Hanya angka yang diperbolehkan" required value="<?= old('npwp', isset($record['npwp']) ? $record['npwp'] : ''); ?>">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="input" class="col-sm-2 col-form-label">Nama Instansi Pemerintah</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control p-0" id="nama_instansi" name="nama_instansi" value="<?= old('nama_instansi', $record['nama_instansi'] ?? ''); ?>">
+                                <input type="text" class="form-control p-0" id="nama_instansi" name="nama_instansi" value="<?= old('nama_instansi', isset($record['nama_isntansi']) ? $record['nama_isntansi'] : ''); ?>">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="input" class="col-sm-2 col-form-label">ID Subunit Organisasi</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control p-0" id="id_sub_unit" name="id_sub_unit" value="<?= old('id_sub_unit', $record['id_sub_unit'] ?? ''); ?>">
+                                <input type="text" class="form-control p-0" id="id_sub_unit" name="id_sub_unit" value="<?= old('id_sub_unit', isset($record['id_sub_unit']) ? $record['id_sub_unit'] : ''); ?>">
                             </div>
                         </div>
                         <div class="form-group row">
@@ -68,7 +68,7 @@
                         <div class="form-group row">
                             <label for="input" class="col-sm-2 col-form-label">Nama Penandatangan</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control p-0" id="nama_penandatangan" name="nama_penandatangan" value="<?= old('nama_penandatangan', $record['nama_penandatangan'] ?? ''); ?>">
+                                <input type="text" class="form-control p-0" id="nama_penandatangan" name="nama_penandatangan" value="<?= old('nama_penandatangan', isset($record['nama_penandatangan']) ? $record['nama_penandatangan'] : ''); ?>">
                             </div>
                         </div>
                         <button type="submit" class="btn btn-primary w-100 mt-4">Update</button>

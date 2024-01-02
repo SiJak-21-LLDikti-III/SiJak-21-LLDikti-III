@@ -13,42 +13,63 @@ class PemotongPajakController extends BaseController
         ];
         return view('pages/idpemotongpajak', $data);
     }
+    public function editForm()
+    {
+        $modelipp = new ModelIPP();
+
+        // Ambil data terakhir berdasarkan NPWP
+        $lastRecord = $modelipp->orderBy('id', 'DESC')->first();
+
+        // Kirim data terakhir ke view
+        $data['record'] = $lastRecord;
+
+        return view('pages/idpemotongpajak', $data);
+    }
 
     public function update($id)
     {
         $modelipp = new ModelIPP();
 
-        // Ambil data terakhir berdasarkan NPWP
-        $lastRecord = $modelipp->where('npwp', $this->request->getPost('npwp'))->orderBy('id', 'DESC')->first();
-
         // Validasi form input
         $validationRules = [
             'npwp' => 'required|numeric',
             'nama_instansi' => 'required',
-            'id_sub_unit' => 'required',
-            'day' => 'required',
-            'month' => 'required',
-            'year' => 'required',
+
+            'day' => 'required|numeric',
+            'month' => 'required|numeric',
+            'year' => 'required|numeric',
             'nama_penandatangan' => 'required',
         ];
 
-        if (!$this->validate($validationRules)) {
-            // Jika validasi gagal, kembalikan dengan pesan kesalahan
-            return redirect()->back()->withInput()->with('validation', $this->validator);
+        $validationMessages = [
+            'npwp' => [
+                'required' => 'NPWP harus diisi.',
+                'numeric' => 'NPWP harus berupa angka.',
+            ],
+            'nama_instansi' => 'Nama Instansi harus diisi.',
+
+            'day' => 'Tanggal harus diisi.',
+            'month' => 'Bulan harus diisi.',
+            'year' => 'Tahun harus diisi.',
+            'nama_penandatangan' => 'Nama Penandatangan harus diisi.',
+        ];
+        $validation = \Config\Services::validation();
+
+        $this->validate($validationRules, $validationMessages);
+
+        // Jika validasi gagal, kembalikan dengan pesan kesalahan
+        if ($validation->getErrors()) {
+            return redirect()->back()->withInput()->with('validation', $validation);
         }
 
-        // Dapatkan data dari formulir
-        $data['npwp'] = $this->request->getPost('npwp');
-        $data['nama_instansi'] = $this->request->getPost('nama_instansi');
-        $data['id_sub_unit'] = $this->request->getPost('id_sub_unit');
-        $data['tanggal'] = $this->request->getPost('year') . '-' . $this->request->getPost('month') . '-' . $this->request->getPost('day');
-        $data['nama_penandatangan'] = $this->request->getPost('nama_penandatangan');
-
-        // Jika data terakhir ditemukan, gunakan data tersebut
-        if (!empty($lastRecord)) {
-            $data['npwp'] = $lastRecord['npwp'];
-        }
-
+        /// Dapatkan data dari formulir
+        $data = [
+            'npwp' => $this->request->getPost('npwp'),
+            'nama_instansi' => $this->request->getPost('nama_instansi'),
+            'id_sub_unit' => $this->request->getPost('id_sub_unit'),
+            'tanggal' => $this->request->getPost('year') . '-' . $this->request->getPost('month') . '-' . $this->request->getPost('day'),
+            'nama_penandatangan' => $this->request->getPost('nama_penandatangan'),
+        ];
         // Perbarui data di database
         $modelipp->update($id, $data);
 
