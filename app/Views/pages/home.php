@@ -78,11 +78,11 @@
                             pembayaran Pajak Penghasilan Pasal 21 dengan memasukkan
                             Nomor Pajak Wajib Pajak (NPWP) dan tanggal lahir Anda.</p>
 
-                        <form method="get" action="/layanan-pajak" class="w-75 mx-auto">
+                        <form method="GET" action="/layanan-pajak" class="w-75 mx-auto">
                             <div class="form-group row">
                                 <label for="input" class="col-sm-2 col-form-label">NPWP</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="input" placeholder="">
+                                    <input type="text" class="form-control" id="npwp" name="npwp" placeholder="">
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -127,7 +127,7 @@
                             <div class="form-group row">
                                 <label for="input" class="col-sm-2 col-form-label">Tahun</label>
                                 <div class="col-sm-10">
-                                    <select class="form-control shadow-sm" id="" name="">
+                                    <select class="form-control shadow-sm" id="yearOption" name="yearOption">
                                         <?php
                                         $currentYear = date("Y");
                                         $startYear = $currentYear - 30; // 30 tahun terakhir
