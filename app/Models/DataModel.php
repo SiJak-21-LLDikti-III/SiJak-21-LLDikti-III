@@ -7,7 +7,9 @@ use CodeIgniter\Model;
 class DataModel extends Model
 {
     protected $table   = 'tb_sijak';
+    protected $tableStatus   = 'tb_status';
     protected $builder;
+    protected $builderStatus;
     protected $columnNames = [];
 
 
@@ -15,12 +17,17 @@ class DataModel extends Model
     {
         parent::__construct();
         $this->builder = $this->db->table('tb_sijak');
+        $this->builderStatus = $this->db->table('tb_status');
         $this->columnNames = $this->getTableColumns('tb_sijak');
     }
 
     public function getAllDataTable()
     {
-        return $this->db->table($this->table)->get()->getResult();
+        // return $this->db->table($this->table)->get()->getResult();
+        $this->builder->select('tb_sijak.*, tb_status.*'); // Gantilah 'status_field' dengan nama kolom yang sesuai
+        $this->builder->join('tb_status', 'tb_status.npwp = tb_sijak.npwp_A1', 'inner');
+        $result = $this->builder->get()->getResult();
+        return $result;
     }
 
     public function getTableColumns($tableName)

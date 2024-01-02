@@ -130,6 +130,10 @@ class BuktiPotongController extends BaseController
                         'status_pegawai' => $data[38] ?: '0', // Jika status_pegawai bertipe varchar, ganti '0' menjadi nilai default yang sesuai
                     ]);
 
+                    $this->dataModel->builderStatus->insert([
+                        'npwp' => $data[3],
+                    ]);
+
                 }
 
                 // Setelah berhasil mengunggah file
