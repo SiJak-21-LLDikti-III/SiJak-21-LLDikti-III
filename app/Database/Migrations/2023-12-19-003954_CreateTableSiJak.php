@@ -42,9 +42,9 @@ class CreateTableSiJak extends Migration
             'tgl_lahir' => [
                 'type' => 'DATE',
             ],
-            'tahun' => [
-                'type' => 'DATE',
-            ],
+            // 'tahun' => [
+            //     'type' => 'DATE',
+            // ],
             'nama_jabatan_A5' => [
                 'type' => 'VARCHAR',
                 'constraint' => '255',
