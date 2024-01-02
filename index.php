@@ -1,4 +1,3 @@
-text/x-generic index.php ( PHP script, ASCII text, with CRLF line terminators )
 <?php
 
 /*
