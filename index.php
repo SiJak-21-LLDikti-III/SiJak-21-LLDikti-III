@@ -1,67 +1,94 @@
+text/x-generic index.php ( PHP script, ASCII text, with CRLF line terminators )
 <?php
 
-// Check PHP version.
-$minPhpVersion = '7.4'; // If you update this, don't forget to update `spark`.
-if (version_compare(PHP_VERSION, $minPhpVersion, '<')) {
-    $message = sprintf(
-        'Your PHP version must be %s or higher to run CodeIgniter. Current version: %s',
-        $minPhpVersion,
-        PHP_VERSION
-    );
+/*
+ *---------------------------------------------------------------
+ * APPLICATION ENVIRONMENT
+ *---------------------------------------------------------------
+ *
+ * You can load different configurations depending on your
+ * current environment. Setting the environment also influences
+ * things like logging and error reporting.
+ *
+ * This can be set to anything, but default usage is:
+ *
+ *     development
+ *     testing
+ *     production
+ *
+ * NOTE: If you change these, also change the error_reporting() code below
+ */
+define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'development');
 
-    exit($message);
+/*
+ *---------------------------------------------------------------
+ * ERROR REPORTING
+ *---------------------------------------------------------------
+ *
+ * Different environments will require different levels of error
+ * reporting. By default development will show errors but testing
+ * and live will hide them.
+ */
+if (defined('ENVIRONMENT')) {
+    switch (ENVIRONMENT) {
+        case 'development':
+            error_reporting(-1);
+            ini_set('display_errors', 1);
+            break;
+
+        case 'testing':
+        case 'production':
+            error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED & ~E_STRICT & ~E_USER_NOTICE & ~E_USER_DEPRECATED);
+            ini_set('display_errors', 0);
+            break;
+
+        default:
+            exit('The application environment is not set correctly.');
+    }
 }
 
-// Path to the front controller (this file)
-define('FCPATH', __DIR__ . DIRECTORY_SEPARATOR);
-
-// Ensure the current directory is pointing to the front controller's directory
-chdir(FCPATH);
-
 /*
  *---------------------------------------------------------------
- * BOOTSTRAP THE APPLICATION
+ * SYSTEM DIRECTORY NAME
  *---------------------------------------------------------------
- * This process sets up the path constants, loads and registers
- * our autoloader, along with Composer's, loads our constants
- * and fires up an environment-specific bootstrapping.
- */
-
-// Load our paths config file
-// This is the line that might need to be changed, depending on your folder structure.
-require FCPATH . 'app/Config/Paths.php';
-// ^^^ Change this line if you move your application folder
-
-$paths = new Config\Paths();
-
-// Location of the framework bootstrap file.
-require rtrim($paths->systemDirectory, '\\/ ') . DIRECTORY_SEPARATOR . 'bootstrap.php';
-
-// Load environment settings from .env files into $_SERVER and $_ENV
-require_once SYSTEMPATH . 'Config/DotEnv.php';
-(new CodeIgniter\Config\DotEnv(ROOTPATH))->load();
-
-/*
- * ---------------------------------------------------------------
- * GRAB OUR CODEIGNITER INSTANCE
- * ---------------------------------------------------------------
  *
- * The CodeIgniter class contains the core functionality to make
- * the application run, and does all of the dirty work to get
- * the pieces all working together.
+ * This variable must contain the name of your "system" directory.
+ * Set the path if it is not in the same directory as this file.
  */
-
-$app = Config\Services::codeigniter();
-$app->initialize();
-$context = is_cli() ? 'php-cli' : 'web';
-$app->setContext($context);
+$systemDirectory = 'system';
 
 /*
  *---------------------------------------------------------------
- * LAUNCH THE APPLICATION
+ * APPLICATION DIRECTORY NAME
  *---------------------------------------------------------------
- * Now that everything is setup, it's time to actually fire
- * up the engines and make this app do its thang.
+ *
+ * If you want this front controller to use a different "application"
+ * directory then the default one you can set its name here. The
+ * directory can also be renamed or relocated anywhere on your server.
+ * If you do, use an absolute (full) server path.
+ *
+ * For more info please see the user guide:
+ *
+ * https://codeigniter4.github.io/CodeIgniter4/general/environments.html
  */
+$applicationDirectory = 'app';
 
-$app->run();
+/*
+ *---------------------------------------------------------------
+ * VIEW DIRECTORY NAME
+ *---------------------------------------------------------------
+ *
+ * If you want to move the view directory out of the application
+ * directory, set the path to the new location.
+ * The path can be absolute or relative to this front controller.
+ */
+$viewDirectory = '';
+
+/*
+ * --------------------------------------------------------------------
+ * LOAD OUR BOOTSTRAP FILE
+ * --------------------------------------------------------------------
+ *
+ * And away we go...
+ */
+require realpath(__DIR__ . '/' . $systemDirectory) . '/bootstrap.php';
