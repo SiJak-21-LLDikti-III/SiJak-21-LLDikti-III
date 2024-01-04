@@ -103,16 +103,12 @@
                             <img src="<?= base_url('skydash-template/images/download-cloud.svg'); ?>" alt="">
                             <div class="font-weight-bold mt-3 mb-3">Unduh Bukti Potong Pajak</div>
                             <button type="button" class="btn btn-primary w-100" onclick="unduh()" id="unduh">Unduh</button>
-                            <!-- <br><br>
-                                <button type="button" class="btn btn-primary w-100" onclick="unduh_mpdf()" id="unduh">Unduh (Mpdf)</button> -->
                         </div>
                         <script>
-                            // function unduh_mpdf() {
-                            //     window.open("layanan-pajak/unduh-mpdf", '_blank');
-                            // }
-
                             function unduh() {
-                                window.open("layanan-pajak/unduh", '_blank');
+                                // ambil parameter url
+                                var urlParams = new URLSearchParams(window.location.search);
+                                window.open("layanan-pajak/unduh/" + urlParams.get('npwp') + "/" + urlParams.get('birth') + "/" + urlParams.get('yearOption'), '_blank');
                             }
                         </script>
 
@@ -129,11 +125,6 @@
 
                             <button type="submit" id="buttonUnggahFile" class="btn btn-primary w-100">Submit</button>
                         </form>
-
-
-
-
-
                     </div>
                 </div>
             </div>
@@ -143,50 +134,47 @@
 
 <!-- partial:partials/_footer.html -->
 <footer class=" footer">
-                                <div class="d-sm-flex justify-content-center justify-content-sm-between">
-                                    <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2021. Premium <a href="https://www.bootstrapdash.com/" target="_blank">Bootstrap admin template</a> from
-                                        BootstrapDash. All rights reserved.</span>
-                                    <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with <i class="ti-heart text-danger ml-1"></i></span>
-                                </div>
-                                <div class="d-sm-flex justify-content-center justify-content-sm-between">
-                                    <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Distributed by <a href="https://www.themewagon.com/" target="_blank">Themewagon</a></span>
-                                </div>
-                                </footer>
-                                <!-- partial -->
+    <div class="d-sm-flex justify-content-center justify-content-sm-between">
+        <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2021. Premium <a href="https://www.bootstrapdash.com/" target="_blank">Bootstrap admin template</a> from
+            BootstrapDash. All rights reserved.</span>
+        <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with <i class="ti-heart text-danger ml-1"></i></span>
+    </div>
+    <div class="d-sm-flex justify-content-center justify-content-sm-between">
+        <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Distributed by <a href="https://www.themewagon.com/" target="_blank">Themewagon</a></span>
+    </div>
+</footer>
+<!-- partial -->
 
-                                <!-- plugins:js -->
-                                <script src="<?= base_url('skydash-template/vendors/js/vendor.bundle.base.js'); ?>"></script>
-                                <!-- endinject -->
-                                <!-- Plugin js for this page -->
-                                <script src="<?= base_url('skydash-template/vendors/chart.js/Chart.min.js'); ?>"></script>
-                                <script src="<?= base_url('skydash-template/vendors/datatables.net/jquery.dataTables.js'); ?>"></script>
-                                <script src="<?= base_url('skydash-template/vendors/datatables.net-bs4/dataTables.bootstrap4.js'); ?>"></script>
-                                <script src="<?= base_url('skydash-template/js/dataTables.select.min.js'); ?>"></script>
+<!-- plugins:js -->
+<script src="<?= base_url('skydash-template/vendors/js/vendor.bundle.base.js'); ?>"></script>
+<!-- endinject -->
+<!-- Plugin js for this page -->
+<script src="<?= base_url('skydash-template/vendors/chart.js/Chart.min.js'); ?>"></script>
+<script src="<?= base_url('skydash-template/vendors/datatables.net/jquery.dataTables.js'); ?>"></script>
+<script src="<?= base_url('skydash-template/vendors/datatables.net-bs4/dataTables.bootstrap4.js'); ?>"></script>
+<script src="<?= base_url('skydash-template/js/dataTables.select.min.js'); ?>"></script>
 
-                                <!-- End plugin js for this page -->
-                                <!-- inject:js -->
-                                <script src="<?= base_url('skydash-template/js/off-canvas.js'); ?>"></script>
-                                <script src="<?= base_url('skydash-template/js/hoverable-collapse.js'); ?>"></script>
-                                <script src="<?= base_url('skydash-template/js/template.js'); ?>"></script>
-                                <script src="<?= base_url('skydash-template/js/settings.js'); ?>"></script>
-                                <script src="<?= base_url('skydash-template/js/todolist.js'); ?>"></script>
-                                <!-- endinject -->
-                                <!-- Custom js for this page-->
-                                <script src="<?= base_url('skydash-template/js/dashboard.js'); ?>"></script>
-                                <script src="<?= base_url('skydash-template/js/Chart.roundedBarCharts.js'); ?>"></script>
-                                <!-- End custom js for this page-->
+<!-- End plugin js for this page -->
+<!-- inject:js -->
+<script src="<?= base_url('skydash-template/js/off-canvas.js'); ?>"></script>
+<script src="<?= base_url('skydash-template/js/hoverable-collapse.js'); ?>"></script>
+<script src="<?= base_url('skydash-template/js/template.js'); ?>"></script>
+<script src="<?= base_url('skydash-template/js/settings.js'); ?>"></script>
+<script src="<?= base_url('skydash-template/js/todolist.js'); ?>"></script>
+<!-- endinject -->
+<!-- Custom js for this page-->
+<script src="<?= base_url('skydash-template/js/dashboard.js'); ?>"></script>
+<script src="<?= base_url('skydash-template/js/Chart.roundedBarCharts.js'); ?>"></script>
+<!-- End custom js for this page-->
 
-                                <!-- Iconify -->
-                                <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+<!-- Iconify -->
+<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
 
-                                <!-- Data Table -->
-                                <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+<!-- Data Table -->
+<script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
 
-                                <!-- Script Lokal -->
-                                <script src="<?= base_url('skydash-template/js/script.js'); ?>"></script>
-
-                                <!-- Captcha Robot -->
-                                <script src='https://www.google.com/recaptcha/api.js'></script>
+<!-- Script Lokal -->
+<script src="<?= base_url('skydash-template/js/script.js'); ?>"></script>
 
 </body>
 

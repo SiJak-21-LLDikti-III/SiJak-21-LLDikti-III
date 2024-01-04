@@ -2,8 +2,6 @@
 
 namespace App\Controllers;
 
-use App\Controllers\CetakController;
-
 class LayananPajakController extends BaseController
 {
     public function index()
@@ -13,7 +11,13 @@ class LayananPajakController extends BaseController
         ];
         return view('pages/layananpajak', $data);
     }
-    public function upload()
+    public function unduh($npwp, $BirthDate, $yearOption) //biasa
     {
+
+        $data = [
+            'title' => 'Cetak',
+        ];
+        log_message("info", "data: " . print_r($npwp, true));
+        return view('pages/templateV2', $data);
     }
 }

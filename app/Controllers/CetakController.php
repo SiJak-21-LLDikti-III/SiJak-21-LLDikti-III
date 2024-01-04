@@ -13,6 +13,8 @@ class CetakController extends BaseController
     }
     public function index() //unduh mpdf
     {
+        $npwp = $this->request->getGet('npwp');
+        $BirthDate = $this->request->getGet('birth');
         $data = [
             'title' => 'Cetak',
         ];
@@ -39,6 +41,8 @@ class CetakController extends BaseController
     }
     public function unduh() //biasa
     {
+        $npwp = $this->request->getGet('npwp');
+        $BirthDate = $this->request->getGet('birth');
         $data = [
             'title' => 'Cetak',
         ];

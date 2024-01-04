@@ -15,14 +15,13 @@ class HomeController extends BaseController
     }
     public function checkData()
     {
-        $npwp = $this->request->getVar('npwp');
-        $birthDate = $this->request->getVar('birth'); // format YYYY-MM-DD
+        $npwp = $this->request->getPost('npwp');
+        $birthDate = $this->request->getPost('birth'); // format YYYY-MM-DD
 
         // Validasi input (Optional: tambahkan validasi lebih lanjut sesuai kebutuhan)
 
         $HomeModel = new HomeModel();
         $userData = $HomeModel->getUserData($npwp, $birthDate);
-
         if ($userData) {
             // Data ditemukan
             return $this->response->setJSON($userData);
