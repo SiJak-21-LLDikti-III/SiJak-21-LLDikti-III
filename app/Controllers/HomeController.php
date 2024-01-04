@@ -17,11 +17,9 @@ class HomeController extends BaseController
     {
         $npwp = $this->request->getPost('npwp');
         $birthDate = $this->request->getPost('birth'); // format YYYY-MM-DD
-
-        // Validasi input (Optional: tambahkan validasi lebih lanjut sesuai kebutuhan)
-
+        $yearOption = $this->request->getPost('yearOption');
         $HomeModel = new HomeModel();
-        $userData = $HomeModel->getUserData($npwp, $birthDate);
+        $userData = $HomeModel->getUserData($npwp, $birthDate, $yearOption);
         if ($userData) {
             // Data ditemukan
             return $this->response->setJSON($userData);
