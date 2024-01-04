@@ -106,7 +106,6 @@
                         </div>
                         <script>
                             function unduh() {
-                                // ambil parameter url
                                 var urlParams = new URLSearchParams(window.location.search);
                                 window.open("layanan-pajak/unduh/" + urlParams.get('npwp') + "/" + urlParams.get('birth') + "/" + urlParams.get('yearOption'), '_blank');
                             }
