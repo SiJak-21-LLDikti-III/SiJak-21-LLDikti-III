@@ -30,6 +30,15 @@ class DataModel extends Model
         return $result;
     }
 
+    public function updateDataByNpwp($npwp, $data)
+    {
+        // Contoh: $data = ['field1' => 'value1', 'field2' => 'value2', ...]
+        $this->builderStatus->where('npwp', $npwp);
+        $this->builderStatus->update($data);
+
+        return $this->db->affectedRows(); // Mengembalikan jumlah baris yang terpengaruh oleh operasi update
+    }
+
     public function getTableColumns($tableName)
     {
         $query = $this->db->table('INFORMATION_SCHEMA.COLUMNS')
@@ -41,18 +50,16 @@ class DataModel extends Model
     }
     public function getDataByYear($year)
     {
-        // // Tambahkan logika untuk mengambil data dari tabel tb_sijak berdasarkan tahun
-        // $result = $this->db->table('tb_sijak')->where('YEAR(mperlan_H04-H05)', $year)->get()->getResult();
-
-        // return $result;
         // Tambahkan logika untuk mengambil data dari tabel tb_sijak berdasarkan tahun
-        $result = $this->db->table('tb_sijak')
-        ->like('mperlan_H04-H05', $year, 'after') // 'after' berarti mencari yang cocok pada bagian belakang string
-        ->get()
-            ->getResult();
+        $this->builder->select('tb_sijak.*, tb_status.*'); // Sesuaikan dengan kolom yang diperlukan
+        $this->builder->join('tb_status', 'tb_status.npwp = tb_sijak.npwp_A1', 'inner');
+        $this->builder->like('mperlan_H04-H05', $year, 'after');
+
+        $result = $this->builder->get()->getResult();
 
         return $result;
     }
+
 
 
 }

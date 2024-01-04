@@ -9,7 +9,7 @@ $routes->get('/', 'HomeController::index');
 $routes->post('/checkData', 'HomeController::checkData');
 $routes->get('/layanan-pajak', 'LayananPajakController::index');
 $routes->get('/layanan-pajak/unduh/(:segment)/(:segment)/(:segment)', 'LayananPajakController::unduh/$1/$2/$3');
-$routes->post('/layanan-pajak/unggah', 'UnggahBuktiPembayaranController::index');
+$routes->post('/layanan-pajak/unggah', 'LayananPajakController::unggah');
 $routes->get('/login', 'LoginController::index');
 
 
