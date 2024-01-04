@@ -79,7 +79,7 @@
                   <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" data-toggle="dropdown" id="profileDropdown">
                       <img src="<?= base_url('skydash-template/images/faces/face28.jpg'); ?>" class="mr-2" alt="profile" />
                       <div>
-                          <div class="text-black">Austin Roberts</div>
+                          <div class="text-black">LLDikti 3</div>
                           <div class="text-small text-gray">Admin</div>
                       </div>
                   </a>
