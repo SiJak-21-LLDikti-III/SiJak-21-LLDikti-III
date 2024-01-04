@@ -175,7 +175,8 @@
                                     url: '/checkData', // The method in HomeController to handle data checking
                                     data: {
                                         npwp: npwp,
-                                        birth: birthDate
+                                        birth: birthDate,
+                                        yearOption: year
                                     },
                                     dataType: 'json',
                                     success: function(response) {
