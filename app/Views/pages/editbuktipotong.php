@@ -1,61 +1,6 @@
 <?= $this->extend('layout/template'); ?>
 <?= $this->section('content'); ?>
 <div class="content-wrapper">
-    <!-- <div class="card">
-        <div class="card-body p-5">
-            <div class="d-flex align-items-center justify-content-between">
-                <a href="" class="btn btn-primary">
-                    <iconify-icon icon="ep:back" width="25"></iconify-icon>
-                </a>
-                <h3 class="font-weight-bold">Edit Bukti Potong Pajak PPh 21</h3>
-            </div>
-            <form class="mt-5">
-                <div class="form-group">
-                    <label for="formGroupExampleInput">Tahun</label>
-                    <div class="col-sm-12">
-                        <select class="form-control shadow-sm" id="year" name="year" onchange="fetchTableData()">
-                            <?php
-                                        $currentYear = date("Y");
-                                        $startYear = $currentYear - 100; // 100 tahun terakhir
-                                        for ($year = $currentYear; $year >= $startYear; $year--) {
-                                            echo "<option value='$year'>$year</option>";
-                                        }
-                                        ?>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="formGroupExampleInput2">NPWP</label>
-                    <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input">
-                </div>
-                <div class="form-group">
-                    <label for="formGroupExampleInput">Nama</label>
-                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
-                </div>
-                <div class="form-group">
-                    <label for="formGroupExampleInput2">PPh 21 Terpotong</label>
-                    <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input">
-                </div>
-                <div class="form-group">
-                    <label for="formGroupExampleInput">PPh 21 Terutang</label>
-                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
-                </div>
-                <div class="form-group">
-                    <label for="formGroupExampleInput2">File Bukti Bayar</label>
-                    <div class="row">
-                        <div>
-                            <iframe id="pdfViewer" src="" width="200px" height="150px"></iframe>
-                        </div>
-                        <div class="d-flex align-items-center justify-content-start ml-5">
-                            <button class="btn btn-danger delete-button" onclick="hapusPDF()">Hapus</button>
-                        </div>
-                    </div>
-                </div>
-            </form>
-
-            <button class="btn btn-primary w-100">Update</button>
-        </div>
-    </div> -->
     <div class="card">
         <div class="card-body mb-2">
             <div class="container-fluid">
@@ -483,7 +428,7 @@
                                 <h3 class="h3">Status Pegawai</h3>
                                 <hr class="hr">
                                 <div class="form-group row">
-                                    <label for="nisn" class="col-2 col-form-label">Jenis Kelamin<span
+                                    <label for="nisn" class="col-2 col-form-label">Status Pegawai<span
                                             class="text-danger">*</span></label>
                                     <div class="form-check form-check-inline ml-3">
                                         <input class="form-check-input" type="radio" name="inlineRadioOptions"
