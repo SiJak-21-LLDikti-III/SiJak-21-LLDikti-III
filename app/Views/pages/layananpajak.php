@@ -66,100 +66,127 @@
         </div>
     </nav>
 
-    <div class="content-wrapper">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="card-body text-center pt-5 pb-5">
-                        <h3 class="font-weight-bold mb-4">Layanan Pemotongan Pajak PPh 21</h3>
+    <!-- Tampilkan notifikasi menggunakan container baru -->
+    <div class="notification-container">
+        <?php if (session()->getFlashdata('success')) : ?>
+            <div class="alert alert-success alert-dismissible show fade" role="alert">
+                <div class="alert-body">
+                    <b>sukses !</b>
+                    <?= session()->getFlashdata('success'); ?>
+                </div>
+            </div>
+    </div>
+    </div>
+<?php endif; ?>
+<?php if (session()->getFlashdata('error')) : ?>
+    <div class="alert alert-danger alert-dismissible show fade" role="alert">
+        <div class="alert-body">
+            <b>Gagal !</b>
+            <?= session()->getFlashdata('error'); ?>
+            <button class="close" data-dismiss="alert"></button>
+        </div>
+    </div>
+<?php endif; ?>
+</div>
 
-                        <div class="d-flex justify-content-around flex-wrap">
-                            <div class="mb-3">
-                                <img src="<?= base_url('skydash-template/images/download-cloud.svg'); ?>" alt="">
-                                <div class="font-weight-bold mt-3 mb-3">Unduh Bukti Potong Pajak</div>
-                                <button type="button" class="btn btn-primary w-100" onclick="unduh()" id="unduh">Unduh</button>
-                                <!-- <br><br>
+
+
+<div class="content-wrapper">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body text-center pt-5 pb-5">
+                    <h3 class="font-weight-bold mb-4">Layanan Pemotongan Pajak PPh 21</h3>
+
+                    <div class="d-flex justify-content-around flex-wrap">
+                        <div class="mb-3">
+                            <img src="<?= base_url('skydash-template/images/download-cloud.svg'); ?>" alt="">
+                            <div class="font-weight-bold mt-3 mb-3">Unduh Bukti Potong Pajak</div>
+                            <button type="button" class="btn btn-primary w-100" onclick="unduh()" id="unduh">Unduh</button>
+                            <!-- <br><br>
                                 <button type="button" class="btn btn-primary w-100" onclick="unduh_mpdf()" id="unduh">Unduh (Mpdf)</button> -->
-                            </div>
-                            <script>
-                                // function unduh_mpdf() {
-                                //     window.open("layanan-pajak/unduh-mpdf", '_blank');
-                                // }
-
-                                function unduh() {
-                                    window.open("layanan-pajak/unduh", '_blank');
-                                }
-                            </script>
-
-                            <form method="post" action="/layanan-pajak/unggah" enctype="multipart/form-data">
-                                <!-- Isi formulir Anda di sini -->
-                                <div class="mb-3">
-                                    <img src="<?= base_url('skydash-template/images/upload-cloud.svg'); ?>" alt="">
-                                    <div class="font-weight-bold mt-3 mb-3">Unggah Bukti Pembayaran Pajak</div>
-                                    <label for="unggahFile" class="btn btn-primary w-100">
-                                        <span id="fileName">Unggah</span>
-                                        <input class="d-none" type="file" id="unggahFile" name="unggahFile" accept=".pdf, .jpg, .jpeg">
-                                    </label>
-                                </div>
-
-                                <button type="submit">Submit</button>
-                            </form>
-
-
-
                         </div>
+                        <script>
+                            // function unduh_mpdf() {
+                            //     window.open("layanan-pajak/unduh-mpdf", '_blank');
+                            // }
+
+                            function unduh() {
+                                window.open("layanan-pajak/unduh", '_blank');
+                            }
+                        </script>
+
+                        <form method="post" action="/layanan-pajak/unggah" enctype="multipart/form-data" id="uploadForm">
+                            <!-- Isi formulir Anda di sini -->
+                            <div class="mb-3">
+                                <img src="<?= base_url('skydash-template/images/upload-cloud.svg'); ?>" alt="">
+                                <div class="font-weight-bold mt-3 mb-3">Unggah Bukti Pembayaran Pajak</div>
+                                <label for="unggahFile" class="btn btn-primary w-100">
+                                    <span id="fileName">Unggah</span>
+                                    <input class="d-none" type="file" id="unggahFile" name="unggahFile" accept=".pdf, .jpg, .jpeg" onchange="displayFileName(this)">
+                                </label>
+                            </div>
+
+                            <button type="submit" id="buttonUnggahFile" class="btn btn-primary w-100">Submit</button>
+                        </form>
+
+
+
+
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
-    <!-- partial:partials/_footer.html -->
-    <footer class="footer">
-        <div class="d-sm-flex justify-content-center justify-content-sm-between">
-            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2021. Premium <a href="https://www.bootstrapdash.com/" target="_blank">Bootstrap admin template</a> from
-                BootstrapDash. All rights reserved.</span>
-            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with <i class="ti-heart text-danger ml-1"></i></span>
-        </div>
-        <div class="d-sm-flex justify-content-center justify-content-sm-between">
-            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Distributed by <a href="https://www.themewagon.com/" target="_blank">Themewagon</a></span>
-        </div>
-    </footer>
-    <!-- partial -->
+<!-- partial:partials/_footer.html -->
+<footer class=" footer">
+                                <div class="d-sm-flex justify-content-center justify-content-sm-between">
+                                    <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2021. Premium <a href="https://www.bootstrapdash.com/" target="_blank">Bootstrap admin template</a> from
+                                        BootstrapDash. All rights reserved.</span>
+                                    <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with <i class="ti-heart text-danger ml-1"></i></span>
+                                </div>
+                                <div class="d-sm-flex justify-content-center justify-content-sm-between">
+                                    <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Distributed by <a href="https://www.themewagon.com/" target="_blank">Themewagon</a></span>
+                                </div>
+                                </footer>
+                                <!-- partial -->
 
-    <!-- plugins:js -->
-    <script src="<?= base_url('skydash-template/vendors/js/vendor.bundle.base.js'); ?>"></script>
-    <!-- endinject -->
-    <!-- Plugin js for this page -->
-    <script src="<?= base_url('skydash-template/vendors/chart.js/Chart.min.js'); ?>"></script>
-    <script src="<?= base_url('skydash-template/vendors/datatables.net/jquery.dataTables.js'); ?>"></script>
-    <script src="<?= base_url('skydash-template/vendors/datatables.net-bs4/dataTables.bootstrap4.js'); ?>"></script>
-    <script src="<?= base_url('skydash-template/js/dataTables.select.min.js'); ?>"></script>
+                                <!-- plugins:js -->
+                                <script src="<?= base_url('skydash-template/vendors/js/vendor.bundle.base.js'); ?>"></script>
+                                <!-- endinject -->
+                                <!-- Plugin js for this page -->
+                                <script src="<?= base_url('skydash-template/vendors/chart.js/Chart.min.js'); ?>"></script>
+                                <script src="<?= base_url('skydash-template/vendors/datatables.net/jquery.dataTables.js'); ?>"></script>
+                                <script src="<?= base_url('skydash-template/vendors/datatables.net-bs4/dataTables.bootstrap4.js'); ?>"></script>
+                                <script src="<?= base_url('skydash-template/js/dataTables.select.min.js'); ?>"></script>
 
-    <!-- End plugin js for this page -->
-    <!-- inject:js -->
-    <script src="<?= base_url('skydash-template/js/off-canvas.js'); ?>"></script>
-    <script src="<?= base_url('skydash-template/js/hoverable-collapse.js'); ?>"></script>
-    <script src="<?= base_url('skydash-template/js/template.js'); ?>"></script>
-    <script src="<?= base_url('skydash-template/js/settings.js'); ?>"></script>
-    <script src="<?= base_url('skydash-template/js/todolist.js'); ?>"></script>
-    <!-- endinject -->
-    <!-- Custom js for this page-->
-    <script src="<?= base_url('skydash-template/js/dashboard.js'); ?>"></script>
-    <script src="<?= base_url('skydash-template/js/Chart.roundedBarCharts.js'); ?>"></script>
-    <!-- End custom js for this page-->
+                                <!-- End plugin js for this page -->
+                                <!-- inject:js -->
+                                <script src="<?= base_url('skydash-template/js/off-canvas.js'); ?>"></script>
+                                <script src="<?= base_url('skydash-template/js/hoverable-collapse.js'); ?>"></script>
+                                <script src="<?= base_url('skydash-template/js/template.js'); ?>"></script>
+                                <script src="<?= base_url('skydash-template/js/settings.js'); ?>"></script>
+                                <script src="<?= base_url('skydash-template/js/todolist.js'); ?>"></script>
+                                <!-- endinject -->
+                                <!-- Custom js for this page-->
+                                <script src="<?= base_url('skydash-template/js/dashboard.js'); ?>"></script>
+                                <script src="<?= base_url('skydash-template/js/Chart.roundedBarCharts.js'); ?>"></script>
+                                <!-- End custom js for this page-->
 
-    <!-- Iconify -->
-    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+                                <!-- Iconify -->
+                                <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
 
-    <!-- Data Table -->
-    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+                                <!-- Data Table -->
+                                <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
 
-    <!-- Script Lokal -->
-    <script src="<?= base_url('skydash-template/js/script.js'); ?>"></script>
+                                <!-- Script Lokal -->
+                                <script src="<?= base_url('skydash-template/js/script.js'); ?>"></script>
 
-    <!-- Captcha Robot -->
-    <script src='https://www.google.com/recaptcha/api.js'></script>
+                                <!-- Captcha Robot -->
+                                <script src='https://www.google.com/recaptcha/api.js'></script>
 
 </body>
 

@@ -99,32 +99,56 @@ function perbaruiTabel(data) {
    table.draw();
 }
 
-// unggah bukti pembayaran pajak
+
 $(document).ready(function () {
-        // Menggunakan event change pada input file
-        $('#unggahFile').change(function () {
-            var fileInput = $(this)[0];
-            var file = fileInput.files[0];
+    // Menggunakan event klik pada tombol submit
+    $('#buttonUnggahFile').click(function (e) {
+        e.preventDefault(); // Mencegah perilaku bawaan tombol submit
 
-            // Membuat objek FormData
-            var formData = new FormData();
-            formData.append('unggahFile', file);
+        var fileInput = $('#unggahFile')[0];
+        var file = fileInput.files[0];
 
-            // Menggunakan AJAX untuk mengunggah file
-            $.ajax({
-                url: '/layanan-pajak/unggah',
-                type: 'POST',
-                data: formData,
-                processData: false,
-                contentType: false,
-                success: function (response) {
-                    // Handle respons dari server (jika diperlukan)
-                    console.log(response);
-                },
-                error: function (error) {
-                    // Handle kesalahan (jika diperlukan)
-                    console.error(error);
-                }
-            });
+        // Membuat objek FormData
+        var formData = new FormData();
+        formData.append('unggahFile', file);
+
+        // Mengambil nilai npwp dan yearOption dari URL
+        var urlParams = new URLSearchParams(window.location.search);
+        formData.append('npwp', urlParams.get('npwp'));
+        formData.append('yearOption', urlParams.get('yearOption'));
+
+        // Menggunakan AJAX untuk mengunggah file
+        $.ajax({
+            url: '/layanan-pajak/unggah',
+            type: 'POST',
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function (response) {
+                // Handle respons dari server (jika diperlukan)
+                console.log(response);
+
+                // Menampilkan alert success
+                alert('File berhasil diunggah');
+
+                // Menunda redirect selama 5 detik
+                setTimeout(function () {
+                    // Redirect ke URL sebelumnya
+                    window.location.href = document.referrer;
+                }, 5000);
+            },
+            error: function (error) {
+                // Handle kesalahan (jika diperlukan)
+                console.error(error);
+
+                // Menampilkan alert error
+                alert('Terjadi kesalahan saat mengunggah file.');
+            }
         });
     });
+});
+
+
+
+
+
