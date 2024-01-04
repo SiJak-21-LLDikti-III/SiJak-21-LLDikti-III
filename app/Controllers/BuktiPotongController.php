@@ -31,8 +31,6 @@ class BuktiPotongController extends BaseController
         $file = $this->request->getFile('excel_file');
         if ($file->isValid() && !in_array($file->getClientExtension(), ['xls', 'xlsx'])) {
             return $this->response->setJSON(['status' => 'error', 'message' => 'File yang diunggah harus berformat .xls atau .xlsx']);
-            // return redirect()->back()->with('error', 'File yang diunggah harus berformat .xls atau .xlsx');
-            
         }
         // log_message("info", "type: " . print_r($file, true));
         if ($file->isValid() && in_array($file->getClientExtension(), ['xls', 'xlsx'])) {
@@ -140,12 +138,10 @@ class BuktiPotongController extends BaseController
 
                 // Setelah berhasil mengunggah file
                 return $this->response->setJSON(['status' => 'success', 'message' => 'File Excel berhasil diunggah']);
-                // return redirect()->to(site_url('/bukti-potong'))->with('success', 'File Excel berhasil diunggah');
             } catch (\Exception | \Throwable $e) {
                 // Handle kesalahan jika terjadi
-                // log_message("info", 'Terjadi kesalahan: ' . print_r($e->getMessage(), true));
+                log_message("info", 'Terjadi kesalahan: ' . print_r($e->getMessage(), true));
                 return $this->response->setJSON(['status' => 'error', 'message' => 'Terjadi kesalahan: ' . $e->getMessage()]);
-                // return redirect()->back()->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
             }
         }
     }
