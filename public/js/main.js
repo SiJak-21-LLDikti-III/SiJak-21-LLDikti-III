@@ -79,11 +79,11 @@ function perbaruiTabel(data) {
       newRow.push(rowData.nama_A3);
       newRow.push(rowData.pph_potong || 0);
       newRow.push(rowData.pph_utang || 0);
-      newRow.push('');  // Sesuaikan dengan kolom yang ingin ditampilkan
-      newRow.push('');  // Sesuaikan dengan kolom yang ingin ditampilkan
-      newRow.push('');  // Sesuaikan dengan kolom yang ingin ditampilkan
-      newRow.push('');  // Sesuaikan dengan kolom yang ingin ditampilkan
-      newRow.push('');  // Sesuaikan dengan kolom yang ingin ditampilkan
+      newRow.push(rowData.unduh_bukti || 0);
+      newRow.push(rowData.bukti_bayar || 0);
+      newRow.push(rowData.status_unduh || 0);
+      newRow.push(rowData.status_bukti_bayar || 0);
+      newRow.push(rowData.file_bukti_bayar || 0);
       newRow.push(
          '<a href="#" class="btn btn-success mr-2 p-2" onclick="edit(' + rowData.no_H01 + ')">' +
          '<iconify-icon icon="tabler:edit" width="20"></iconify-icon>' +
@@ -99,54 +99,6 @@ function perbaruiTabel(data) {
    table.draw();
 }
 
-
-$(document).ready(function () {
-    // Menggunakan event klik pada tombol submit
-    $('#buttonUnggahFile').click(function (e) {
-        e.preventDefault(); // Mencegah perilaku bawaan tombol submit
-
-        var fileInput = $('#unggahFile')[0];
-        var file = fileInput.files[0];
-
-        // Membuat objek FormData
-        var formData = new FormData();
-        formData.append('unggahFile', file);
-
-        // Mengambil nilai npwp dan yearOption dari URL
-        var urlParams = new URLSearchParams(window.location.search);
-        formData.append('npwp', urlParams.get('npwp'));
-        formData.append('yearOption', urlParams.get('yearOption'));
-
-        // Menggunakan AJAX untuk mengunggah file
-        $.ajax({
-            url: '/layanan-pajak/unggah',
-            type: 'POST',
-            data: formData,
-            processData: false,
-            contentType: false,
-            success: function (response) {
-                // Handle respons dari server (jika diperlukan)
-                console.log(response);
-
-                // Menampilkan alert success
-                alert('File berhasil diunggah');
-
-                // Menunda redirect selama 5 detik
-                setTimeout(function () {
-                    // Redirect ke URL sebelumnya
-                    window.location.href = document.referrer;
-                }, 5000);
-            },
-            error: function (error) {
-                // Handle kesalahan (jika diperlukan)
-                console.error(error);
-
-                // Menampilkan alert error
-                alert('Terjadi kesalahan saat mengunggah file.');
-            }
-        });
-    });
-});
 
 // PROGRESS BAR DI HALAMAN EDIT BUKTI POTONG
 $(document).ready(function() {

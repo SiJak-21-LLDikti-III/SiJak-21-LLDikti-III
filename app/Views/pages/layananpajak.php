@@ -104,6 +104,7 @@
                             <div class="font-weight-bold mt-3 mb-3">Unduh Bukti Potong Pajak</div>
                             <button type="button" class="btn btn-primary w-100" onclick="unduh()" id="unduh">Unduh</button>
                         </div>
+
                         <script>
                             function unduh() {
                                 var urlParams = new URLSearchParams(window.location.search);
@@ -111,19 +112,44 @@
                             }
                         </script>
 
+
+                        <!-- Dapatkan nilai dari URL menggunakan JavaScript -->
+                        <script>
+                            var urlParams = new URLSearchParams(window.location.search);
+                            var npwp = urlParams.get('npwp');
+                            var birthDate = urlParams.get('birth');
+                            var yearOption = urlParams.get('yearOption');
+                        </script>
+
+                        <!-- Formulir -->
                         <form method="post" action="/layanan-pajak/unggah" enctype="multipart/form-data" id="uploadForm">
                             <!-- Isi formulir Anda di sini -->
                             <div class="mb-3">
                                 <img src="<?= base_url('skydash-template/images/upload-cloud.svg'); ?>" alt="">
                                 <div class="font-weight-bold mt-3 mb-3">Unggah Bukti Pembayaran Pajak</div>
-                                <label for="unggahFile" class="btn btn-primary w-100">
-                                    <span id="fileName">Unggah</span>
+                                <label for="unggahFile" class="btn btn-secondary w-100 text-white">
+                                    <span id="fileName">Lampirkan File</span>
                                     <input class="d-none" type="file" id="unggahFile" name="unggahFile" accept=".pdf, .jpg, .jpeg" onchange="displayFileName(this)">
                                 </label>
                             </div>
 
+                            <!-- Tambahkan input tersembunyi untuk menyimpan nilai npwp, birthDate, dan yearOption -->
+                            <input type="hidden" name="npwp" id="npwpInput" value="">
+                            <input type="hidden" name="birthDate" id="birthDateInput" value="">
+                            <input type="hidden" name="yearOption" id="yearOptionInput" value="">
+
                             <button type="submit" id="buttonUnggahFile" class="btn btn-primary w-100">Submit</button>
                         </form>
+
+                        <!-- Script JavaScript untuk menetapkan nilai input tersembunyi -->
+                        <script>
+                            // Set nilai input tersembunyi
+                            document.getElementById('npwpInput').value = npwp;
+                            document.getElementById('birthDateInput').value = birthDate;
+                            document.getElementById('yearOptionInput').value = yearOption;
+                        </script>
+
+
                     </div>
                 </div>
             </div>
