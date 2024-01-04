@@ -148,7 +148,19 @@ $(document).ready(function () {
     });
 });
 
-
-
-
-
+// PROGRESS BAR DI HALAMAN EDIT BUKTI POTONG
+$(document).ready(function() {
+   $('.nav-link').on('shown.bs.tab', function (e) {
+       // Menghitung indeks tab aktif
+       var activeTabIndex = $(e.target).parent().index(); // Menggunakan parent() untuk mendapatkan indeks dari elemen li
+       
+       // Menghitung persentase berdasarkan bobot 25% untuk setiap tab
+       var progressPercentage = (activeTabIndex + 1) * 25; // Karena indeks dimulai dari 0
+       
+       // Update bar progress dengan persentase yang tepat
+       $('.progress-bar').css('width', progressPercentage + '%').attr('aria-valuenow', progressPercentage);
+       
+       // Update teks persentase di dalam bar progress
+       $('.progress-text').text(progressPercentage + '%');
+   });
+});
