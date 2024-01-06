@@ -90,4 +90,4 @@ $viewDirectory = '';
  *
  * And away we go...
  */
-require realpath(__DIR__ . '/../') . '/bootstrap.php';
+require __DIR__ . '/vendor/codeigniter4/framework/system/bootstrap.php';

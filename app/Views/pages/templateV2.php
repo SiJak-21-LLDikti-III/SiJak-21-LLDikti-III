@@ -1,3 +1,7 @@
+<?php
+$mperlanText = "mperlan_H04-H05";
+$mperlan = $user->$mperlanText; //2024-04-04
+?>
 <!DOCTYPE html>
 <!--[if IE]>  <html class="stl_ie"> <![endif]-->
 <html>
@@ -307,7 +311,7 @@
             <div class="stl_ stl_02" id="containerToExport">
                 <!-- Gambar dan tabel template -->
                 <div class="stl_03">
-                    <img src="<?= base_url('skydash-template/images/watermark.png'); ?>" alt="" class="stl_04" />
+                    <img src="<?= base_url('skydash-template/images/watermark1.png'); ?>" alt="" class="stl_04" />
                 </div>
                 <div class="stl_view">
                     <div class="stl_05 stl_06">
@@ -346,10 +350,10 @@
                         <div class="stl_01" style="left:20.6117em;top:10.5665em;"><span class="stl_16 stl_08 stl_17">X</span></div>
                         <div class="stl_01" style="left:21.5833em;top:10.6953em;"><span class="stl_20 stl_19 stl_09" style="word-spacing:-0.0007em;">SPT Pembetulan Ke- &nbsp;</span></div>
                         <div class="stl_01" style="left:29.3333em;top:10.6953em;"><span class="stl_18 stl_19 stl_15">H.03 &nbsp;</span></div>
-                        <div class="stl_01" style="left:41.815em;top:11.7332em;"><span class="stl_16 stl_08 stl_17">2</span></div>
-                        <div class="stl_01" style="left:43.1483em;top:11.7332em;"><span class="stl_16 stl_08 stl_17">0</span></div>
-                        <div class="stl_01" style="left:44.4817em;top:11.7332em;"><span class="stl_16 stl_08 stl_17">2</span></div>
-                        <div class="stl_01" style="left:45.7317em;top:11.7332em;"><span class="stl_16 stl_08 stl_17">3</span></div>
+                        <div class="stl_01" style="left:41.815em;top:11.7332em;"><span class="stl_16 stl_08 stl_17"><?= substr($mperlan, 0, 1) ?></span></div>
+                        <div class="stl_01" style="left:43.1483em;top:11.7332em;"><span class="stl_16 stl_08 stl_17"><?= substr($mperlan, 1, 1) ?></span></div>
+                        <div class="stl_01" style="left:44.4817em;top:11.7332em;"><span class="stl_16 stl_08 stl_17"><?= substr($mperlan, 2, 1) ?></span></div>
+                        <div class="stl_01" style="left:45.7317em;top:11.7332em;"><span class="stl_16 stl_08 stl_17"><?= substr($mperlan, 3, 1) ?></span></div>
                         <div class="stl_01" style="left:39.5em;top:11.8619em;"><span class="stl_18 stl_19 stl_15">H.05 &nbsp;</span></div>
                         <div class="stl_01" style="left:1.75em;top:13.449em;"><span class="stl_14 stl_08 stl_10" style="word-spacing:-0.0002em;">A. IDENTITAS PENERIMA PENGHASILAN YANG DIPOTONG &nbsp;</span></div>
                         <div class="stl_01" style="left:2em;top:14.8619em;"><span class="stl_20 stl_19 stl_10" style="word-spacing:0.5542em;">A.1 NPWP &nbsp;</span></div>
@@ -379,8 +383,8 @@
                         <div class="stl_01" style="left:36.9033em;top:16.3165em;"><span class="stl_16 stl_08 stl_17">X</span></div>
                         <div class="stl_01" style="left:28.8333em;top:16.4453em;"><span class="stl_20 stl_19 stl_09" style="word-spacing:0.5541em;">A.6 JENIS</span><span class="stl_20 stl_19 stl_17" style="word-spacing:-0.0013em;">&nbsp;</span><span class="stl_20 stl_19 stl_09">KELAMIN &nbsp;</span></div>
                         <div class="stl_01" style="left:28.75em;top:17.8619em;"><span class="stl_20 stl_19 stl_09" style="word-spacing:0.554em;">A.7 NIK &nbsp;</span></div>
-                        <div class="stl_01" style="left:9.75em;top:16.3998em;"><span class="stl_16 stl_08 stl_24">195303071975081001 &nbsp;</span></div>
-                        <div class="stl_01" style="left:9.8333em;top:17.8998em;"><span class="stl_16 stl_08 stl_22" style="word-spacing:0.0004em;">HIMSAR SILABAN &nbsp;</span></div>
+                        <div class="stl_01" style="left:9.75em;top:16.3998em;"><span class="stl_16 stl_08 stl_24"><?= $user->nip_A2 ?>&nbsp;</span></div>
+                        <div class="stl_01" style="left:9.8333em;top:17.8998em;"><span class="stl_16 stl_08 stl_22" style="word-spacing:0.0004em;"><?= $user->nama_A3 ?> &nbsp;</span></div>
                         <div class="stl_01" style="left:8.6667em;top:16.449em;"><span class="stl_16 stl_08 stl_17">:</span></div>
                         <div class="stl_01" style="left:35.4167em;top:16.449em;"><span class="stl_16 stl_08 stl_17">:</span></div>
                         <div class="stl_01" style="left:35.4167em;top:17.7823em;"><span class="stl_16 stl_08 stl_17">:</span></div>
@@ -392,7 +396,7 @@
                         <div class="stl_01" style="left:28.9167em;top:20.1119em;"><span class="stl_23 stl_19 stl_25">K/ &nbsp;</span></div>
                         <div class="stl_01" style="left:34.6667em;top:20.1119em;"><span class="stl_23 stl_19 stl_26">TK/ &nbsp;</span></div>
                         <div class="stl_01" style="left:40.8333em;top:20.1119em;"><span class="stl_23 stl_19 stl_10">HB/ &nbsp;</span></div>
-                        <div class="stl_01" style="left:9.8333em;top:20.0665em;"><span class="stl_16 stl_08 stl_26">VI/a &nbsp;</span></div>
+                        <div class="stl_01" style="left:9.8333em;top:20.0665em;"><span class="stl_16 stl_08 stl_26"><?= $user->pangkat_A4 ?> &nbsp;</span></div>
                         <div class="stl_01" style="left:30em;top:20.1498em;"><span class="stl_16 stl_08 stl_17">0</span></div>
                         <div class="stl_01" style="left:1.75em;top:21.7823em;"><span class="stl_14 stl_08 stl_09" style="word-spacing:-0.0002em;">B. RINCIAN PENGHASILAN DAN PENGHITUNGAN PPh PASAL 21 &nbsp;</span></div>
                         <div class="stl_01" style="left:17.4542em;top:22.7332em;"><span class="stl_14 stl_08 stl_21">URAIAN &nbsp;</span></div>
@@ -527,7 +531,7 @@
                         <div class="stl_01" style="left:2em;top:61.9453em;"><span class="stl_20 stl_19 stl_21" style="word-spacing:0.5537em;">D.6 Pernyataan</span><span class="stl_20 stl_19 stl_17" style="word-spacing:-0.0013em;">&nbsp;</span><span class="stl_20 stl_19 stl_10" style="word-spacing:-0.0005em;">Wajib Pajak &nbsp;</span></div>
                         <div class="stl_01" style="left:12.4167em;top:60.6953em;"><span class="stl_20 stl_19 stl_17">:</span></div>
                         <div class="stl_01" style="left:12.4167em;top:61.9453em;"><span class="stl_20 stl_19 stl_17">:</span></div>
-                        <div class="stl_01" style="left:14.1667em;top:60.6498em;"><span class="stl_16 stl_08 stl_22" style="word-spacing:0.0004em;">ELIH ERMAWATI &nbsp;</span></div>
+                        <div class="stl_01" style="left:14.1667em;top:60.6498em;"><span class="stl_16 stl_08 stl_22" style="word-spacing:0.0004em;"><?= $IDPP[0]->nama_penandatangan; ?>&nbsp;</span></div>
                         <div class="stl_01" style="left:14.1667em;top:61.9453em;"><span class="stl_23 stl_19 stl_24" style="word-spacing:-0.0005em;">Dengan ini saya menyatakan bahwa Bukti Pemotongan Pajak telah saya isi dengan benar dan telah saya tandatangani &nbsp;</span></div>
                         <div class="stl_01" style="left:14.1667em;top:62.6161em;"><span class="stl_23 stl_19 stl_12" style="word-spacing:-0.0007em;">secara elektronik. &nbsp;</span></div>
                         <div class="stl_01" style="left:14.1667em;top:65.3619em;"><span class="stl_23 stl_19 stl_24" style="word-spacing:-0.0007em;">Sesuai dengan ketentuan yang berlaku, Direktorat Jenderal Pajak mengatur bahwa dokumen ini telah ditandatangani secara &nbsp;</span></div>
