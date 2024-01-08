@@ -94,7 +94,7 @@
                                         <td><?= $row->unduh_bukti ?? '0' ?></td>
                                         <td><?= $row->bukti_bayar ?? '0' ?></td>
                                         <td><?= $row->status_unduh ?? '0' ?></td>
-                                        <td><?= $row->status_bukti_bayar ?? 0 ?></td>
+                                        <td><?= $row->status_bukti_bayar ?? 'Belum diunggah' ?></td>
                                         <td>
                                             <!-- Tombol Download -->
                                             <?php if ($row->file_bukti_bayar) : ?>

@@ -76,6 +76,8 @@ class LayananPajakController extends BaseController
         }
 
         $nama = $dataPegawai->nama_A3;
+        log_message("info", "data: " . print_r($dataPegawai, true));
+        $file = $dataPegawai -> file_bukti_bayar;
 
         // Tentukan folder penyimpanan berdasarkan ekstensi file
         $folderPath = FCPATH . 'FileUpload/BuktiPembayaranPajak/';
@@ -87,7 +89,7 @@ class LayananPajakController extends BaseController
 
         // Nama file baru
         $fileName = $npwp . "_" . $nama . "_" . $yearOption . '.' . $fileExtension;
-
+        $removeFile= $folderPath . $file;
         // Path lengkap file baru
         $filePath = $folderPath . $fileName;
 
@@ -96,29 +98,35 @@ class LayananPajakController extends BaseController
             unlink($filePath);
         }
 
-        if ($fileUpload->isValid() && !$fileUpload->hasMoved()) {
+        if ($fileUpload->isValid()) {
             $fileUpload->move($folderPath, $fileName);
 
-            // Update data pada database
-            $dataToUpdate = [
-                'status_bukti_bayar' => 'sudah diunggah',
-                'file_bukti_bayar' => $fileName,
-            ];
+            //cek apakah file telah dipindahkan
+            if ($fileUpload->hasMoved()) {
+                log_message("info", "File has moved");
 
-            // Panggil method updateDataByNpwp untuk melakukan update
-            $affectedRows = $this->DataModel->updateDataByNpwp($npwp, $dataToUpdate);
+                // Update data pada database
+                $dataToUpdate = [
+                    'status_bukti_bayar' => 'sudah diunggah',
+                    'file_bukti_bayar' => $fileName,
+                ];
 
-            if ($affectedRows > 0) {
+                // Panggil method updateDataByNpwp untuk melakukan update
+                $affectedRows = $this->DataModel->updateDataByNpwp($npwp, $dataToUpdate);
+                log_message("info", "affectedRows: " . $affectedRows);
+
                 // Update berhasil
                 return redirect()->to(site_url('/layanan-pajak'))->with('success', 'File berhasil diunggah.');
             } else {
-                // Update gagal atau data tidak ditemukan
+                log_message("info", "File has not moved");
+                // Terjadi kesalahan saat mengupdate data atau data tidak ditemukan
                 return redirect()->to(site_url('/layanan-pajak'))->with('error', 'Terjadi kesalahan saat mengupdate data atau data tidak ditemukan.');
             }
         } else {
             // Terjadi kesalahan saat mengunggah file
             return redirect()->to(site_url('/layanan-pajak'))->with('error', 'Terjadi kesalahan saat mengunggah file.');
         }
+
     }
 
 

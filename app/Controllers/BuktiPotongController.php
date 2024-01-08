@@ -18,7 +18,7 @@ class BuktiPotongController extends BaseController
     public function index()
     {
         $dataTable = $this->dataModel->getAllDataTable();
-        // log_message('info',"data bukti potong :".print_r($dataTable,true));
+        log_message('info',"data bukti potong :".print_r($dataTable,true));
         $data = [
             'title' => 'Admin - Bukti Potong',
             'dataTable' => $dataTable
