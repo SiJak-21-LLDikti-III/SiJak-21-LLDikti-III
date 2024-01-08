@@ -167,6 +167,7 @@
                                 const day = document.getElementById("day").value;
                                 const month = document.getElementById("month").value;
                                 const year = document.getElementById("year").value;
+                                const yearOption = document.getElementById("yearOption").value;
                                 const birthDate = year + '-' + month.padStart(2, '0') + '-' + day.padStart(2, '0');
 
                                 // Use AJAX to send data to the server
@@ -176,7 +177,7 @@
                                     data: {
                                         npwp: npwp,
                                         birth: birthDate,
-                                        yearOption: year
+                                        yearOption: yearOption
                                     },
                                     dataType: 'json',
                                     success: function(response) {
