@@ -70,7 +70,7 @@ class LayananPajakController extends BaseController
         $dataPegawai= $this->HomeModel->getUserData($npwp, $birthDate, $yearOption);
         // log_message("info", "dataPegawai: " . print_r($dataPegawai, true));
 
-        $nama = $dataPegawai['nama_A3']; // Gantilah dengan cara mendapatkan nama dari data yang sesuai
+        $nama = $dataPegawai->nama_A3;
         // log_message("info", "nama: " . print_r($nama, true));
 
         // Tentukan folder penyimpanan berdasarkan ekstensi file
