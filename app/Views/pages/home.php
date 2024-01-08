@@ -201,7 +201,7 @@
                                         Swal.fire({
                                             icon: 'error',
                                             title: 'Data tidak ditemukan!',
-                                            text: 'Silahkan periksa kembali data Anda.',
+                                            text: 'Silahkan periksa kembali data Anda. Jika Anda memerlukan bantuan, silahkan hubungi Admin LLDikti 3.',
                                             confirmButtonColor: '#3085d6',
                                             confirmButtonText: 'OK'
                                         });
