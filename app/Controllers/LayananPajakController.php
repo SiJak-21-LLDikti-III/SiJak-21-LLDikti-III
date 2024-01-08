@@ -42,21 +42,23 @@ class LayananPajakController extends BaseController
         // Mendapatkan nilai dari parameter npwp dan tahun dari URL
         $npwp = $this->request->getPost('npwp');
         $yearOption = $this->request->getPost('yearOption');
-        $birthDate= $this->request->getPost('birthDate');
-
-        // log_message("info", "npwp: " . print_r($npwp, true));
-        // log_message("info", "tahun: " . print_r($yearOption, true));
-
-
+        $birthDate = $this->request->getPost('birthDate');
 
         $fileUpload = $this->request->getFile('unggahFile');
 
+        // Validasi apakah file diunggah atau tidak
+        if (!$fileUpload->isValid()) {
+            return redirect()->to(site_url('/layanan-pajak'))->with('error', 'Mohon unggah file terlebih dahulu.');
+        }
+
+        // Validasi ukuran dan jenis file
         $validationRule = [
             'unggahFile' => [
                 'label' => 'File',
                 'rules' => [
                     'uploaded[unggahFile]',
                     'max_size[unggahFile,10240]', // 10 MB
+                    'ext_in[unggahFile,pdf,jpg,jpeg,gif,png,webp]' // Validasi ekstensi file
                 ],
             ],
         ];
@@ -67,11 +69,13 @@ class LayananPajakController extends BaseController
         }
 
         $fileExtension = $fileUpload->getClientExtension();
-        $dataPegawai= $this->HomeModel->getUserData($npwp, $birthDate, $yearOption);
-        // log_message("info", "dataPegawai: " . print_r($dataPegawai, true));
+        $dataPegawai = $this->HomeModel->getUserData($npwp, $birthDate, $yearOption);
+
+        if (!$dataPegawai) {
+            return redirect()->to(site_url('/layanan-pajak'))->with('error', 'Data tidak ditemukan.');
+        }
 
         $nama = $dataPegawai->nama_A3;
-        // log_message("info", "nama: " . print_r($nama, true));
 
         // Tentukan folder penyimpanan berdasarkan ekstensi file
         $folderPath = FCPATH . 'FileUpload/BuktiPembayaranPajak/';
@@ -81,14 +85,21 @@ class LayananPajakController extends BaseController
             $folderPath .= 'pdf/';
         }
 
+        // Nama file baru
         $fileName = $npwp . "_" . $nama . "_" . $yearOption . '.' . $fileExtension;
+
+        // Path lengkap file baru
+        $filePath = $folderPath . $fileName;
+
+        // Cek apakah file lama sudah ada, dan hapus jika ada
+        if (file_exists($filePath)) {
+            unlink($filePath);
+        }
 
         if ($fileUpload->isValid() && !$fileUpload->hasMoved()) {
             $fileUpload->move($folderPath, $fileName);
 
-            // Lakukan apa yang diperlukan dengan file yang sudah diunggah
-            // Misalnya, simpan data ke database atau lakukan proses lainnya
-            // melakukan update
+            // Update data pada database
             $dataToUpdate = [
                 'status_bukti_bayar' => 'sudah diunggah',
                 'file_bukti_bayar' => $fileName,
@@ -99,17 +110,16 @@ class LayananPajakController extends BaseController
 
             if ($affectedRows > 0) {
                 // Update berhasil
-                // log_message("info", "File berhasil diunggah: " . $fileName);
                 return redirect()->to(site_url('/layanan-pajak'))->with('success', 'File berhasil diunggah.');
             } else {
                 // Update gagal atau data tidak ditemukan
                 return redirect()->to(site_url('/layanan-pajak'))->with('error', 'Terjadi kesalahan saat mengupdate data atau data tidak ditemukan.');
             }
-
         } else {
-            // return $this->response->setJSON(['status' => 'error', 'message' => 'Terjadi kesalahan saat mengunggah file.']);
+            // Terjadi kesalahan saat mengunggah file
             return redirect()->to(site_url('/layanan-pajak'))->with('error', 'Terjadi kesalahan saat mengunggah file.');
         }
     }
+
 
 }
