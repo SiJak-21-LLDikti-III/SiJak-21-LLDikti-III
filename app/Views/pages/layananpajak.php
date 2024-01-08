@@ -145,8 +145,8 @@
                                 <input type="hidden" name="birthDate" id="birthDateInput" value="">
                                 <input type="hidden" name="yearOption" id="yearOptionInput" value="">
 
-                                <button type="submit" id="buttonUnggahFile"
-                                    class="btn btn-primary w-100">Submit</button>
+                                <button type="submit" id="buttonUnggahFile" class="btn btn-primary w-100"
+                                    disabled>Submit</button>
                             </form>
 
                             <!-- Script JavaScript untuk menetapkan nilai input tersembunyi -->
@@ -155,6 +155,18 @@
                             document.getElementById('npwpInput').value = npwp;
                             document.getElementById('birthDateInput').value = birthDate;
                             document.getElementById('yearOptionInput').value = yearOption;
+
+                            document.getElementById('unggahFile').addEventListener('change', function() {
+                                const fileInput = document.getElementById('unggahFile');
+                                const submitButton = document.getElementById('buttonUnggahFile');
+
+                                // Cek apakah ada file yang dipilih
+                                if (fileInput.files.length > 0) {
+                                    submitButton.removeAttribute('disabled'); // Aktifkan tombol submit
+                                } else {
+                                    submitButton.setAttribute('disabled', true); // Nonaktifkan tombol submit
+                                }
+                            });
                             </script>
 
 
