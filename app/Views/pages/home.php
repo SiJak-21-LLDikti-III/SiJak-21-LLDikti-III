@@ -191,7 +191,7 @@
                                         }).then((result) => {
                                             // If the user clicks "OK," proceed to the specified URL
                                             if (result.isConfirmed) {
-                                                const url = 'layanan-pajak?npwp=' + encodeURIComponent(npwp) + '&birth=' + birthDate + '&yearOption=' + year;
+                                                const url = 'layanan-pajak?npwp=' + encodeURIComponent(npwp) + '&birth=' + encodeURIComponent(birth) + '&yearOption=' + encodeURIComponent(yearOption);
                                                 window.location.href = url;
                                             }
                                         });
