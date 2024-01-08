@@ -1,6 +1,10 @@
 <?php
 $mperlanText = "mperlan_H04-H05";
-$mperlan = $user->$mperlanText; //2024-04-04
+$mperlan = $user->$mperlanText;
+function frb($angka)
+{
+    return number_format($angka, 0, ',', '.');
+}
 ?>
 <!DOCTYPE html>
 <!--[if IE]>  <html class="stl_ie"> <![endif]-->
@@ -324,28 +328,28 @@ $mperlan = $user->$mperlanText; //2024-04-04
                         <div class="stl_01" style="left:42.0692em;top:7.3207em;"><span class="stl_13 stl_08 stl_12">[mm-mm] &nbsp;</span></div>
                         <div class="stl_01" style="left:2.805em;top:7.1832em;"><span class="stl_14 stl_08 stl_09" style="word-spacing:-0em;">KEMENTERIAN KEUANGAN R.I. &nbsp;</span></div>
                         <div class="stl_01" style="left:2.5825em;top:7.949em;"><span class="stl_14 stl_08 stl_15" style="word-spacing:-0.0008em;">DIREKTORAT JENDERAL PAJAK &nbsp;</span></div>
-                        <div class="stl_01" style="left:20.565em;top:7.6498em;"><span class="stl_16 stl_08 stl_17">2</span></div>
-                        <div class="stl_01" style="left:21.8983em;top:7.6498em;"><span class="stl_16 stl_08 stl_17">0</span></div>
-                        <div class="stl_01" style="left:23.2317em;top:7.6498em;"><span class="stl_16 stl_08 stl_17">0</span></div>
-                        <div class="stl_01" style="left:24.6483em;top:7.6498em;"><span class="stl_16 stl_08 stl_17">0</span></div>
-                        <div class="stl_01" style="left:25.8983em;top:7.6498em;"><span class="stl_16 stl_08 stl_17">0</span></div>
-                        <div class="stl_01" style="left:27.2317em;top:7.6498em;"><span class="stl_16 stl_08 stl_17">0</span></div>
-                        <div class="stl_01" style="left:28.565em;top:7.6498em;"><span class="stl_16 stl_08 stl_17">0</span></div>
-                        <div class="stl_01" style="left:29.8983em;top:7.6498em;"><span class="stl_16 stl_08 stl_17">0</span></div>
-                        <div class="stl_01" style="left:31.315em;top:7.6498em;"><span class="stl_16 stl_08 stl_17">0</span></div>
-                        <div class="stl_01" style="left:32.565em;top:7.6498em;"><span class="stl_16 stl_08 stl_17">1</span></div>
+                        <div class="stl_01" style="left:20.565em;top:7.6498em;"><span class="stl_16 stl_08 stl_17"><?= substr($user->no_H01, 0, 1) ?></span></div>
+                        <div class="stl_01" style="left:21.8983em;top:7.6498em;"><span class="stl_16 stl_08 stl_17"><?= substr($user->no_H01, 1, 1) ?></span></div>
+                        <div class="stl_01" style="left:23.2317em;top:7.6498em;"><span class="stl_16 stl_08 stl_17"><?= substr($user->no_H01, 2, 1) ?></span></div>
+                        <div class="stl_01" style="left:24.6483em;top:7.6498em;"><span class="stl_16 stl_08 stl_17"><?= substr($user->no_H01, 3, 1) ?></span></div>
+                        <div class="stl_01" style="left:25.8983em;top:7.6498em;"><span class="stl_16 stl_08 stl_17"><?= substr($user->no_H01, 4, 1) ?></span></div>
+                        <div class="stl_01" style="left:27.2317em;top:7.6498em;"><span class="stl_16 stl_08 stl_17"><?= substr($user->no_H01, 5, 1) ?></span></div>
+                        <div class="stl_01" style="left:28.565em;top:7.6498em;"><span class="stl_16 stl_08 stl_17"><?= substr($user->no_H01, 6, 1) ?></span></div>
+                        <div class="stl_01" style="left:29.8983em;top:7.6498em;"><span class="stl_16 stl_08 stl_17"><?= substr($user->no_H01, 7, 1) ?></span></div>
+                        <div class="stl_01" style="left:31.315em;top:7.6498em;"><span class="stl_16 stl_08 stl_17"><?= substr($user->no_H01, 8, 1) ?></span></div>
+                        <div class="stl_01" style="left:32.565em;top:7.6498em;"><span class="stl_16 stl_08 stl_17"><?= substr($user->no_H01, 9, 1) ?></span></div>
                         <div class="stl_01" style="left:18.25em;top:7.9453em;"><span class="stl_18 stl_19 stl_15">H.01 &nbsp;</span></div>
                         <div class="stl_01" style="left:18.25em;top:10.6953em;"><span class="stl_18 stl_19 stl_15">H.02 &nbsp;</span></div>
                         <div class="stl_01" style="left:14.8533em;top:8.1082em;"><span class="stl_14 stl_08 stl_09" style="word-spacing:-0.0001em;">NOMOR : &nbsp;</span></div>
-                        <div class="stl_01" style="left:41.3983em;top:8.2332em;"><span class="stl_16 stl_08 stl_17">0</span></div>
-                        <div class="stl_01" style="left:42.7317em;top:8.2332em;"><span class="stl_16 stl_08 stl_17">1</span></div>
-                        <div class="stl_01" style="left:44.9817em;top:8.2332em;"><span class="stl_16 stl_08 stl_17">0</span></div>
-                        <div class="stl_01" style="left:46.315em;top:8.2332em;"><span class="stl_16 stl_08 stl_17">4</span></div>
+                        <div class="stl_01" style="left:41.3983em;top:8.2332em;"><span class="stl_16 stl_08 stl_17"><?= substr($mperlan, 5, 1) ?></span></div>
+                        <div class="stl_01" style="left:42.7317em;top:8.2332em;"><span class="stl_16 stl_08 stl_17"><?= substr($mperlan, 6, 1) ?></span></div>
+                        <div class="stl_01" style="left:44.9817em;top:8.2332em;"><span class="stl_16 stl_08 stl_17"><?= substr($mperlan, 8, 1) ?></span></div>
+                        <div class="stl_01" style="left:46.315em;top:8.2332em;"><span class="stl_16 stl_08 stl_17"><?= substr($mperlan, 9, 1) ?></span></div>
                         <div class="stl_01" style="left:43.9583em;top:8.4874em;"><span class="stl_13 stl_08 stl_17">-</span></div>
                         <div class="stl_01" style="left:38.9167em;top:8.4453em;"><span class="stl_18 stl_19 stl_15">H.04 &nbsp;</span></div>
                         <div class="stl_01" style="left:39.0308em;top:9.8624em;"><span class="stl_13 stl_08 stl_10" style="word-spacing:0.0002em;">MASA PEROLEHAN PENGHASILAN &nbsp;</span></div>
                         <div class="stl_01" style="left:42.5692em;top:10.529em;"><span class="stl_13 stl_08 stl_12">[yyyy] &nbsp;</span></div>
-                        <div class="stl_01" style="left:27.815em;top:10.3998em;"><span class="stl_16 stl_08 stl_17">0</span></div>
+                        <div class="stl_01" style="left:27.815em;top:10.3998em;"><span class="stl_16 stl_08 stl_17"><?= $user->spt_H02 ?></span></div>
                         <div class="stl_01" style="left:32.75em;top:10.5286em;"><span class="stl_20 stl_19 stl_15">Pembatalan &nbsp;</span></div>
                         <div class="stl_01" style="left:20.6117em;top:10.5665em;"><span class="stl_16 stl_08 stl_17">X</span></div>
                         <div class="stl_01" style="left:21.5833em;top:10.6953em;"><span class="stl_20 stl_19 stl_09" style="word-spacing:-0.0007em;">SPT Pembetulan Ke- &nbsp;</span></div>
@@ -362,24 +366,26 @@ $mperlan = $user->$mperlanText; //2024-04-04
                         <div class="stl_01" style="left:28.75em;top:14.8619em;"><span class="stl_20 stl_19 stl_21" style="word-spacing:0.5536em;">A.5 NAMA</span><span class="stl_20 stl_19 stl_17" style="word-spacing:-0.0007em;">&nbsp;</span><span class="stl_20 stl_19 stl_21">JABATAN &nbsp;</span></div>
                         <div class="stl_01" style="left:8.5833em;top:14.8657em;"><span class="stl_16 stl_08 stl_17">:</span></div>
                         <div class="stl_01" style="left:35.4167em;top:14.8657em;"><span class="stl_16 stl_08 stl_17">:</span></div>
-                        <div class="stl_01" style="left:9.94em;top:14.8998em;"><span class="stl_16 stl_08 stl_17">6</span></div>
-                        <div class="stl_01" style="left:10.94em;top:14.8998em;"><span class="stl_16 stl_08 stl_17">8</span></div>
-                        <div class="stl_01" style="left:12.44em;top:14.8998em;"><span class="stl_16 stl_08 stl_17">8</span></div>
-                        <div class="stl_01" style="left:13.5233em;top:14.8998em;"><span class="stl_16 stl_08 stl_17">8</span></div>
-                        <div class="stl_01" style="left:14.5233em;top:14.8998em;"><span class="stl_16 stl_08 stl_17">6</span></div>
-                        <div class="stl_01" style="left:16.19em;top:14.8998em;"><span class="stl_16 stl_08 stl_17">1</span></div>
-                        <div class="stl_01" style="left:17.19em;top:14.8998em;"><span class="stl_16 stl_08 stl_17">8</span></div>
-                        <div class="stl_01" style="left:18.19em;top:14.8998em;"><span class="stl_16 stl_08 stl_17">2</span></div>
-                        <div class="stl_01" style="left:19.8567em;top:14.8998em;"><span class="stl_16 stl_08 stl_17">2</span></div>
-                        <div class="stl_01" style="left:21.5233em;top:14.8998em;"><span class="stl_16 stl_08 stl_17">4</span></div>
-                        <div class="stl_01" style="left:22.5233em;top:14.8998em;"><span class="stl_16 stl_08 stl_17">3</span></div>
-                        <div class="stl_01" style="left:23.5233em;top:14.8998em;"><span class="stl_16 stl_08 stl_17">2</span></div>
-                        <div class="stl_01" style="left:25.1067em;top:14.8998em;"><span class="stl_16 stl_08 stl_17">0</span></div>
-                        <div class="stl_01" style="left:26.1067em;top:14.8998em;"><span class="stl_16 stl_08 stl_17">0</span></div>
-                        <div class="stl_01" style="left:27.1067em;top:14.8998em;"><span class="stl_16 stl_08 stl_17">0</span></div>
-                        <div class="stl_01" style="left:36.6667em;top:14.8998em;"><span class="stl_16 stl_08 stl_22" style="word-spacing:0.0004em;">DOSEN DPK &nbsp;</span></div>
+                        <div class="stl_01" style="left:9.94em;top:14.8998em;"><span class="stl_16 stl_08 stl_17"><?= substr($user->npwp_A1, 0, 1) ?></span></div>
+                        <div class="stl_01" style="left:10.94em;top:14.8998em;"><span class="stl_16 stl_08 stl_17"><?= substr($user->npwp_A1, 1, 1) ?></span></div>
+                        <div class="stl_01" style="left:12.44em;top:14.8998em;"><span class="stl_16 stl_08 stl_17"><?= substr($user->npwp_A1, 2, 1) ?></span></div>
+                        <div class="stl_01" style="left:13.5233em;top:14.8998em;"><span class="stl_16 stl_08 stl_17"><?= substr($user->npwp_A1, 3, 1) ?></span></div>
+                        <div class="stl_01" style="left:14.5233em;top:14.8998em;"><span class="stl_16 stl_08 stl_17"><?= substr($user->npwp_A1, 4, 1) ?></span></div>
+                        <div class="stl_01" style="left:16.19em;top:14.8998em;"><span class="stl_16 stl_08 stl_17"><?= substr($user->npwp_A1, 5, 1) ?></span></div>
+                        <div class="stl_01" style="left:17.19em;top:14.8998em;"><span class="stl_16 stl_08 stl_17"><?= substr($user->npwp_A1, 6, 1) ?></span></div>
+                        <div class="stl_01" style="left:18.19em;top:14.8998em;"><span class="stl_16 stl_08 stl_17"><?= substr($user->npwp_A1, 7, 1) ?></span></div>
+                        <div class="stl_01" style="left:19.8567em;top:14.8998em;"><span class="stl_16 stl_08 stl_17"><?= substr($user->npwp_A1, 8, 1) ?></span></div>
+                        <div class="stl_01" style="left:21.5233em;top:14.8998em;"><span class="stl_16 stl_08 stl_17"><?= substr($user->npwp_A1, 9, 1) ?></span></div>
+                        <div class="stl_01" style="left:22.5233em;top:14.8998em;"><span class="stl_16 stl_08 stl_17"><?= substr($user->npwp_A1, 10, 1) ?></span></div>
+                        <div class="stl_01" style="left:23.5233em;top:14.8998em;"><span class="stl_16 stl_08 stl_17"><?= substr($user->npwp_A1, 11, 1) ?></span></div>
+                        <div class="stl_01" style="left:25.1067em;top:14.8998em;"><span class="stl_16 stl_08 stl_17"><?= substr($user->npwp_A1, 12, 1) ?></span></div>
+                        <div class="stl_01" style="left:26.1067em;top:14.8998em;"><span class="stl_16 stl_08 stl_17"><?= substr($user->npwp_A1, 13, 1) ?></span></div>
+                        <div class="stl_01" style="left:27.1067em;top:14.8998em;"><span class="stl_16 stl_08 stl_17"><?= substr($user->npwp_A1, 14, 1) ?></span></div>
+                        <div class="stl_01" style="left:36.6667em;top:14.8998em;"><span class="stl_16 stl_08 stl_22" style="word-spacing:0.0004em;"><?= $user->nama_jabatan_A5 ?>&nbsp;</span></div>
+                        <div class="stl_01" style="left:36.6667em;top:17.7em;"><span class="stl_16 stl_08 stl_22" style="word-spacing:0.0004em;"><?= $user->nik_A7 ?> &nbsp;</span></div>
                         <div class="stl_01" style="left:38.0833em;top:16.3619em;"><span class="stl_23 stl_19 stl_10">LAKI-LAKI &nbsp;</span></div>
                         <div class="stl_01" style="left:43.9167em;top:16.3619em;"><span class="stl_23 stl_19 stl_22">PEREMPUAN &nbsp;</span></div>
+                        <!-- Silang jenis kelamin -->
                         <div class="stl_01" style="left:36.9033em;top:16.3165em;"><span class="stl_16 stl_08 stl_17">X</span></div>
                         <div class="stl_01" style="left:28.8333em;top:16.4453em;"><span class="stl_20 stl_19 stl_09" style="word-spacing:0.5541em;">A.6 JENIS</span><span class="stl_20 stl_19 stl_17" style="word-spacing:-0.0013em;">&nbsp;</span><span class="stl_20 stl_19 stl_09">KELAMIN &nbsp;</span></div>
                         <div class="stl_01" style="left:28.75em;top:17.8619em;"><span class="stl_20 stl_19 stl_09" style="word-spacing:0.554em;">A.7 NIK &nbsp;</span></div>
@@ -397,21 +403,23 @@ $mperlan = $user->$mperlanText; //2024-04-04
                         <div class="stl_01" style="left:34.6667em;top:20.1119em;"><span class="stl_23 stl_19 stl_26">TK/ &nbsp;</span></div>
                         <div class="stl_01" style="left:40.8333em;top:20.1119em;"><span class="stl_23 stl_19 stl_10">HB/ &nbsp;</span></div>
                         <div class="stl_01" style="left:9.8333em;top:20.0665em;"><span class="stl_16 stl_08 stl_26"><?= $user->pangkat_A4 ?> &nbsp;</span></div>
-                        <div class="stl_01" style="left:30em;top:20.1498em;"><span class="stl_16 stl_08 stl_17">0</span></div>
+                        <div class="stl_01" style="left:30em;top:20.1498em;"><span class="stl_16 stl_08 stl_17">021</span></div>
                         <div class="stl_01" style="left:1.75em;top:21.7823em;"><span class="stl_14 stl_08 stl_09" style="word-spacing:-0.0002em;">B. RINCIAN PENGHASILAN DAN PENGHITUNGAN PPh PASAL 21 &nbsp;</span></div>
                         <div class="stl_01" style="left:17.4542em;top:22.7332em;"><span class="stl_14 stl_08 stl_21">URAIAN &nbsp;</span></div>
                         <div class="stl_01" style="left:39.8117em;top:22.7332em;"><span class="stl_14 stl_08 stl_21" style="word-spacing:-0.0004em;">JUMLAH (Rp) &nbsp;</span></div>
                         <div class="stl_01" style="left:4.5833em;top:23.9853em;"><span class="stl_20 stl_19 stl_15" style="word-spacing:-0.0004em;">KODE OBJEK PAJAK : &nbsp;</span></div>
                         <div class="stl_01" style="left:2em;top:25.2353em;"><span class="stl_20 stl_19 stl_09" style="word-spacing:0.0001em;">PENGHASILAN BRUTO &nbsp;</span></div>
+                        <!-- silang kode objek pajak -->
                         <div class="stl_01" style="left:14.9867em;top:23.9832em;"><span class="stl_16 stl_08 stl_17">X</span></div>
                         <div class="stl_01" style="left:16.5458em;top:24.0686em;"><span class="stl_23 stl_19 stl_12">21-100-01 &nbsp;</span></div>
                         <div class="stl_01" style="left:26.7958em;top:24.0686em;"><span class="stl_23 stl_19 stl_12">21-100-02 &nbsp;</span></div>
+                        <!-- A.8 K TK HB -->
                         <div class="stl_01" style="left:2.7542em;top:26.4436em;"><span class="stl_23 stl_19 stl_17">1</span></div>
                         <div class="stl_01" style="left:4.50em;top:26.5269em;"><span class="stl_23 stl_19 stl_22" style="word-spacing:-0.002em;">GAJI POKOK/PENSIUNAN &nbsp;</span></div>
                         <div class="stl_01" style="left:4.50em;top:27.4436em;"><span class="stl_23 stl_19 stl_10" style="word-spacing:0.0002em;">TUNJANGAN ISTRI &nbsp;</span></div>
-                        <div class="stl_01" style="left:43.915em;top:26.4832em;"><span class="stl_16 stl_08 stl_21">22.646.899 &nbsp;</span></div>
-                        <div class="stl_01" style="left:44.2858em;top:27.3998em;"><span class="stl_16 stl_08 stl_21">2.264.680 &nbsp;</span></div>
-                        <div class="stl_01" style="left:46.8792em;top:28.3998em;"><span class="stl_16 stl_08 stl_17">0</span></div>
+                        <div class="stl_01" style="left:43.915em;top:26.4832em;"><span class="stl_16 stl_08 stl_21"><?= frb($user->gaji_pokok) ?>&nbsp;</span></div>
+                        <div class="stl_01" style="left:44.2858em;top:27.3998em;"><span class="stl_16 stl_08 stl_21"><?= frb($user->tj_istri) ?>&nbsp;</span></div>
+                        <div class="stl_01" style="left:43.915em;top:28.3998em;"><span class="stl_16 stl_08 stl_17"><?= frb($user->tj_anak) ?>&nbsp;</span></div>
                         <div class="stl_01" style="left:2.7958em;top:27.5269em;"><span class="stl_23 stl_19 stl_17">2</span></div>
                         <div class="stl_01" style="left:2.8375em;top:28.4436em;"><span class="stl_23 stl_19 stl_17">3</span></div>
                         <div class="stl_01" style="left:2.7542em;top:29.3603em;"><span class="stl_23 stl_19 stl_17">4</span></div>
@@ -420,38 +428,38 @@ $mperlan = $user->$mperlanText; //2024-04-04
                         <div class="stl_01" style="left:4.50em;top:30.2769em;"><span class="stl_23 stl_19 stl_22" style="word-spacing:0.0004em;">TUNJANGAN PERBAIKAN PENGHASILAN &nbsp;</span></div>
                         <div class="stl_01" style="left:4.50em;top:31.1103em;"><span class="stl_23 stl_19 stl_10" style="word-spacing:0.0002em;">TUNJANGAN STRUKTURAL/FUNGSIONAL &nbsp;</span></div>
                         <div class="stl_01" style="left:4.50em;top:31.9436em;"><span class="stl_23 stl_19 stl_10" style="word-spacing:0.0002em;">TUNJANGAN BERAS &nbsp;</span></div>
-                        <div class="stl_01" style="left:43.915em;top:29.3165em;"><span class="stl_16 stl_08 stl_21">24.911.579 &nbsp;</span></div>
+                        <div class="stl_01" style="left:43.915em;top:29.3165em;"><span class="stl_16 stl_08 stl_21"><?= frb($user->jml_gaji) ?>&nbsp;</span></div>
                         <div class="stl_01" style="left:2.7542em;top:30.2769em;"><span class="stl_23 stl_19 stl_17">5</span></div>
                         <div class="stl_01" style="left:2.7542em;top:31.1519em;"><span class="stl_23 stl_19 stl_17">6</span></div>
                         <div class="stl_01" style="left:2.7958em;top:31.9853em;"><span class="stl_23 stl_19 stl_17">7</span></div>
                         <div class="stl_01" style="left:2.8375em;top:32.7769em;"><span class="stl_23 stl_19 stl_17">8</span></div>
-                        <div class="stl_01" style="left:46.8792em;top:30.3165em;"><span class="stl_16 stl_08 stl_17">0</span></div>
-                        <div class="stl_01" style="left:44.2858em;top:31.0665em;"><span class="stl_16 stl_08 stl_21">5.400.147 &nbsp;</span></div>
-                        <div class="stl_01" style="left:44.8417em;top:31.9832em;"><span class="stl_16 stl_08 stl_21">579.360 &nbsp;</span></div>
-                        <div class="stl_01" style="left:43.915em;top:32.7332em;"><span class="stl_16 stl_08 stl_21">30.891.086 &nbsp;</span></div>
+                        <div class="stl_01" style="left:44.2858em;top:30.3165em;"><span class="stl_16 stl_08 stl_17"><?= frb($user->tj_perbaikan) ?>&nbsp;</span></div>
+                        <div class="stl_01" style="left:44.2858em;top:31.0665em;"><span class="stl_16 stl_08 stl_21"><?= frb($user->tj_struktural) ?>&nbsp;</span></div>
+                        <div class="stl_01" style="left:44.8417em;top:31.9832em;"><span class="stl_16 stl_08 stl_21"><?= frb($user->tj_beras) ?>&nbsp;</span></div>
+                        <div class="stl_01" style="left:43.915em;top:32.7332em;"><span class="stl_16 stl_08 stl_21"><?= frb($user->jml_bruto_1) ?>&nbsp;</span></div>
                         <div class="stl_01" style="left:4.50em;top:32.7769em;"><span class="stl_23 stl_19 stl_09" style="word-spacing:-0.0002em;">JUMLAH PENGHASILAN BRUTO (1 S.D. 7) &nbsp;</span></div>
                         <div class="stl_01" style="left:4.50em;top:33.6936em;"><span class="stl_23 stl_19 stl_09" style="word-spacing:0em;">TUNJANGAN LAIN-LAIN &nbsp;</span></div>
                         <div class="stl_01" style="left:2.8375em;top:33.6936em;"><span class="stl_23 stl_19 stl_17">9</span></div>
                         <div class="stl_01" style="left:2.5925em;top:34.5269em;"><span class="stl_23 stl_19 stl_24">10 &nbsp;</span></div>
                         <div class="stl_01" style="left:2.5925em;top:35.3186em;"><span class="stl_23 stl_19 stl_24">11 &nbsp;</span></div>
-                        <div class="stl_01" style="left:46.8792em;top:33.6498em;"><span class="stl_16 stl_08 stl_17">0</span></div>
-                        <div class="stl_01" style="left:44.8417em;top:34.4832em;"><span class="stl_16 stl_08 stl_21">691.667 &nbsp;</span></div>
+                        <div class="stl_01" style="left:46.8792em;top:33.6498em;"><span class="stl_16 stl_08 stl_17"><?= frb($user->tj_lain) ?>&nbsp;</span></div>
+                        <div class="stl_01" style="left:44.8417em;top:34.4832em;"><span class="stl_16 stl_08 stl_21"><?= frb($user->ph_tetap) ?>&nbsp;</span></div>
                         <div class="stl_01" style="left:4.50em;top:34.5269em;"><span class="stl_23 stl_19 stl_22" style="word-spacing:0em;">PENGHASILAN TETAP DAN TERATUR LAINNYA YANG PEMBAYARANNYA TERPISAH DARI PEMBAYARAN GAJI &nbsp;</span></div>
                         <div class="stl_01" style="left:4.50em;top:35.4019em;"><span class="stl_23 stl_19 stl_09" style="word-spacing:-0.0002em;">JUMLAH PENGHASILAN BRUTO (4 S.D. 10) &nbsp;</span></div>
-                        <div class="stl_01" style="left:43.915em;top:35.3998em;"><span class="stl_16 stl_08 stl_21">31.582.753 &nbsp;</span></div>
+                        <div class="stl_01" style="left:43.915em;top:35.3998em;"><span class="stl_16 stl_08 stl_21"><?= frb($user->jml_bruto_2) ?>&nbsp;</span></div>
                         <div class="stl_01" style="left:1.9167em;top:36.4019em;"><span class="stl_20 stl_19 stl_09">PENGURANGAN &nbsp;</span></div>
                         <div class="stl_01" style="left:2.6758em;top:37.4436em;"><span class="stl_23 stl_19 stl_24">12 &nbsp;</span></div>
                         <div class="stl_01" style="left:2.6758em;top:38.3603em;"><span class="stl_23 stl_19 stl_24">13 &nbsp;</span></div>
                         <div class="stl_01" style="left:2.6758em;top:39.3603em;"><span class="stl_23 stl_19 stl_24">14 &nbsp;</span></div>
                         <div class="stl_01" style="left:4.50em;top:37.4436em;"><span class="stl_23 stl_19 stl_27" style="word-spacing:-0.0002em;">BIAYA JABATAN/BIAYA PENSIUN &nbsp;</span></div>
-                        <div class="stl_01" style="left:44.2858em;top:37.3998em;"><span class="stl_16 stl_08 stl_21">1.579.133 &nbsp;</span></div>
-                        <div class="stl_01" style="left:44.2858em;top:38.3998em;"><span class="stl_16 stl_08 stl_21">1.494.133 &nbsp;</span></div>
-                        <div class="stl_01" style="left:44.2858em;top:39.3165em;"><span class="stl_16 stl_08 stl_21">3.073.266 &nbsp;</span></div>
+                        <div class="stl_01" style="left:44.2858em;top:37.3998em;"><span class="stl_16 stl_08 stl_21"><?= frb($user->biaya_jabatan) ?>&nbsp;</span></div>
+                        <div class="stl_01" style="left:44.2858em;top:38.3998em;"><span class="stl_16 stl_08 stl_21"><?= frb($user->iuran_pensiun) ?>&nbsp;</span></div>
+                        <div class="stl_01" style="left:44.2858em;top:39.3165em;"><span class="stl_16 stl_08 stl_21"><?= frb($user->jml_pengurangan) ?>&nbsp;</span></div>
                         <div class="stl_01" style="left:4.50em;top:38.4436em;"><span class="stl_23 stl_19 stl_10" style="word-spacing:0.0002em;">IURAN PENSIUN ATAU IURAN THT/JHT &nbsp;</span></div>
                         <div class="stl_01" style="left:4.50em;top:39.3603em;"><span class="stl_23 stl_19 stl_09" style="word-spacing:-0.0001em;">JUMLAH PENGURANGAN ( 12 S.D. 13) &nbsp;</span></div>
                         <div class="stl_01" style="left:1.9167em;top:40.4853em;"><span class="stl_20 stl_19 stl_10" style="word-spacing:-0.0003em;">PENGHITUNGAN PPh PASAL 21 &nbsp;</span></div>
-                        <div class="stl_01" style="left:43.8317em;top:41.4832em;"><span class="stl_16 stl_08 stl_21">28.509.487 &nbsp;</span></div>
-                        <div class="stl_01" style="left:46.7958em;top:42.4832em;"><span class="stl_16 stl_08 stl_17">0</span></div>
+                        <div class="stl_01" style="left:43.8317em;top:41.4832em;"><span class="stl_16 stl_08 stl_21"><?= frb($user->jml_ph) ?>&nbsp;</span></div>
+                        <div class="stl_01" style="left:46.7958em;top:42.4832em;"><span class="stl_16 stl_08 stl_17"><?= frb($user->ph_neto) ?>&nbsp;</span></div>
                         <div class="stl_01" style="left:2.6758em;top:41.6103em;"><span class="stl_23 stl_19 stl_24">15 &nbsp;</span></div>
                         <div class="stl_01" style="left:2.6758em;top:42.5269em;"><span class="stl_23 stl_19 stl_24">16 &nbsp;</span></div>
                         <div class="stl_01" style="left:2.6758em;top:43.4436em;"><span class="stl_23 stl_19 stl_24">17 &nbsp;</span></div>
@@ -463,12 +471,12 @@ $mperlan = $user->$mperlanText; //2024-04-04
                         <div class="stl_01" style="left:4.50em;top:42.5269em;"><span class="stl_23 stl_19 stl_22" style="word-spacing:-0.0002em;">PENGHASILAN NETO MASA PAJAK SEBELUMNYA &nbsp;</span></div>
                         <div class="stl_01" style="left:4.50em;top:43.4436em;"><span class="stl_23 stl_19 stl_10" style="word-spacing:0em;">JUMLAH PENGHASILAN NETO UNTUK PERHITUNGAN PPh PASAL 21 (SETAHUN/DISETAHUNKAN) &nbsp;</span></div>
                         <div class="stl_01" style="left:4.50em;top:44.3603em;"><span class="stl_23 stl_19 stl_22" style="word-spacing:-0.0002em;">PENGHASILAN TIDAK KENA PAJAK (PTKP) &nbsp;</span></div>
-                        <div class="stl_01" style="left:43.8317em;top:43.3998em;"><span class="stl_16 stl_08 stl_21">85.528.461 &nbsp;</span></div>
-                        <div class="stl_01" style="left:43.8317em;top:44.3165em;"><span class="stl_16 stl_08 stl_21">58.500.000 &nbsp;</span></div>
-                        <div class="stl_01" style="left:43.8317em;top:45.2332em;"><span class="stl_16 stl_08 stl_21">27.028.000 &nbsp;</span></div>
-                        <div class="stl_01" style="left:44.7583em;top:46.1498em;"><span class="stl_16 stl_08 stl_21">450.466 &nbsp;</span></div>
-                        <div class="stl_01" style="left:44.7583em;top:47.0665em;"><span class="stl_16 stl_08 stl_21">450.466 &nbsp;</span></div>
-                        <div class="stl_01" style="left:46.7958em;top:47.9832em;"><span class="stl_16 stl_08 stl_17">0</span></div>
+                        <div class="stl_01" style="left:43.8317em;top:43.3998em;"><span class="stl_16 stl_08 stl_21"><?= frb($user->jml_ph_neto) ?>&nbsp;</span></div>
+                        <div class="stl_01" style="left:43.8317em;top:44.3165em;"><span class="stl_16 stl_08 stl_21"><?= frb($user->ptktp) ?>&nbsp;</span></div>
+                        <div class="stl_01" style="left:43.8317em;top:45.2332em;"><span class="stl_16 stl_08 stl_21"><?= frb($user->ph_kena_pajak) ?>&nbsp;</span></div>
+                        <div class="stl_01" style="left:44.7583em;top:46.1498em;"><span class="stl_16 stl_08 stl_21"><?= frb($user->pph_ph) ?>&nbsp;</span></div>
+                        <div class="stl_01" style="left:44.7583em;top:47.0665em;"><span class="stl_16 stl_08 stl_21"><?= frb($user->pph_potong) ?>&nbsp;</span></div>
+                        <div class="stl_01" style="left:46.7958em;top:47.9832em;"><span class="stl_16 stl_08 stl_17"><?= frb($user->pph_utang) ?>&nbsp;</span></div>
                         <div class="stl_01" style="left:4.5em;top:45.2769em;"><span class="stl_23 stl_19 stl_22" style="word-spacing:-0.0002em;">PENGHASILAN KENA PAJAK SETAHUN/DISETAHUNKAN</span><span class="stl_23 stl_19 stl_17" style="word-spacing:0.2767em;">&nbsp;</span><span class="stl_23 stl_19 stl_12">(17-18) &nbsp;</span></div>
                         <div class="stl_01" style="left:4.5em;top:46.1936em;"><span class="stl_23 stl_19 stl_22" style="word-spacing:0.0001em;">PPh PASAL 21 ATAS PENGHASILAN KENA PAJAK SETAHUN/DISETAHUNKAN &nbsp;</span></div>
                         <div class="stl_01" style="left:4.5em;top:47.1103em;"><span class="stl_23 stl_19 stl_22" style="word-spacing:0.0001em;">PPh PASAL 21 YANG TELAH DIPOTONG MASA PAJAK SEBELUMNYA &nbsp;</span></div>
@@ -476,10 +484,11 @@ $mperlan = $user->$mperlanText; //2024-04-04
                         <div class="stl_01" style="left:2.6758em;top:48.1103em;"><span class="stl_23 stl_19 stl_24">22 &nbsp;</span></div>
                         <div class="stl_01" style="left:2.6758em;top:48.9436em;"><span class="stl_23 stl_19 stl_24">23 &nbsp;</span></div>
                         <div class="stl_01" style="left:4.5em;top:48.9436em;"><span class="stl_23 stl_19 stl_22" style="word-spacing:0.0002em;">PPh PASAL 21 YANG TELAH DIPOTONG DAN DILUNASI &nbsp;</span></div>
-                        <div class="stl_01" style="left:46.7958em;top:49.6498em;"><span class="stl_16 stl_08 stl_17">0</span></div>
-                        <div class="stl_01" style="left:46.7958em;top:50.3998em;"><span class="stl_16 stl_08 stl_17">0</span></div>
+                        <div class="stl_01" style="left:46.7958em;top:49.6498em;"><span class="stl_16 stl_08 stl_17"><?= frb($user->atas_gaji_23A) ?>&nbsp;</span></div>
+                        <div class="stl_01" style="left:46.7958em;top:50.3998em;"><span class="stl_16 stl_08 stl_17"><?= frb($user->atas_ph_23B) ?>&nbsp;</span></div>
                         <div class="stl_01" style="left:4.5em;top:49.8207em;"><span class="stl_28 stl_08 stl_22" style="word-spacing:1.1077em;">23A. ATAS</span><span class="stl_28 stl_08 stl_17" style="word-spacing:-0.0011em;">&nbsp;</span><span class="stl_28 stl_08 stl_09" style="word-spacing:-0.0002em;">GAJI DAN TUNJANGAN &nbsp;</span></div>
                         <div class="stl_01" style="left:4.5em;top:50.5707em;"><span class="stl_28 stl_08 stl_22" style="word-spacing:1.1077em;">23B. ATAS</span><span class="stl_28 stl_08 stl_17" style="word-spacing:-0.0011em;">&nbsp;</span><span class="stl_28 stl_08 stl_22" style="word-spacing:0.0001em;">PENGHASILAN TETAP DAN TERATUR LAINNYA YANG PEMBAYARAN TERPISAH DARI PEMBAYARAN GAJI &nbsp;</span></div>
+                        <!-- silang status pegawai -->
                         <div class="stl_01" style="left:41.57em;top:51.6498em;"><span class="stl_16 stl_08 stl_17">X</span></div>
                         <div class="stl_01" style="left:39.5em;top:51.7786em;"><span class="stl_18 stl_19 stl_15">C.04 &nbsp;</span></div>
                         <div class="stl_01" style="left:1.75em;top:51.7823em;"><span class="stl_14 stl_08 stl_10" style="word-spacing:-0.0005em;">C. PEGAWAI TERSEBUT : &nbsp;</span></div>
