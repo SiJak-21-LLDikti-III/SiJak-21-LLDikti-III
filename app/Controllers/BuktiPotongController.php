@@ -119,14 +119,14 @@ class BuktiPotongController extends BaseController
                         'jml_ph' => (int)($data[27] ?: 0),
                         'ph_neto' => (int)($data[28] ?: 0),
                         'jml_ph_neto' => (int)($data[29] ?: 0),
-                        'ptktp' => (int)($data[30] ?: 0),
+                        'ptkp' => (int)($data[30] ?: 0),
                         'ph_kena_pajak' => (int)($data[31] ?: 0),
                         'pph_ph' => (int)($data[32] ?: 0),
                         'pph_potong' => (int)($data[33] ?: 0),
                         'pph_utang' => (int)($data[34] ?: 0),
                         'pph_potong_lunas' => (int)($data[35] ?: 0),
-                        'atas_gaji_23A' => (int)($data[36] ?: 0),
-                        'atas_ph_23B' => (int)($data[37] ?: 0),
+                        // 'atas_gaji_23A' => (int)($data[36] ?: 0),
+                        // 'atas_ph_23B' => (int)($data[37] ?: 0),
                         'status_pegawai' => $data[38] ?: '0', // Jika status_pegawai bertipe varchar, ganti '0' menjadi nilai default yang sesuai
                     ]);
 
