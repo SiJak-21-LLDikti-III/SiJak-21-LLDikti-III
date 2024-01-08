@@ -168,7 +168,7 @@
                                 const month = document.getElementById("month").value;
                                 const year = document.getElementById("year").value;
                                 const yearOption = document.getElementById("yearOption").value;
-                                const birthDate = year + '-' + month.padStart(2, '0') + '-' + day.padStart(2, '0');
+                                const birth = year + '-' + month.padStart(2, '0') + '-' + day.padStart(2, '0');
 
                                 // Use AJAX to send data to the server
                                 $.ajax({
@@ -176,7 +176,7 @@
                                     url: '/checkData', // The method in HomeController to handle data checking
                                     data: {
                                         npwp: npwp,
-                                        birth: birthDate,
+                                        birth: birth,
                                         yearOption: yearOption
                                     },
                                     dataType: 'json',
