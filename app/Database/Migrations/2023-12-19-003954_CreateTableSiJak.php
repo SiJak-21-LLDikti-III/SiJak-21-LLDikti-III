@@ -149,10 +149,10 @@ class CreateTableSiJak extends Migration
                 'type' => 'INT',
                 'null' => true,
             ],
-            'pph_potong_lunas' => [
-                'type' => 'INT',
-                'null' => true,
-            ],
+            // 'pph_potong_lunas' => [
+            //     'type' => 'INT',
+            //     'null' => true,
+            // ],
             // 'atas_gaji_23A' => [
             //     'type' => 'INT',
             //     'null' => true,
