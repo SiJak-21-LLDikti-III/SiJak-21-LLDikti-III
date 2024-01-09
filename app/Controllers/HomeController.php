@@ -18,8 +18,10 @@ class HomeController extends BaseController
         $npwp = $this->request->getPost('npwp');
         $birthDate = $this->request->getPost('birth'); // format YYYY-MM-DD
         $yearOption = $this->request->getPost('yearOption');
+        // log_message('info', $npwp . ' | ' . $birthDate . ' | ' . $yearOption);
         $HomeModel = new HomeModel();
         $userData = $HomeModel->getUserData($npwp, $birthDate, $yearOption);
+        // log_message('info', print_r($userData, true));
         if ($userData) {
             // Data ditemukan
             return $this->response->setJSON($userData);
