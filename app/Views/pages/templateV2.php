@@ -472,7 +472,7 @@ function frb($angka)
                         <div class="stl_01" style="left:4.50em;top:43.4436em;"><span class="stl_23 stl_19 stl_10" style="word-spacing:0em;">JUMLAH PENGHASILAN NETO UNTUK PERHITUNGAN PPh PASAL 21 (SETAHUN/DISETAHUNKAN) &nbsp;</span></div>
                         <div class="stl_01" style="left:4.50em;top:44.3603em;"><span class="stl_23 stl_19 stl_22" style="word-spacing:-0.0002em;">PENGHASILAN TIDAK KENA PAJAK (PTKP) &nbsp;</span></div>
                         <div class="stl_01" style="left:43.8317em;top:43.3998em;"><span class="stl_16 stl_08 stl_21"><?= frb($user->jml_ph_neto) ?>&nbsp;</span></div>
-                        <div class="stl_01" style="left:43.8317em;top:44.3165em;"><span class="stl_16 stl_08 stl_21"><?= frb($user->ptktp) ?>&nbsp;</span></div>
+                        <div class="stl_01" style="left:43.8317em;top:44.3165em;"><span class="stl_16 stl_08 stl_21"><?= frb($user->ptkp) ?>&nbsp;</span></div>
                         <div class="stl_01" style="left:43.8317em;top:45.2332em;"><span class="stl_16 stl_08 stl_21"><?= frb($user->ph_kena_pajak) ?>&nbsp;</span></div>
                         <div class="stl_01" style="left:44.7583em;top:46.1498em;"><span class="stl_16 stl_08 stl_21"><?= frb($user->pph_ph) ?>&nbsp;</span></div>
                         <div class="stl_01" style="left:44.7583em;top:47.0665em;"><span class="stl_16 stl_08 stl_21"><?= frb($user->pph_potong) ?>&nbsp;</span></div>

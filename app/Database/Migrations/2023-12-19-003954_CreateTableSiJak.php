@@ -17,6 +17,7 @@ class CreateTableSiJak extends Migration
             ],
             'spt_H02' => [
                 'type' => 'INT',
+                'null' => true,
             ],
             'mperlan_H04-H05' => [
                 'type' => 'VARCHAR',
