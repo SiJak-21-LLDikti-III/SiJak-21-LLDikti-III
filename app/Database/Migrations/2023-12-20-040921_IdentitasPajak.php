@@ -47,7 +47,7 @@ class IdentitasPajak extends Migration
             'npwp' => '963536958005000',
             'nama_instansi' => 'LEMBAGA LAYANAN PENDIDIKAN TINGGI WILAYAH III DKI JAKARTA DITJEN PENDIDIKAN TINGGI KEMENTERIAN PENDIDIKAN DAN KEBUDAYAAN',
             'id_sub_unit' => '',
-            'tanggal' => '2024-01-02',
+            'tanggal' => '2023-11-28',
             'nama_penandatangan' => 'ELIH ERMAWATI'
         ];
 
