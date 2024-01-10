@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 use PhpOffice\PhpSpreadsheet\IOFactory;
 use PhpOffice\PhpSpreadsheet\Shared\Date;
-use App\Models\dataModel;
+use App\Models\DataModel;
 
 class BuktiPotongController extends BaseController
 {
@@ -13,7 +13,7 @@ class BuktiPotongController extends BaseController
 
     public function __construct()
     {
-        $this->dataModel = new dataModel();
+        $this->dataModel = new DataModel();
     }
     public function index()
     {
