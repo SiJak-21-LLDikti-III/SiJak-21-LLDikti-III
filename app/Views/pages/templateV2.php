@@ -505,20 +505,20 @@ function frb($angka)
                         <div class="stl_01" style="left:2em;top:55.3619em;"><span class="stl_20 stl_19 stl_21" style="word-spacing:0.5536em;">D.2 Nama</span><span class="stl_20 stl_19 stl_17" style="word-spacing:-0.0007em;">&nbsp;</span><span class="stl_20 stl_19 stl_15" style="word-spacing:-0.0009em;">Instansi Pemerintah &nbsp;</span></div>
                         <div class="stl_01" style="left:12.4167em;top:53.9453em;"><span class="stl_20 stl_19 stl_17">:</span></div>
                         <div class="stl_01" style="left:12.4167em;top:55.3619em;"><span class="stl_20 stl_19 stl_17">:</span></div>
-                        <div class="stl_01" style="left:14.4817em;top:53.8998em;"><span class="stl_16 stl_08 stl_17">9</span></div>
-                        <div class="stl_01" style="left:15.4817em;top:53.8998em;"><span class="stl_16 stl_08 stl_17">6</span></div>
-                        <div class="stl_01" style="left:17.1483em;top:53.8998em;"><span class="stl_16 stl_08 stl_17">3</span></div>
-                        <div class="stl_01" style="left:18.1483em;top:53.8998em;"><span class="stl_16 stl_08 stl_17">5</span></div>
-                        <div class="stl_01" style="left:19.1483em;top:53.8998em;"><span class="stl_16 stl_08 stl_17">3</span></div>
-                        <div class="stl_01" style="left:20.8983em;top:53.8998em;"><span class="stl_16 stl_08 stl_17">6</span></div>
-                        <div class="stl_01" style="left:22.815em;top:53.8998em;"><span class="stl_16 stl_08 stl_17">5</span></div>
-                        <div class="stl_01" style="left:24.4817em;top:53.8998em;"><span class="stl_16 stl_08 stl_17">8</span></div>
-                        <div class="stl_01" style="left:26.2317em;top:53.8998em;"><span class="stl_16 stl_08 stl_17">0</span></div>
-                        <div class="stl_01" style="left:27.2317em;top:53.8998em;"><span class="stl_16 stl_08 stl_17">0</span></div>
-                        <div class="stl_01" style="left:28.2317em;top:53.8998em;"><span class="stl_16 stl_08 stl_17">5</span></div>
-                        <div class="stl_01" style="left:30.065em;top:53.8998em;"><span class="stl_16 stl_08 stl_17">0</span></div>
-                        <div class="stl_01" style="left:31.065em;top:53.8998em;"><span class="stl_16 stl_08 stl_17">0</span></div>
-                        <div class="stl_01" style="left:32.065em;top:53.8998em;"><span class="stl_16 stl_08 stl_17">0</span></div>
+                        <div class="stl_01" style="left:14.4817em;top:53.8998em;"><span class="stl_16 stl_08 stl_17"><?= substr($IDPP[0]->npwp, 0, 1) ?></span></div>
+                        <div class="stl_01" style="left:15.4817em;top:53.8998em;"><span class="stl_16 stl_08 stl_17"><?= substr($IDPP[0]->npwp, 1, 1) ?></span></div>
+                        <div class="stl_01" style="left:17.1483em;top:53.8998em;"><span class="stl_16 stl_08 stl_17"><?= substr($IDPP[0]->npwp, 2, 1) ?></span></div>
+                        <div class="stl_01" style="left:18.1483em;top:53.8998em;"><span class="stl_16 stl_08 stl_17"><?= substr($IDPP[0]->npwp, 3, 1) ?></span></div>
+                        <div class="stl_01" style="left:19.1483em;top:53.8998em;"><span class="stl_16 stl_08 stl_17"><?= substr($IDPP[0]->npwp, 4, 1) ?></span></div>
+                        <div class="stl_01" style="left:20.8983em;top:53.8998em;"><span class="stl_16 stl_08 stl_17"><?= substr($IDPP[0]->npwp, 5, 1) ?></span></div>
+                        <div class="stl_01" style="left:22.815em;top:53.8998em;"><span class="stl_16 stl_08 stl_17"><?= substr($IDPP[0]->npwp, 6, 1) ?></span></div>
+                        <div class="stl_01" style="left:24.4817em;top:53.8998em;"><span class="stl_16 stl_08 stl_17"><?= substr($IDPP[0]->npwp, 7, 1) ?></span></div>
+                        <div class="stl_01" style="left:26.2317em;top:53.8998em;"><span class="stl_16 stl_08 stl_17"><?= substr($IDPP[0]->npwp, 8, 1) ?></span></div>
+                        <div class="stl_01" style="left:27.2317em;top:53.8998em;"><span class="stl_16 stl_08 stl_17"><?= substr($IDPP[0]->npwp, 9, 1) ?></span></div>
+                        <div class="stl_01" style="left:28.2317em;top:53.8998em;"><span class="stl_16 stl_08 stl_17"><?= substr($IDPP[0]->npwp, 10, 1) ?></span></div>
+                        <div class="stl_01" style="left:30.065em;top:53.8998em;"><span class="stl_16 stl_08 stl_17"><?= substr($IDPP[0]->npwp, 11, 1) ?></span></div>
+                        <div class="stl_01" style="left:31.065em;top:53.8998em;"><span class="stl_16 stl_08 stl_17"><?= substr($IDPP[0]->npwp, 12, 1) ?></span></div>
+                        <div class="stl_01" style="left:32.065em;top:53.8998em;"><span class="stl_16 stl_08 stl_17"><?= substr($IDPP[0]->npwp, 13, 1) ?></span></div>
                         <div class="stl_01" style="left:14.1667em;top:55.199em;"><span class="stl_16 stl_08 stl_22" style="word-spacing:0em;">LEMBAGA LAYANAN PENDIDIKAN TINGGI WILAYAH III DKI JAKARTA DITJEN PENDIDIKAN TINGGI &nbsp;</span></div>
                         <div class="stl_01" style="left:14.1667em;top:55.9657em;"><span class="stl_16 stl_08 stl_22" style="word-spacing:0.0004em;">KEMENTERIAN PENDIDIKAN DAN KEBUDAYAAN &nbsp;</span></div>
                         <div class="stl_01" style="left:2em;top:57.3619em;"><span class="stl_20 stl_19 stl_10" style="word-spacing:0.5968em;">D.3 ID</span><span class="stl_20 stl_19 stl_17" style="word-spacing:-0.0004em;">&nbsp;</span><span class="stl_20 stl_19 stl_10" style="word-spacing:0.0004em;">Subunit Organisasi &nbsp;</span></div>
@@ -528,14 +528,14 @@ function frb($angka)
                         <div class="stl_01" style="left:20.0833em;top:59.0286em;"><span class="stl_29 stl_19 stl_30">mm &nbsp;</span></div>
                         <div class="stl_01" style="left:16.3333em;top:59.1119em;"><span class="stl_29 stl_19 stl_24">dd &nbsp;</span></div>
                         <div class="stl_01" style="left:25.9167em;top:59.1119em;"><span class="stl_29 stl_19 stl_17">yyyy &nbsp;</span></div>
-                        <div class="stl_01" style="left:14.4817em;top:59.0665em;"><span class="stl_16 stl_08 stl_17">2</span></div>
-                        <div class="stl_01" style="left:15.4817em;top:59.0665em;"><span class="stl_16 stl_08 stl_17">8</span></div>
-                        <div class="stl_01" style="left:18.2317em;top:59.0665em;"><span class="stl_16 stl_08 stl_17">1</span></div>
-                        <div class="stl_01" style="left:19.2317em;top:59.0665em;"><span class="stl_16 stl_08 stl_17">1</span></div>
-                        <div class="stl_01" style="left:22.065em;top:59.0665em;"><span class="stl_16 stl_08 stl_17">2</span></div>
-                        <div class="stl_01" style="left:23.065em;top:59.0665em;"><span class="stl_16 stl_08 stl_17">0</span></div>
-                        <div class="stl_01" style="left:24.065em;top:59.0665em;"><span class="stl_16 stl_08 stl_17">2</span></div>
-                        <div class="stl_01" style="left:25.065em;top:59.0665em;"><span class="stl_16 stl_08 stl_17">3</span></div>
+                        <div class="stl_01" style="left:14.4817em;top:59.0665em;"><span class="stl_16 stl_08 stl_17"><?= substr($IDPP[0]->tanggal, 8, 1); ?></span></div>
+                        <div class="stl_01" style="left:15.4817em;top:59.0665em;"><span class="stl_16 stl_08 stl_17"><?= substr($IDPP[0]->tanggal, 9, 1); ?></span></div>
+                        <div class="stl_01" style="left:18.2317em;top:59.0665em;"><span class="stl_16 stl_08 stl_17"><?= substr($IDPP[0]->tanggal, 5, 1); ?></span></div>
+                        <div class="stl_01" style="left:19.2317em;top:59.0665em;"><span class="stl_16 stl_08 stl_17"><?= substr($IDPP[0]->tanggal, 6, 1); ?></span></div>
+                        <div class="stl_01" style="left:22.065em;top:59.0665em;"><span class="stl_16 stl_08 stl_17"><?= substr($IDPP[0]->tanggal, 0, 1); ?></span></div>
+                        <div class="stl_01" style="left:23.065em;top:59.0665em;"><span class="stl_16 stl_08 stl_17"><?= substr($IDPP[0]->tanggal, 1, 1); ?></span></div>
+                        <div class="stl_01" style="left:24.065em;top:59.0665em;"><span class="stl_16 stl_08 stl_17"><?= substr($IDPP[0]->tanggal, 2, 1); ?></span></div>
+                        <div class="stl_01" style="left:25.065em;top:59.0665em;"><span class="stl_16 stl_08 stl_17"><?= substr($IDPP[0]->tanggal, 3, 1); ?></span></div>
                         <div class="stl_01" style="left:2em;top:60.6953em;"><span class="stl_20 stl_19 stl_21" style="word-spacing:0.5536em;">D.5 Nama</span><span class="stl_20 stl_19 stl_17" style="word-spacing:-0.0007em;">&nbsp;</span><span class="stl_20 stl_19 stl_09">Penandatangan &nbsp;</span></div>
                         <div class="stl_01" style="left:2em;top:61.9453em;"><span class="stl_20 stl_19 stl_21" style="word-spacing:0.5537em;">D.6 Pernyataan</span><span class="stl_20 stl_19 stl_17" style="word-spacing:-0.0013em;">&nbsp;</span><span class="stl_20 stl_19 stl_10" style="word-spacing:-0.0005em;">Wajib Pajak &nbsp;</span></div>
                         <div class="stl_01" style="left:12.4167em;top:60.6953em;"><span class="stl_20 stl_19 stl_17">:</span></div>
@@ -554,7 +554,7 @@ function frb($angka)
             document.getElementById('exportButton').addEventListener('click', function() {
                 const contentElement = document.getElementById('containerToExport');
                 const pdfOptions = {
-                    filename: 'Bukti Potong Pajak <NAMA>.pdf',
+                    filename: 'Bukti Potong Pajak_<?= $user->npwp_A1; ?>_<?= $user->nama_A3; ?>.pdf',
                     image: {
                         type: 'jpeg',
                         quality: 0.98
