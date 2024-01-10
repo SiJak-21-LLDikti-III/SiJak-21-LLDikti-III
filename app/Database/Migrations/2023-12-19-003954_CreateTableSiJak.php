@@ -153,14 +153,14 @@ class CreateTableSiJak extends Migration
             //     'type' => 'INT',
             //     'null' => true,
             // ],
-            // 'atas_gaji_23A' => [
-            //     'type' => 'INT',
-            //     'null' => true,
-            // ],
-            // 'atas_ph_23B' => [
-            //     'type' => 'INT',
-            //     'null' => true,
-            // ],
+            'atas_gaji_23A' => [
+                'type' => 'INT',
+                'null' => true,
+            ],
+            'atas_ph_23B' => [
+                'type' => 'INT',
+                'null' => true,
+            ],
             'status_pegawai' => [
                 'type' => 'Varchar',
                 'constraint' => '4',
