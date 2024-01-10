@@ -77,7 +77,7 @@ class LayananPajakController extends BaseController
 
         $nama = $dataPegawai->nama_A3;
         log_message("info", "data: " . print_r($dataPegawai, true));
-        $file = $dataPegawai -> file_bukti_bayar;
+        // $file = $dataPegawai -> file_bukti_bayar;
 
         // Tentukan folder penyimpanan berdasarkan ekstensi file
         $folderPath = FCPATH . 'FileUpload/BuktiPembayaranPajak/';
@@ -89,7 +89,7 @@ class LayananPajakController extends BaseController
 
         // Nama file baru
         $fileName = $npwp . "_" . $nama . "_" . $yearOption . '.' . $fileExtension;
-        $removeFile= $folderPath . $file;
+        // $removeFile= $folderPath . $file;
         // Path lengkap file baru
         $filePath = $folderPath . $fileName;
 
