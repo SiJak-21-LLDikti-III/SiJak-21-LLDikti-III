@@ -312,6 +312,9 @@ function frb($angka)
 <body>
     <div class="container center-container">
         <div class="d-flex justify-content-center">
+            <div class="mb-3">
+                <button id="exportButton" type="button" class="btn btn-outline-primary">Unduh</button>
+            </div>
             <div class="stl_ stl_02" id="containerToExport">
                 <!-- Gambar dan tabel template -->
                 <div class="stl_03">
@@ -548,7 +551,7 @@ function frb($angka)
                     </div>
                 </div>
             </div>
-            <button id="exportButton" type="button" class="btn btn-outline-primary">Unduh (Export To PDF)</button>
+            <!-- <button id="exportButton" type="button" class="btn btn-outline-primary">Unduh (Export To PDF)</button> -->
         </div>
         <script>
             document.getElementById('exportButton').addEventListener('click', function() {
