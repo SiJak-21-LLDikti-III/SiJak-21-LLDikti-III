@@ -42,8 +42,8 @@
     </nav>
 
     <!-- Navbar Blue -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary navbar-biru">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary navbar-biru p-4">
+        <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -66,7 +66,7 @@
                 </span>
                 <span class="ml-2">Layanan ULT</span>
             </a>
-        </div>
+        </div> -->
     </nav>
 
     <!-- Tampilkan notifikasi menggunakan container baru -->
@@ -74,7 +74,7 @@
         <?php if (session()->getFlashdata('success')) : ?>
         <div class="alert alert-success alert-dismissible show fade m-2" role="alert">
             <div class="alert-body">
-                <b>sukses !</b>
+                <b>Sukses !</b>
                 <?= session()->getFlashdata('success'); ?>
             </div>
         </div>
@@ -133,7 +133,7 @@
                                 <div class="mb-3">
                                     <img src="<?= base_url('skydash-template/images/upload-cloud.svg'); ?>" alt="">
                                     <div class="font-weight-bold mt-3 mb-3">Unggah Bukti Pembayaran Pajak</div>
-                                    <label for="unggahFile" class="btn btn-info w-100 text-white">
+                                    <label for="unggahFile" class="btn btn-primary w-100 text-white">
                                         <span id="fileName">Lampirkan File</span>
                                         <input class="d-none" type="file" id="unggahFile" name="unggahFile"
                                             accept=".pdf, .jpg, .jpeg" onchange="displayFileName(this)">
@@ -146,7 +146,7 @@
                                 <input type="hidden" name="yearOption" id="yearOptionInput" value="">
 
                                 <button type="submit" id="buttonUnggahFile" class="btn btn-primary w-100"
-                                    disabled>Submit</button>
+                                    disabled>Kirim</button>
                             </form>
 
                             <!-- Script JavaScript untuk menetapkan nilai input tersembunyi -->
@@ -175,20 +175,24 @@
                 </div>
             </div>
         </div>
+        <div style="margin-bottom: 100px;"></div>
     </div>
 
     <!-- partial:partials/_footer.html -->
     <footer class="footer">
-        <div class="d-sm-flex justify-content-center justify-content-sm-between">
-            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2021. Premium <a
-                    href="https://www.bootstrapdash.com/" target="_blank">Bootstrap admin template</a> from
-                BootstrapDash. All rights reserved.</span>
-            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with <i
-                    class="ti-heart text-danger ml-1"></i></span>
+        <div class="d-flex justify-content-center align-items-center flex-column flex-sm-row">
+            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block mb-2 mb-sm-0 mr-sm-4">Copyright ©
+                2024. <a href="https://lldikti3.kemdikbud.go.id/v6/" target="_blank">LLDikti III</a></span>
         </div>
-        <div class="d-sm-flex justify-content-center justify-content-sm-between">
-            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Distributed by <a
-                    href="https://www.themewagon.com/" target="_blank">Themewagon</a></span>
+        <div class="d-flex justify-content-center align-items-center flex-column flex-sm-row">
+            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block tool">Dibuat oleh:
+                <a href="https://www.themewagon.com/" target="_blank">Pengembang Sijak 21</a>
+                <span>
+                    <span class="tooltext">
+                        <a href="#" target="_blank">John Doe</a>
+                    </span>
+                </span>
+            </span>
         </div>
     </footer>
     <!-- partial -->

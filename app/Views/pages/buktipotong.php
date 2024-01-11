@@ -35,6 +35,7 @@
                                 <div class="col-sm-10">
                                     <select class="form-control shadow-sm" id="year" name="year"
                                         onchange="fetchTableData()">
+                                        <option value="all">Semua Tahun</option>
                                         <?php
                                         $currentYear = date("Y");
                                         $startYear = $currentYear - 100; // 100 tahun terakhir
@@ -69,11 +70,9 @@
                                         <th>Nama</th>
                                         <th>PPh 21 Terpotong</th>
                                         <th>PPh 21 Terutang</th>
-                                        <th>Unduh Bukti</th>
-                                        <th>Bukti Bayar</th>
-                                        <th>Status Unduh</th>
-                                        <th>Status Bukti Bayar</th>
-                                        <th>File Bukti Bayar</th>
+                                        <th>Unduh Bukti Potong</th>
+                                        <th>Status Unduh Terutang</th>
+                                        <th>Unduh Bukti Bayar</th>
                                         <th>Opsi</th>
                                     </tr>
                                 </thead>
@@ -91,11 +90,16 @@
                                         <td><?= $row->nama_A3 ?></td>
                                         <td><?= $row->pph_potong ?? 0 ?></td>
                                         <td><?= $row->pph_utang ?? 0 ?></td>
-                                        <td><?= $row->unduh_bukti ?? '0' ?></td>
-                                        <td><?= $row->bukti_bayar ?? '0' ?></td>
-                                        <td><?= $row->status_unduh ?? '0' ?></td>
+                                        <td class="text-center align-middle">
+                                            <?= $row->status_unduh ?? '0' ?>
+                                            <div class="d-flex justify-content-center">
+                                                <a id="downloadButton" href="" class="btn btn-info p-2" download>
+                                                    <iconify-icon icon="bi:download" width="20"></iconify-icon>
+                                                </a>
+                                            </div>
+                                        </td>
                                         <td><?= $row->status_bukti_bayar ?? 'Belum diunggah' ?></td>
-                                        <td>
+                                        <td class="text-center align-middle">
                                             <!-- Tombol Download -->
                                             <?php if ($row->file_bukti_bayar) : ?>
                                             <?php
@@ -117,13 +121,13 @@
                                                     // Membuat path lengkap menuju file
                                                     $file_path = $folder_path . $subfolder . $file_name;
                                                     ?>
-
-                                            <a href="<?= base_url($file_path); ?>" class="btn btn-info p-2" download>
-                                                <iconify-icon icon="bi:download" width="20"></iconify-icon>
-                                            </a>
+                                            <div class="d-flex justify-content-center">
+                                                <a id="downloadButton" href="<?= base_url($file_path); ?>"
+                                                    class="btn btn-info p-2" download>
+                                                    <iconify-icon icon="bi:download" width="20"></iconify-icon>
+                                                </a>
+                                            </div>
                                             <?php endif; ?>
-
-
                                         </td>
                                         <td>
                                             <!-- Tombol Edit -->

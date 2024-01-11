@@ -14,3 +14,49 @@
   border-top: 2px solid #ccc; /* Warna dan ketebalan garis dapat disesuaikan */
   margin: 10px; /* Jarak atas dan bawah garis */
 }
+
+.tool a {
+  color: #000000;
+  text-decoration: none;
+}
+
+.tool a:hover {
+  color: #0000ff;
+  text-decoration: none;
+}
+
+.tooltext a {
+  color: #ffffff; /* Warna putih */
+  text-decoration: none; /* Untuk menghilangkan garis bawah dari tautan */
+}
+
+.tooltext a:hover {
+  color: #0000ff; /* Efek garis bawah saat kursor diarahkan ke tautan */
+}
+
+.tool {
+  position: relative;
+  display: inline-block;
+}
+
+.tool .tooltext {
+  visibility: hidden;
+  width: 160px;
+  background-color: #555;
+  color: #ffffff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 1;
+  bottom: 100%; /* Atur posisi tooltip di atas teks */
+  left: 50%;
+  margin-left: -80px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tool:hover .tooltext {
+  visibility: visible;
+  opacity: 1;
+}
