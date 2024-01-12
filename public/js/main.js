@@ -116,10 +116,3 @@ $(document).ready(function() {
        $('.progress-text').text(progressPercentage + '%');
    });
 });
-
-// Download Button pada Bukti Potong berubah menjadi warna merah ketika file sudah didownload
-document.getElementById('downloadButton').addEventListener('click', function() {
-   // Hapus kelas 'btn-info' dan tambahkan kelas 'btn-danger'
-   this.classList.remove('btn-info');
-   this.classList.add('btn-danger');
-});

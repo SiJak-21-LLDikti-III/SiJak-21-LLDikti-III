@@ -107,7 +107,7 @@ class LayananPajakController extends BaseController
 
                 // Update data pada database
                 $dataToUpdate = [
-                    'status_bukti_bayar' => 'sudah diunggah',
+                    'status_bukti_bayar' => '1',
                     'file_bukti_bayar' => $fileName,
                 ];
 

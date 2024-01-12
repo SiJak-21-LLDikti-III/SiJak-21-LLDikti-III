@@ -70,8 +70,9 @@
                                         <th>Nama</th>
                                         <th>PPh 21 Terpotong</th>
                                         <th>PPh 21 Terutang</th>
+                                        <th>Status Bukti Potong</th>
                                         <th>Unduh Bukti Potong</th>
-                                        <th>Status Unduh Terutang</th>
+                                        <th>Status Bukti Bayar</th>
                                         <th>Unduh Bukti Bayar</th>
                                         <th>Opsi</th>
                                     </tr>
@@ -90,15 +91,58 @@
                                         <td><?= $row->nama_A3 ?></td>
                                         <td><?= $row->pph_potong ?? 0 ?></td>
                                         <td><?= $row->pph_utang ?? 0 ?></td>
+                                        <td>
+                                            <?php if ($row->status_bukti_bayar == '0'): ?>
+                                            <div class="d-flex justify-content-center">
+                                                <a id="" class="btn btn-danger p-2" download>
+                                                    <iconify-icon icon="maki:cross" width="20"></iconify-icon>
+                                                </a>
+                                            </div>
+                                            <?php elseif ($row->status_bukti_bayar == '1'): ?>
+                                            <div class="d-flex justify-content-center">
+                                                <a id="" class="btn btn-success p-2" download>
+                                                    <iconify-icon icon="mingcute:check-fill" width="20"></iconify-icon>
+                                                </a>
+                                            </div>
+                                            <?php else: ?>
+                                            <!-- Default case or any other logic if needed -->
+                                            <div class="d-flex justify-content-center">
+                                                <a id="" class="btn btn-danger p-2" download>
+                                                    <iconify-icon icon="maki:cross" width="20"></iconify-icon>
+                                                </a>
+                                            </div>
+                                            <?php endif; ?>
+                                        </td>
                                         <td class="text-center align-middle">
                                             <?= $row->status_unduh ?? '0' ?>
                                             <div class="d-flex justify-content-center">
-                                                <a id="downloadButton" href="" class="btn btn-info p-2" download>
-                                                    <iconify-icon icon="bi:download" width="20"></iconify-icon>
+                                                <a id="" href="" class="btn btn-info p-2" download>
+                                                    <iconify-icon icon="ph:eye" width="20"></iconify-icon>
                                                 </a>
                                             </div>
                                         </td>
-                                        <td><?= $row->status_bukti_bayar ?? 'Belum diunggah' ?></td>
+                                        <td>
+                                            <?php if ($row->status_bukti_bayar == '0'): ?>
+                                            <div class="d-flex justify-content-center">
+                                                <a id="" class="btn btn-danger p-2" download>
+                                                    <iconify-icon icon="maki:cross" width="20"></iconify-icon>
+                                                </a>
+                                            </div>
+                                            <?php elseif ($row->status_bukti_bayar == '1'): ?>
+                                            <div class="d-flex justify-content-center">
+                                                <a id="" class="btn btn-success p-2" download>
+                                                    <iconify-icon icon="mingcute:check-fill" width="20"></iconify-icon>
+                                                </a>
+                                            </div>
+                                            <?php else: ?>
+                                            <!-- Default case or any other logic if needed -->
+                                            <div class="d-flex justify-content-center">
+                                                <a id="" class="btn btn-danger p-2" download>
+                                                    <iconify-icon icon="maki:cross" width="20"></iconify-icon>
+                                                </a>
+                                            </div>
+                                            <?php endif; ?>
+                                        </td>
                                         <td class="text-center align-middle">
                                             <!-- Tombol Download -->
                                             <?php if ($row->file_bukti_bayar) : ?>
@@ -124,7 +168,8 @@
                                             <div class="d-flex justify-content-center">
                                                 <a id="downloadButton" href="<?= base_url($file_path); ?>"
                                                     class="btn btn-info p-2" download>
-                                                    <iconify-icon icon="bi:download" width="20"></iconify-icon>
+                                                    <iconify-icon icon="material-symbols:download" width="20">
+                                                    </iconify-icon>
                                                 </a>
                                             </div>
                                             <?php endif; ?>
