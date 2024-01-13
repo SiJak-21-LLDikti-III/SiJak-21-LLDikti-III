@@ -64,8 +64,8 @@
     </nav>
 
     <!-- Navbar Blue -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary navbar-biru">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary navbar-biru p-4">
+        <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -88,7 +88,7 @@
                 </span>
                 <span class="ml-2">Layanan ULT</span>
             </a>
-        </div>
+        </div> -->
     </nav>
 
     <div class="content-wrapper">
