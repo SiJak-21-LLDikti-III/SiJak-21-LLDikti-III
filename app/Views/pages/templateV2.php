@@ -364,7 +364,7 @@ function frb($angka)
                                 &nbsp;</span></div>
                         <div class="stl_01" style="left:39.0308em;top:9.8624em;"><span class="stl_13 stl_08 stl_10" style="word-spacing:0.0002em;">MASA PEROLEHAN PENGHASILAN &nbsp;</span></div>
                         <div class="stl_01" style="left:42.5692em;top:10.529em;"><span class="stl_13 stl_08 stl_12">[yyyy] &nbsp;</span></div>
-                        <div class="stl_01" style="left:27.815em;top:10.3998em;"><span class="stl_16 stl_08 stl_17"><?= $user->spt_H02 ?></span></div>
+                        <div class="stl_01" style="left:27.815em;top:10.3998em;"><span class="stl_16 stl_08 stl_17"><?= $user->spt_H02 ?? 0 ?></span></div>
                         <div class="stl_01" style="left:32.75em;top:10.5286em;"><span class="stl_20 stl_19 stl_15">Pembatalan &nbsp;</span></div>
                         <div class="stl_01" style="left:20.6117em;top:10.5665em;"><span class="stl_16 stl_08 stl_17">X</span></div>
                         <div class="stl_01" style="left:21.5833em;top:10.6953em;"><span class="stl_20 stl_19 stl_09" style="word-spacing:-0.0007em;">SPT Pembetulan Ke- &nbsp;</span></div>
@@ -425,7 +425,7 @@ function frb($angka)
                         <div class="stl_01" style="left:40.8333em;top:20.1119em;"><span class="stl_23 stl_19 stl_10">HB/
                                 &nbsp;</span></div>
                         <div class="stl_01" style="left:9.8333em;top:20.0665em;"><span class="stl_16 stl_08 stl_26"><?= $user->pangkat_A4 ?> &nbsp;</span></div>
-                        <div class="stl_01" style="left:30em;top:20.1498em;"><span class="stl_16 stl_08 stl_17">021</span></div>
+                        <div class="stl_01" style="left:30em;top:20.1498em;"><span class="stl_16 stl_08 stl_17"><?= substr($user->status_A8, 0, 1) ?></span></div>
                         <div class="stl_01" style="left:1.75em;top:21.7823em;"><span class="stl_14 stl_08 stl_09" style="word-spacing:-0.0002em;">B. RINCIAN PENGHASILAN DAN PENGHITUNGAN PPh PASAL 21
                                 &nbsp;</span></div>
                         <div class="stl_01" style="left:17.4542em;top:22.7332em;"><span class="stl_14 stl_08 stl_21">URAIAN &nbsp;</span></div>
