@@ -51,19 +51,23 @@
                      errorHtml += response.message + ' ';
                }
 
-               errorHtml += 'Rincian data gagal:</div></div>';
+               errorHtml += '<p>Rincian data gagal:</p> ';
 
                // Tampilkan rincian data yang gagal
                response.failedData.forEach(function (failedData) {
                      errorHtml += '<p>Data Gagal - NPWP: ' + failedData.npwp + ', Mperlan: ' + failedData['mperlan_H04-H05'] + '</p>';
                });
 
+               errorHtml += '</div></div>';
                $('#error-alert').html(errorHtml);
 
                // Refresh halaman setelah beberapa detik (misalnya 3 detik)
                setTimeout(function () {
                      location.reload();
                }, 3000);
+                  // console.log('Jumlah Data Berhasil:', response.successCount);
+                  // console.log('Jumlah Data Gagal:', response.failureCount);
+                  // console.log('Data Gagal:', response.failedData);
             }
          },
 
