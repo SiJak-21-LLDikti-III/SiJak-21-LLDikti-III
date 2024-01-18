@@ -25,14 +25,14 @@ class DataModel extends Model
     {
         $this->builder->select('tb_sijak.*, tb_status.*');
         $this->builder->join('tb_status', 'tb_status.npwp_A1 = tb_sijak.npwp_A1', 'inner');
+        $this->builder->groupBy('tb_sijak.id'); // Ganti 'id' dengan kolom yang unik
+        $this->builder->orderBy('tb_sijak.mperlan_H04-H05', 'DESC'); // Menambahkan pengurutan berdasarkan mperlan_H04-H05 secara descending
         $result = $this->builder->get()->getResult();
-
-        // Log or print the generated SQL query for debugging
-        $sql = $this->builder->getCompiledSelect();
-        // log_message('debug', 'SQL Query: ' . $sql);
 
         return $result;
     }
+
+
 
 
 
@@ -63,7 +63,7 @@ class DataModel extends Model
         $this->builder->join('tb_status', 'tb_status.npwp_A1 = tb_sijak.npwp_A1', 'inner');
 
         if ($year != 'all') {
-            $this->builder->like('mperlan_H04-H05', $year, 'after');
+            $this->builder->like('tb_sijak.mperlan_H04-H05', $year, 'after');
         }
 
         $result = $this->builder->get()->getResult();

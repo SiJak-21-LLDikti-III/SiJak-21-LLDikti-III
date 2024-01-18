@@ -101,41 +101,143 @@
    }
 
 
+const mperlan = "mperlan_H04-H05";
+
 function perbaruiTabel(data) {
-   var table = $('#myTable').DataTable();
-   table.clear();
-   console.log('data:' + data);
-   const mperlan = "mperlan_H04-H05";
-   for (var i = 0; i < data.length; i++) {
-      var rowData = data[i];
-      var newRow = [];
+    var table = $('#myTable').DataTable();
+    table.clear();
 
-      newRow.push(rowData.no_H01);
-      const yearFromMperlan = rowData[mperlan].substring(0, 4); // Mengambil tahun dari mperlan
-      newRow.push(yearFromMperlan);      
-      newRow.push(rowData.npwp_A1);
-      newRow.push(rowData.nama_A3);
-      newRow.push(rowData.pph_potong || 0);
-      newRow.push(rowData.pph_utang || 0);
-      newRow.push(rowData.unduh_bukti || 0);
-      newRow.push(rowData.bukti_bayar || 0);
-      newRow.push(rowData.status_unduh || 0);
-      newRow.push(rowData.status_bukti_bayar || 0);
-      newRow.push(rowData.file_bukti_bayar || 0);
-      newRow.push(
-         '<a href="#" class="btn btn-success mr-2 p-2" onclick="edit(' + rowData.no_H01 + ')">' +
-         '<iconify-icon icon="tabler:edit" width="20"></iconify-icon>' +
-         '</a>' +
-         '<a href="#" class="btn btn-danger p-2" onclick="hapusData(' + rowData.no_H01 + ')">' +
-         '<iconify-icon icon="mdi:trash-outline" width="20"></iconify-icon>' +
-         '</a>'
-      );
+    for (var i = 0; i < data.length; i++) {
+        var rowData = data[i];
 
-      table.row.add(newRow);
-   }
+        // Pastikan objek memiliki properti mperlan_H04-H05
+        if (rowData.hasOwnProperty(mperlan)) {
+            const yearFromMperlan = rowData[mperlan]?.substring(0, 4); // Mengambil tahun dari mperlan
 
-   table.draw();
+            // Pastikan yearFromMperlan tidak null atau undefined sebelum menggunakan
+            if (yearFromMperlan) {
+                var base_url = window.location.origin + '/bukti-potong/unduh/' + rowData.npwp_A1 + '/' + rowData.tgl_lahir + '/' + yearFromMperlan;
+
+                var statusUnduhHtml = getStatusUnduhHtml(rowData);
+                var unduhBuktiHtml = getUnduhBuktiHtml(base_url, rowData);
+                var statusBuktiHtml = getStatusBuktiHtml(rowData);
+                var fileBuktiHtml = getFileBuktiHtml(base_url, rowData);
+
+                var newRow = [
+                    rowData.no_H01,
+                    yearFromMperlan,
+                    rowData.npwp_A1,
+                    rowData.nama_A3,
+                    rowData.pph_potong || 0,
+                    rowData.pph_utang || 0,
+                    statusUnduhHtml,
+                    unduhBuktiHtml,
+                    statusBuktiHtml,
+                    fileBuktiHtml,
+                    '<a href="#" class="btn btn-success mr-2 p-2" onclick="edit(' + rowData.no_H01 + ')">' +
+                    '<iconify-icon icon="tabler:edit" width="20"></iconify-icon>' +
+                    '</a>' +
+                    '<a href="#" class="btn btn-danger p-2" onclick="hapusData(' + rowData.no_H01 + ')">' +
+                    '<iconify-icon icon="mdi:trash-outline" width="20"></iconify-icon>' +
+                    '</a>'
+                ];
+
+                table.row.add(newRow);
+            } else {
+                console.error(`Nilai ${mperlan} tidak valid.`);
+            }
+        } else {
+            console.error(`Objek data ke-${i} tidak memiliki properti ${mperlan}.`);
+        }
+    }
+
+    table.draw();
 }
+
+function getStatusUnduhHtml(rowData) {
+    var statusUnduhHtml = '';
+    if (rowData.status_unduh == '0' || rowData.status_unduh == null) {
+        statusUnduhHtml = '<div class="d-flex justify-content-center" title="Belum di unduh oleh ' + rowData.nama_A3 + '">' +
+            '<a id="" class=" btn btn-danger p-2">' +
+            '<iconify-icon icon="maki:cross" width="20"></iconify-icon>' +
+            '</a>' +
+            '<p hidden>' + rowData.status_unduh + '</p>' +
+            '</div>';
+    } else if (rowData.status_unduh == '1') {
+        statusUnduhHtml = '<div class="d-flex justify-content-center" title="Sudah di unduh oleh ' + rowData.nama_A3 + '">' +
+            '<a id="" class="btn btn-success p-2">' +
+            '<iconify-icon icon="mingcute:check-fill" width="20"></iconify-icon>' +
+            '</a>' +
+            '<p hidden>' + rowData.status_unduh + '</p>' +
+            '</div>';
+    } else {
+        statusUnduhHtml = '<div class="d-flex justify-content-center" title="terjadi kesalahan">' +
+            '<a id="" class=" btn btn-danger p-2">' +
+            '<iconify-icon icon="maki:cross" width="20"></iconify-icon>' +
+            '</a>' +
+            '</div>';
+    }
+
+    return statusUnduhHtml;
+}
+
+function getUnduhBuktiHtml(base_url, rowData) {
+    return '<div class="d-flex justify-content-center">' +
+        '<a id="unduh-bukti-potong" href="' + base_url + '" class="btn btn-info p-2" target="_blank">' +
+        '<iconify-icon icon="ph:eye" width="20"></iconify-icon>' +
+        '</a>' +
+        '</div>';
+}
+
+
+function getStatusBuktiHtml(rowData) {
+    var statusBuktiHtml = '';
+    if (rowData.status_bukti_bayar == '0' || rowData.status_bukti_bayar == null) {
+        statusBuktiHtml = '<div class="d-flex justify-content-center">' +
+            '<a id="" class=" btn btn-danger p-2" download>' +
+            '<iconify-icon icon="maki:cross" width="20"></iconify-icon>' +
+            '</a>' +
+            '<p hidden>' + rowData.status_bukti_bayar + '</p>' +
+            '</div>';
+    } else if (rowData.status_bukti_bayar == '1') {
+        statusBuktiHtml = '<div class="d-flex justify-content-center">' +
+            '<a id="" class="btn btn-success p-2" download>' +
+            '<iconify-icon icon="mingcute:check-fill" width="20"></iconify-icon>' +
+            '</a>' +
+            '<p hidden>' + rowData.status_bukti_bayar + '</p>' +
+            '</div>';
+    } else {
+        statusBuktiHtml = '<div class="d-flex justify-content-center" title="terjadi kesalahan">' +
+            '<a id="" class=" btn btn-danger p-2" download>' +
+            '<iconify-icon icon="maki:cross" width="20"></iconify-icon>' +
+            '</a>' +
+            '</div>';
+    }
+
+    return statusBuktiHtml;
+}
+
+function getFileBuktiHtml(base_url, rowData) {
+    var fileBuktiHtml = '';
+    if (rowData.file_bukti_bayar) {
+        var folderPath = 'FileUpload/BuktiPembayaranPajak/';
+        var fileName = rowData.file_bukti_bayar;
+        var fileInfo = pathinfo(folderPath + fileName);
+        var fileExtension = fileInfo.extension || '';
+        var subfolder = (fileExtension === 'pdf') ? 'pdf/' : 'img/';
+        var filePath = folderPath + subfolder + fileName;
+
+        fileBuktiHtml = '<div class="d-flex justify-content-center">' +
+            '<a id="downloadButton" href="' + base_url + filePath + '" class="btn btn-info p-2" download>' +
+            '<iconify-icon icon="material-symbols:download" width="20"></iconify-icon>' +
+            '</a>' +
+            '</div>';
+    }
+
+    return fileBuktiHtml;
+}
+
+
 
 
 // PROGRESS BAR DI HALAMAN EDIT BUKTI POTONG
