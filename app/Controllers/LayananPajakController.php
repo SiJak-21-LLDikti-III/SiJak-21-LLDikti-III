@@ -29,14 +29,22 @@ class LayananPajakController extends BaseController
         $HomeModel = new HomeModel();
         $userData = $HomeModel->getUserData($npwp, $birthDate, $yearOption);
         $IDPP = $HomeModel->getIDPP();
-        log_message('info', 'data: ' . print_r($IDPP, true));
-
         // Update status in tb_status table
         $ubahStatusUnduh = '1';
         $this->updateStatusUnduh($npwp, $ubahStatusUnduh);
+        $data = [
+            'title' => 'Layanan Pemotongan Pajak Penghasilan LLDikti III',
+            'user' => $userData,
+            'IDPP' => $IDPP
+        ];
+        return view('pages/templateV2', $data);
+    }
 
-        log_message("info", "test klik");
-
+    public function unduhAdmin($npwp, $birthDate, $yearOption) //biasa
+    {
+        $HomeModel = new HomeModel();
+        $userData = $HomeModel->getUserData($npwp, $birthDate, $yearOption);
+        $IDPP = $HomeModel->getIDPP();
         $data = [
             'title' => 'Layanan Pemotongan Pajak Penghasilan LLDikti III',
             'user' => $userData,
@@ -145,8 +153,5 @@ class LayananPajakController extends BaseController
             // Terjadi kesalahan saat mengunggah file
             return redirect()->to(site_url('/layanan-pajak'))->with('error', 'Terjadi kesalahan saat mengunggah file.');
         }
-
     }
-
-
 }

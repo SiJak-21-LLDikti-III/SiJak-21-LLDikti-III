@@ -404,8 +404,11 @@ function frb($angka)
                         <div class="stl_01" style="left:36.6667em;top:17.7em;"><span class="stl_16 stl_08 stl_22" style="word-spacing:0.0004em;"><?= $user->nik_A7 ?> &nbsp;</span></div>
                         <div class="stl_01" style="left:38.0833em;top:16.3619em;"><span class="stl_23 stl_19 stl_10">LAKI-LAKI &nbsp;</span></div>
                         <div class="stl_01" style="left:43.9167em;top:16.3619em;"><span class="stl_23 stl_19 stl_22">PEREMPUAN &nbsp;</span></div>
-                        <!-- Silang jenis kelamin -->
-                        <div class="stl_01" style="left:36.9033em;top:16.3165em;"><span class="stl_16 stl_08 stl_17">X</span></div>
+                        <?php if ($user->jenis_kelamin_A6 == "L") : ?>
+                            <div class="stl_01" style="left:36.9033em;top:16.3165em;"><span class="stl_16 stl_08 stl_17">X</span></div>
+                        <?php else : ?>
+                            <div class="stl_01" style="left:42.8em;top:16.3165em;"><span class="stl_16 stl_08 stl_17">X</span></div>
+                        <?php endif; ?>
                         <div class="stl_01" style="left:28.8333em;top:16.4453em;"><span class="stl_20 stl_19 stl_09" style="word-spacing:0.5541em;">A.6 JENIS</span><span class="stl_20 stl_19 stl_17" style="word-spacing:-0.0013em;">&nbsp;</span><span class="stl_20 stl_19 stl_09">KELAMIN
                                 &nbsp;</span></div>
                         <div class="stl_01" style="left:28.75em;top:17.8619em;"><span class="stl_20 stl_19 stl_09" style="word-spacing:0.554em;">A.7 NIK &nbsp;</span></div>
@@ -434,7 +437,11 @@ function frb($angka)
                         <div class="stl_01" style="left:4.5833em;top:23.9853em;"><span class="stl_20 stl_19 stl_15" style="word-spacing:-0.0004em;">KODE OBJEK PAJAK : &nbsp;</span></div>
                         <div class="stl_01" style="left:2em;top:25.2353em;"><span class="stl_20 stl_19 stl_09" style="word-spacing:0.0001em;">PENGHASILAN BRUTO &nbsp;</span></div>
                         <!-- silang kode objek pajak -->
-                        <div class="stl_01" style="left:14.9867em;top:23.9832em;"><span class="stl_16 stl_08 stl_17">X</span></div>
+                        <?php if ($user->kd_pajak == "01") : ?>
+                            <div class="stl_01" style="left:14.9867em;top:23.9832em;"><span class="stl_16 stl_08 stl_17">X</span></div>
+                        <?php else : ?>
+                            <div class="stl_01" style="left:25.2em;top:23.9832em;"><span class="stl_16 stl_08 stl_17">X</span></div>
+                        <?php endif; ?>
                         <div class="stl_01" style="left:16.5458em;top:24.0686em;"><span class="stl_23 stl_19 stl_12">21-100-01 &nbsp;</span></div>
                         <div class="stl_01" style="left:26.7958em;top:24.0686em;"><span class="stl_23 stl_19 stl_12">21-100-02 &nbsp;</span></div>
                         <!-- A.8 K TK HB -->
@@ -535,7 +542,17 @@ function frb($angka)
                         <div class="stl_01" style="left:4.5em;top:50.5707em;"><span class="stl_28 stl_08 stl_22" style="word-spacing:1.1077em;">23B. ATAS</span><span class="stl_28 stl_08 stl_17" style="word-spacing:-0.0011em;">&nbsp;</span><span class="stl_28 stl_08 stl_22" style="word-spacing:0.0001em;">PENGHASILAN TETAP DAN TERATUR LAINNYA YANG PEMBAYARAN
                                 TERPISAH DARI PEMBAYARAN GAJI &nbsp;</span></div>
                         <!-- silang status pegawai -->
-                        <div class="stl_01" style="left:41.57em;top:51.6498em;"><span class="stl_16 stl_08 stl_17">X</span></div>
+                        <?php if ($user->status_pegawai == "C.01") : ?>
+                            <div class="stl_01" style="left:12.99em;top:51.6498em;"><span class="stl_16 stl_08 stl_17">X</span></div>
+                        <?php elseif ($user->status_pegawai == "C.02") : ?>
+                            <div class="stl_01" style="left:23.57em;top:51.6498em;"><span class="stl_16 stl_08 stl_17">X</span></div>
+                        <?php elseif ($user->status_pegawai == "C.03") : ?>
+                            <div class="stl_01" style="left:32.97em;top:51.6498em;"><span class="stl_16 stl_08 stl_17">X</span></div>
+                        <?php elseif ($user->status_pegawai == "C.04") : ?>
+                            <div class="stl_01" style="left:41.57em;top:51.6498em;"><span class="stl_16 stl_08 stl_17">X</span></div>
+                        <?php else : ?>
+                            <div class="stl_01" style="left:41.57em;top:51.6498em;"><span class="stl_16 stl_08 stl_17">TERJADI KESALAHAN</span></div>
+                        <?php endif; ?>
                         <div class="stl_01" style="left:39.5em;top:51.7786em;"><span class="stl_18 stl_19 stl_15">C.04
                                 &nbsp;</span></div>
                         <div class="stl_01" style="left:1.75em;top:51.7823em;"><span class="stl_14 stl_08 stl_10" style="word-spacing:-0.0005em;">C. PEGAWAI TERSEBUT : &nbsp;</span></div>
@@ -610,7 +627,7 @@ function frb($angka)
             document.getElementById('exportButton').addEventListener('click', function() {
                 const contentElement = document.getElementById('containerToExport');
                 const pdfOptions = {
-                    filename: 'Bukti Potong Pajak_<?= $user->npwp_A1; ?>_<?= $user->nama_A3; ?>.pdf',
+                    filename: 'Bukti Potong Pajak_<?= substr($mperlan, 0, 4); ?>_<?= $user->nama_A3; ?>(<?= $user->npwp_A1; ?>).pdf',
                     image: {
                         type: 'jpeg',
                         quality: 0.98
