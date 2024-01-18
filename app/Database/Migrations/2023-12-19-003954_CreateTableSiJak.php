@@ -9,10 +9,15 @@ class CreateTableSiJak extends Migration
     public function up()
     {
         $this->forge->addField([
+            'id' => [
+                'type' => 'BIGINT',
+                'unsigned' => true,
+                'auto_increment' => true,
+                'null' => false,
+            ],
             'no_H01' => [
                 'type' => 'VARCHAR',
                 'constraint' => 255,
-                'auto_increment' => true,
                 'null' => false,
             ],
             'spt_H02' => [
@@ -170,7 +175,7 @@ class CreateTableSiJak extends Migration
         ]);
 
         // Add primary key separately
-        $this->forge->addKey('no_H01', true);
+        $this->forge->addKey('id', true);
 
         $this->forge->createTable('tb_sijak');
     }

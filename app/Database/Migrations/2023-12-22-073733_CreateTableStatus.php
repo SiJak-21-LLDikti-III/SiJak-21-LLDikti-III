@@ -35,7 +35,7 @@ class CreateTableStatus extends Migration
             ],
         ]);
 
-        $this->forge->addKey('npwp', true);
+        // $this->forge->addKey('id', true);
         $this->forge->createTable('tb_status');
     }
 
