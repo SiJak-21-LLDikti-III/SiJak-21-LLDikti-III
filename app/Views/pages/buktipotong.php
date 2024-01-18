@@ -95,12 +95,14 @@
                                                         <a id="" class=" btn btn-danger p-2">
                                                             <iconify-icon icon="maki:cross" width="20"></iconify-icon>
                                                         </a>
+                                                        <p hidden><?= $row->status_unduh ?></p>
                                                     </div>
                                                 <?php elseif ($row->status_unduh == '1') : ?>
                                                     <div class="d-flex justify-content-center" title="Sudah di unduh oleh <?= $row->nama_A3 ?>">
                                                         <a id="" class="btn btn-success p-2">
                                                             <iconify-icon icon="mingcute:check-fill" width="20"></iconify-icon>
                                                         </a>
+                                                        <p hidden><?= $row->status_unduh ?></p>
                                                     </div>
                                                 <?php else : ?>
                                                     <!-- Default case or any other logic if needed -->
@@ -125,12 +127,14 @@
                                                         <a id="" class=" btn btn-danger p-2" download>
                                                             <iconify-icon icon="maki:cross" width="20"></iconify-icon>
                                                         </a>
+                                                        <p hidden><?= $row->status_bukti_bayar ?></p>
                                                     </div>
                                                 <?php elseif ($row->status_bukti_bayar == '1') : ?>
                                                     <div class="d-flex justify-content-center">
                                                         <a id="" class="btn btn-success p-2" download>
                                                             <iconify-icon icon="mingcute:check-fill" width="20"></iconify-icon>
                                                         </a>
+                                                        <p hidden><?= $row->status_bukti_bayar ?></p>
                                                     </div>
                                                 <?php else : ?>
                                                     <!-- Default case or any other logic if needed -->
