@@ -542,7 +542,17 @@ function frb($angka)
                         <div class="stl_01" style="left:4.5em;top:50.5707em;"><span class="stl_28 stl_08 stl_22" style="word-spacing:1.1077em;">23B. ATAS</span><span class="stl_28 stl_08 stl_17" style="word-spacing:-0.0011em;">&nbsp;</span><span class="stl_28 stl_08 stl_22" style="word-spacing:0.0001em;">PENGHASILAN TETAP DAN TERATUR LAINNYA YANG PEMBAYARAN
                                 TERPISAH DARI PEMBAYARAN GAJI &nbsp;</span></div>
                         <!-- silang status pegawai -->
-                        <div class="stl_01" style="left:41.57em;top:51.6498em;"><span class="stl_16 stl_08 stl_17">X</span></div>
+                        <?php if ($user->status_pegawai == "C.01") : ?>
+                            <div class="stl_01" style="left:12.99em;top:51.6498em;"><span class="stl_16 stl_08 stl_17">X</span></div>
+                        <?php elseif ($user->status_pegawai == "C.02") : ?>
+                            <div class="stl_01" style="left:23.57em;top:51.6498em;"><span class="stl_16 stl_08 stl_17">X</span></div>
+                        <?php elseif ($user->status_pegawai == "C.03") : ?>
+                            <div class="stl_01" style="left:32.97em;top:51.6498em;"><span class="stl_16 stl_08 stl_17">X</span></div>
+                        <?php elseif ($user->status_pegawai == "C.04") : ?>
+                            <div class="stl_01" style="left:41.57em;top:51.6498em;"><span class="stl_16 stl_08 stl_17">X</span></div>
+                        <?php else : ?>
+                            <div class="stl_01" style="left:41.57em;top:51.6498em;"><span class="stl_16 stl_08 stl_17">TERJADI KESALAHAN</span></div>
+                        <?php endif; ?>
                         <div class="stl_01" style="left:39.5em;top:51.7786em;"><span class="stl_18 stl_19 stl_15">C.04
                                 &nbsp;</span></div>
                         <div class="stl_01" style="left:1.75em;top:51.7823em;"><span class="stl_14 stl_08 stl_10" style="word-spacing:-0.0005em;">C. PEGAWAI TERSEBUT : &nbsp;</span></div>
@@ -617,7 +627,7 @@ function frb($angka)
             document.getElementById('exportButton').addEventListener('click', function() {
                 const contentElement = document.getElementById('containerToExport');
                 const pdfOptions = {
-                    filename: 'Bukti Potong Pajak_<?= $user->npwp_A1; ?>_<?= $user->nama_A3; ?>.pdf',
+                    filename: 'Bukti Potong Pajak_<?= substr($mperlan, 0, 4); ?>_<?= $user->nama_A3; ?>(<?= $user->npwp_A1; ?>).pdf',
                     image: {
                         type: 'jpeg',
                         quality: 0.98
