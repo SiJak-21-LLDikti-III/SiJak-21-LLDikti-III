@@ -138,7 +138,7 @@ class LayananPajakController extends BaseController
                 ];
 
                 // Panggil method updateDataByNpwp untuk melakukan update
-                $affectedRows = $this->DataModel->updateDataByNpwp($npwp, $dataToUpdate);
+                $affectedRows = $this->DataModel->updateDataByNpwp($npwp, $yearOption, $dataToUpdate);
                 log_message("info", "affectedRows: " . $affectedRows);
 
                 // Update berhasil

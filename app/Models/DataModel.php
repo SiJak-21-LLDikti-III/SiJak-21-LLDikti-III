@@ -36,10 +36,12 @@ class DataModel extends Model
 
 
 
-    public function updateDataByNpwp($npwp, $data)
+    public function updateDataByNpwp($npwp, $year, $data)
     {
-        // Contoh: $data = ['field1' => 'value1', 'field2' => 'value2', ...]
+        // Contoh: $data = ['field1' => 'value1', 'field2' => 'value2', ...]\
+        $mperlan = "mperlan_H04-H05";
         $this->builderStatus->where('npwp_A1', $npwp);
+        $this->builderStatus->where('SUBSTRING(`' . $mperlan . '`, 1, 4)', $year);
         $this->builderStatus->update($data);
 
         return $this->db->affectedRows(); // Mengembalikan jumlah baris yang terpengaruh oleh operasi update
