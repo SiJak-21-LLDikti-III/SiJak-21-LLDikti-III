@@ -404,8 +404,11 @@ function frb($angka)
                         <div class="stl_01" style="left:36.6667em;top:17.7em;"><span class="stl_16 stl_08 stl_22" style="word-spacing:0.0004em;"><?= $user->nik_A7 ?> &nbsp;</span></div>
                         <div class="stl_01" style="left:38.0833em;top:16.3619em;"><span class="stl_23 stl_19 stl_10">LAKI-LAKI &nbsp;</span></div>
                         <div class="stl_01" style="left:43.9167em;top:16.3619em;"><span class="stl_23 stl_19 stl_22">PEREMPUAN &nbsp;</span></div>
-                        <!-- Silang jenis kelamin -->
-                        <div class="stl_01" style="left:36.9033em;top:16.3165em;"><span class="stl_16 stl_08 stl_17">X</span></div>
+                        <?php if ($user->jenis_kelamin_A6 == "L") : ?>
+                            <div class="stl_01" style="left:36.9033em;top:16.3165em;"><span class="stl_16 stl_08 stl_17">X</span></div>
+                        <?php else : ?>
+                            <div class="stl_01" style="left:42.8em;top:16.3165em;"><span class="stl_16 stl_08 stl_17">X</span></div>
+                        <?php endif; ?>
                         <div class="stl_01" style="left:28.8333em;top:16.4453em;"><span class="stl_20 stl_19 stl_09" style="word-spacing:0.5541em;">A.6 JENIS</span><span class="stl_20 stl_19 stl_17" style="word-spacing:-0.0013em;">&nbsp;</span><span class="stl_20 stl_19 stl_09">KELAMIN
                                 &nbsp;</span></div>
                         <div class="stl_01" style="left:28.75em;top:17.8619em;"><span class="stl_20 stl_19 stl_09" style="word-spacing:0.554em;">A.7 NIK &nbsp;</span></div>
