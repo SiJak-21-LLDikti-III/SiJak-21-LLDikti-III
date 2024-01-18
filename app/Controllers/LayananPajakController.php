@@ -74,7 +74,7 @@ class LayananPajakController extends BaseController
 
         // Validasi apakah file diunggah atau tidak
         if (!$fileUpload->isValid()) {
-            return redirect()->to(site_url('/layanan-pajak'))->with('error', 'Mohon unggah file terlebih dahulu.');
+            return redirect()->to((base_url("/layanan-pajak?npwp=" . $npwp . "&birth=" . $birthDate . "&yearOption=" . $yearOption)))->with('error', 'Mohon unggah file terlebih dahulu.');
         }
 
         // Validasi ukuran dan jenis file
@@ -98,7 +98,7 @@ class LayananPajakController extends BaseController
         $dataPegawai = $this->HomeModel->getUserData($npwp, $birthDate, $yearOption);
 
         if (!$dataPegawai) {
-            return redirect()->to(site_url('/layanan-pajak'))->with('error', 'Data tidak ditemukan.');
+            return redirect()->to(base_url("/layanan-pajak?npwp=" . $npwp . "&birth=" . $birthDate . "&yearOption=" . $yearOption))->with('error', 'Data tidak ditemukan.');
         }
 
         $nama = $dataPegawai->nama_A3;
@@ -142,15 +142,16 @@ class LayananPajakController extends BaseController
                 log_message("info", "affectedRows: " . $affectedRows);
 
                 // Update berhasil
-                return redirect()->to(site_url('/layanan-pajak'))->with('success', 'File berhasil diunggah.');
+                //base_url?npwp=321321&birth=2024-01-01&yearOption=2023
+                return redirect()->to(base_url("/layanan-pajak?npwp=" . $npwp . "&birth=" . $birthDate . "&yearOption=" . $yearOption))->with('success', 'File berhasil diunggah.');
             } else {
                 log_message("info", "File has not moved");
                 // Terjadi kesalahan saat mengupdate data atau data tidak ditemukan
-                return redirect()->to(site_url('/layanan-pajak'))->with('error', 'Terjadi kesalahan saat mengupdate data atau data tidak ditemukan.');
+                return redirect()->to(base_url("/layanan-pajak?npwp=" . $npwp . "&birth=" . $birthDate . "&yearOption=" . $yearOption))->with('error', 'Terjadi kesalahan saat mengupdate data atau data tidak ditemukan.');
             }
         } else {
             // Terjadi kesalahan saat mengunggah file
-            return redirect()->to(site_url('/layanan-pajak'))->with('error', 'Terjadi kesalahan saat mengunggah file.');
+            return redirect()->to(base_url("/layanan-pajak?npwp=" . $npwp . "&birth=" . $birthDate . "&yearOption=" . $yearOption))->with('error', 'Terjadi kesalahan saat mengunggah file.');
         }
     }
 }
