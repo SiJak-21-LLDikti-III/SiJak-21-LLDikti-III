@@ -14,6 +14,7 @@ function frb($angka)
     <meta charset="utf-8" />
     <title>BUKTI PEMOTONGAN PAJAK PENGHASILAN PASAL 21 BAGI PEGAWAI NEGERI SIPIL ATAU ANGGOTA TENTARA NASIONAL INDONESIA
         ATAU ANGGOTA POLISI REPUBLIK INDONESIA ATAU PEJABAT NEGARA ATAU PENSIUNNYA</title>
+    <link rel="shortcut icon" href="<?= base_url(); ?>/skydash-template/images/favicon.png" />
     <style type="text/css">
         /* Additional styles for the button (optional) */
         #exportButton {
