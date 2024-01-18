@@ -437,7 +437,11 @@ function frb($angka)
                         <div class="stl_01" style="left:4.5833em;top:23.9853em;"><span class="stl_20 stl_19 stl_15" style="word-spacing:-0.0004em;">KODE OBJEK PAJAK : &nbsp;</span></div>
                         <div class="stl_01" style="left:2em;top:25.2353em;"><span class="stl_20 stl_19 stl_09" style="word-spacing:0.0001em;">PENGHASILAN BRUTO &nbsp;</span></div>
                         <!-- silang kode objek pajak -->
-                        <div class="stl_01" style="left:14.9867em;top:23.9832em;"><span class="stl_16 stl_08 stl_17">X</span></div>
+                        <?php if ($user->kd_pajak == "01") : ?>
+                            <div class="stl_01" style="left:14.9867em;top:23.9832em;"><span class="stl_16 stl_08 stl_17">X</span></div>
+                        <?php else : ?>
+                            <div class="stl_01" style="left:25.2em;top:23.9832em;"><span class="stl_16 stl_08 stl_17">X</span></div>
+                        <?php endif; ?>
                         <div class="stl_01" style="left:16.5458em;top:24.0686em;"><span class="stl_23 stl_19 stl_12">21-100-01 &nbsp;</span></div>
                         <div class="stl_01" style="left:26.7958em;top:24.0686em;"><span class="stl_23 stl_19 stl_12">21-100-02 &nbsp;</span></div>
                         <!-- A.8 K TK HB -->
