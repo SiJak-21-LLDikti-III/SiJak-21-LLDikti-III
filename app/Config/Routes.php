@@ -16,6 +16,7 @@ $routes->get('/login', 'LoginController::index');
 // Admin Pages
 $routes->get('/dashboard', 'DashboardAdminController::index');
 $routes->get('/bukti-potong', 'BuktiPotongController::index');
+$routes->get('/bukti-potong/unduh/(:segment)/(:segment)/(:segment)', 'LayananPajakController::unduhAdmin/$1/$2/$3');
 $routes->post('/excel/upload', 'BuktiPotongController::uploadExcel');
 $routes->get('/bukti-potong/filterTanggal/(:segment)', 'BuktiPotongController::fetchData/$1');
 $routes->get('/editbuktipotong', 'EditBuktiPotongController::index');

@@ -116,7 +116,7 @@
                                             <!-- Unduh Bukti Potong -->
                                             <td class="text-center align-middle">
                                                 <div class="d-flex justify-content-center">
-                                                    <a id="" href="<?= base_url() ?>layanan-pajak/unduh/<?= $row->npwp_A1 . '/' . $row->tgl_lahir . '/' . $yearmperlan ?>" class="btn btn-info p-2" target="_blank">
+                                                    <a id="unduh-bukti-potong" href="<?= base_url() ?>bukti-potong/unduh/<?= $row->npwp_A1 . '/' . $row->tgl_lahir . '/' . $yearmperlan ?>" class="btn btn-info p-2" target="_blank">
                                                         <iconify-icon icon="ph:eye" width="20"></iconify-icon>
                                                     </a>
                                                 </div>
