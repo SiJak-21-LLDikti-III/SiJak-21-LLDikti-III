@@ -1,5 +1,6 @@
 <?= $this->extend('layout/template'); ?>
 <?= $this->section('content'); ?>
+<?= $no = 0; ?>
 <div class="content-wrapper">
 
     <div class="container-fluid">
@@ -97,10 +98,11 @@
                                     <?php foreach ($dataTable as $row) :
                                         $mperlan = "mperlan_H04-H05";
                                         $yearmperlan = substr($row->$mperlan, 0, 4);
+                                        $no = $no + 1;
                                     ?>
 
                                         <tr>
-                                            <td><?= $row->no_H01 ?></td>
+                                            <td><?= $no ?></td>
                                             <td><?= $yearmperlan ?></td>
                                             <td><?= $row->npwp_A1 ?></td>
                                             <td><?= $row->nama_A3 ?></td>
