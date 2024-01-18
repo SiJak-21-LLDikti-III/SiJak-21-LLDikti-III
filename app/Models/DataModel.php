@@ -32,6 +32,15 @@ class DataModel extends Model
         return $result;
     }
 
+    public function getDataTableByID($id)
+    {
+        $this->builder->select('tb_sijak.*, tb_status.*');
+        $this->builder->join('tb_status', 'tb_status.npwp_A1 = tb_sijak.npwp_A1', 'inner');
+        $this->builder->where('tb_sijak.id', $id);
+        $result = $this->builder->get()->getResult();
+        return $result;
+    }
+
 
 
 

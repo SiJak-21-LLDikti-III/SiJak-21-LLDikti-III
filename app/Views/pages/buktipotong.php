@@ -196,7 +196,7 @@
                                             </td>
                                             <td>
                                                 <!-- Tombol Edit -->
-                                                <a href="<?= base_url('editbuktipotong'); ?>" class="btn btn-success mr-2 p-2">
+                                                <a href="<?= base_url('editbuktipotong/' . $row->id); ?>" class="btn btn-success mr-2 p-2">
                                                     <iconify-icon icon="tabler:edit" width="20"></iconify-icon>
                                                 </a>
 
