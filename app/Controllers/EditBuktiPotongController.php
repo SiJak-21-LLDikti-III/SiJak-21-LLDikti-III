@@ -15,12 +15,12 @@ class EditBuktiPotongController extends BaseController
     {
         $this->dataModel = new DataModel();
     }
-    public function index()
+    public function index($id)
     {
-        $dataTable = $this->dataModel->getAllDataTable();
+        $dataTable = $this->dataModel->getDataTableByID($id);
         $data = [
             'title' => 'Admin - Edit Bukti Potong',
-            'dataTable' => $dataTable
+            'data' => $dataTable
         ];
         // log_message("info", "data: " . print_r($data['dataTable'], true));
         return view('pages/editbuktipotong', $data);
