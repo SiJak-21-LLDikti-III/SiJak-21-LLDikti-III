@@ -30,8 +30,7 @@ class LayananPajakController extends BaseController
         $userData = $HomeModel->getUserData($npwp, $birthDate, $yearOption);
         $IDPP = $HomeModel->getIDPP();
         // Update status in tb_status table
-        $ubahStatusUnduh = '1';
-        $this->updateStatusUnduh($npwp, $ubahStatusUnduh);
+        $this->updateStatusUnduh($npwp, $yearOption);
         $data = [
             'title' => 'Layanan Pemotongan Pajak Penghasilan LLDikti III',
             'user' => $userData,
@@ -54,13 +53,13 @@ class LayananPajakController extends BaseController
     }
 
     // Add this method to your controller
-    protected function updateStatusUnduh($npwp, $statusUnduh)
+    protected function updateStatusUnduh($npwp, $year)
     {
         $data = [
-            'status_unduh' => $statusUnduh,
+            'status_unduh' => 1,
         ];
 
-        $this->DataModel->updateStatusUnduh($npwp, $data);
+        $this->DataModel->updateStatusUnduh($npwp, $year, $data);
     }
 
 

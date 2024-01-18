@@ -69,10 +69,12 @@ class DataModel extends Model
         return $result;
     }
 
-    public function updateStatusUnduh($npwp, $data)
+    public function updateStatusUnduh($npwp, $year, $data)
     {
+        $mperlan = "mperlan_H04-H05";
         $this->db->table('tb_status')
             ->where('npwp_A1', $npwp)
+            ->where('SUBSTRING(`' . $mperlan . '`, 1, 4)', $year)
             ->update($data);
     }
 
