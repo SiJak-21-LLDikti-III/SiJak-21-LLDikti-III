@@ -24,8 +24,7 @@ class DataModel extends Model
     public function getAllDataTable()
     {
         $this->builder->select('tb_sijak.*, tb_status.*');
-        $this->builder->join('tb_status', 'tb_status.npwp_A1 = tb_sijak.npwp_A1', 'inner');
-        $this->builder->groupBy('tb_sijak.id'); // Ganti 'id' dengan kolom yang unik
+        $this->builder->join('tb_status', 'tb_status.npwp_A1 = tb_sijak.npwp_A1 AND tb_status.mperlan_H04-H05 = tb_sijak.mperlan_H04-H05', 'inner');
         $this->builder->orderBy('tb_sijak.mperlan_H04-H05', 'DESC'); // Menambahkan pengurutan berdasarkan mperlan_H04-H05 secara descending
         $result = $this->builder->get()->getResult();
 
@@ -69,7 +68,7 @@ class DataModel extends Model
     {
         // Tambahkan logika untuk mengambil data dari tabel tb_sijak berdasarkan tahun
         $this->builder->select('tb_sijak.*, tb_status.*'); // Sesuaikan dengan kolom yang diperlukan
-        $this->builder->join('tb_status', 'tb_status.npwp_A1 = tb_sijak.npwp_A1', 'inner');
+        $this->builder->join('tb_status', 'tb_status.npwp_A1 = tb_sijak.npwp_A1 AND tb_status.mperlan_H04-H05 = tb_sijak.mperlan_H04-H05', 'inner');
 
         if ($year != 'all') {
             $this->builder->like('tb_sijak.mperlan_H04-H05', $year, 'after');

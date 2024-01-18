@@ -6,7 +6,7 @@
             <div class="container-fluid">
                 <div id="beginPage" class="mb-3">
                     <div class="d-sm-flex align-items-center justify-content-between mb-1">
-                        <a href="<?= base_url(); ?>/bukti-potong" class="btn btn-primary">
+                        <a href="<?= base_url(); ?>bukti-potong" class="btn btn-primary">
                             <iconify-icon icon="ep:back" width="25"></iconify-icon>
                         </a>
                         <h1 class="h3">Edit Bukti Potong Pajak PPh 21</h1>

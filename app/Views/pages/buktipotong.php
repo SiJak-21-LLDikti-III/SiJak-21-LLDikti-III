@@ -1,6 +1,5 @@
 <?= $this->extend('layout/template'); ?>
 <?= $this->section('content'); ?>
-<?= $no = 0; ?>
 <div class="content-wrapper">
 
     <div class="container-fluid">
@@ -80,7 +79,6 @@
                             <table class="table table-bordered text-white" id="myTable" width="100%" cellspacing="0">
                                 <thead class="bg-primary">
                                     <tr>
-                                        <th>No</th>
                                         <th>Tahun</th>
                                         <th>NPWP</th>
                                         <th>Nama</th>
@@ -98,11 +96,9 @@
                                     <?php foreach ($dataTable as $row) :
                                         $mperlan = "mperlan_H04-H05";
                                         $yearmperlan = substr($row->$mperlan, 0, 4);
-                                        $no = $no + 1;
                                     ?>
 
                                         <tr>
-                                            <td><?= $no ?></td>
                                             <td><?= $yearmperlan ?></td>
                                             <td><?= $row->npwp_A1 ?></td>
                                             <td><?= $row->nama_A3 ?></td>
@@ -196,12 +192,12 @@
                                             </td>
                                             <td>
                                                 <!-- Tombol Edit -->
-                                                <a href="<?= base_url('editbuktipotong/' . $row->id); ?>" class="btn btn-success mr-2 p-2">
+                                                <a href="<?= base_url('edit-bukti-potong/' . $row->id); ?>" class="btn btn-success mr-2 p-2">
                                                     <iconify-icon icon="tabler:edit" width="20"></iconify-icon>
                                                 </a>
 
                                                 <!-- Tombol Hapus -->
-                                                <a class="btn btn-danger p-2">
+                                                <a href="<?= base_url('delete-bukti-potong/' . $row->id); ?>" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')" class="btn btn-danger p-2">
                                                     <iconify-icon icon="mdi:trash-outline" width="20">
                                                 </a>
                                             </td>
