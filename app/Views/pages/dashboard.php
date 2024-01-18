@@ -28,7 +28,7 @@
                             <div class="card card-tale">
                                 <div class="card-body">
                                     <h2 class="mb-4">Data Pajak</h2>
-                                    <p class="fs-30 mb-2">2</p>
+                                    <p class="fs-30 mb-2">0</p>
                                     <p>Data yang sudah ditambahkan ke database</p>
                                 </div>
                             </div>
@@ -37,7 +37,7 @@
                             <div class="card card-dark-blue">
                                 <div class="card-body">
                                     <h2 class="mb-4">Unduh</h2>
-                                    <p class="fs-30 mb-2">61344</p>
+                                    <p class="fs-30 mb-2">0</p>
                                     <p>Total yang sudah unduh bukti potong</p>
                                 </div>
                             </div>
@@ -48,7 +48,7 @@
                             <div class="card card-light-blue">
                                 <div class="card-body">
                                     <h2 class="mb-4">Unggah</h2>
-                                    <p class="fs-30 mb-2">34040</p>
+                                    <p class="fs-30 mb-2">0</p>
                                     <p>Total yang sudah unggah bukti bayar</p>
                                 </div>
                             </div>
@@ -57,7 +57,7 @@
                             <div class="card card-light-danger">
                                 <div class="card-body">
                                     <h2 class="mb-4">Credits</h2>
-                                    <p class="fs-30 mb-2">MSIB Batch 5</p>
+                                    <h3>MSIB Batch 5</h3>
                                     <p> Arizki, Surya, Satria, Rama, Aria, Meryl, Riefqi, Atikah</p>
                                 </div>
                             </div>
