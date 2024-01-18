@@ -53,12 +53,16 @@ class DataModel extends Model
         // Tambahkan logika untuk mengambil data dari tabel tb_sijak berdasarkan tahun
         $this->builder->select('tb_sijak.*, tb_status.*'); // Sesuaikan dengan kolom yang diperlukan
         $this->builder->join('tb_status', 'tb_status.npwp = tb_sijak.npwp_A1', 'inner');
-        $this->builder->like('mperlan_H04-H05', $year, 'after');
+
+        if ($year != 'all') {
+            $this->builder->like('mperlan_H04-H05', $year, 'after');
+        }
 
         $result = $this->builder->get()->getResult();
 
         return $result;
     }
+
 
     public function updateStatusUnduh($npwp, $data)
     {

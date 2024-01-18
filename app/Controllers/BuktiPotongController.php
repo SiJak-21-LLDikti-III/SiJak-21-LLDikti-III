@@ -147,6 +147,7 @@ class BuktiPotongController extends BaseController
     }
     public function fetchData($year)
     {
+        log_message("info", "year:". print_r($year,true));
         // Ambil data dari tabel tb_sijak berdasarkan tahun
         $data = $this->dataModel->getDataByYear($year);
         // log_message("info", "data:". print_r($data,true));
@@ -154,4 +155,5 @@ class BuktiPotongController extends BaseController
         // Kembalikan data sebagai respons
         return $this->response->setJSON($data);
     }
+
 }

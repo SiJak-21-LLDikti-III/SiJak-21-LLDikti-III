@@ -47,21 +47,22 @@
 }
    function fetchTableData() {
       var selectedYear = document.getElementById('year').value;
-      console.log("select: "+selectedYear);
+      console.log("select: " + selectedYear);
 
       $.ajax({
-            url: '/bukti-potong/filterTanggal/' + selectedYear,
-            type: 'GET',
-            success: function (response) {
-            // Hancurkan DataTable jika sudah ada
-            console.log(response);
-               perbaruiTabel(response)
-            },
-            error: function(xhr, status, error) {
+         url: '/bukti-potong/filterTanggal/' + selectedYear,
+         type: 'GET',
+         success: function (response) {
+               // Hancurkan DataTable jika sudah ada
+               console.log(response);
+               perbaruiTabel(response);
+         },
+         error: function (xhr, status, error) {
                console.error(error);
-            }
+         }
       });
    }
+
 
 function perbaruiTabel(data) {
    var table = $('#myTable').DataTable();
