@@ -28,7 +28,7 @@
                             <div class="card card-tale">
                                 <div class="card-body">
                                     <h2 class="mb-4">Data Pajak</h2>
-                                    <p class="fs-30 mb-2">0</p>
+                                    <p class="fs-30 mb-2"><?= $count_data; ?></p>
                                     <p>Data yang sudah ditambahkan ke database</p>
                                 </div>
                             </div>
@@ -37,7 +37,7 @@
                             <div class="card card-dark-blue">
                                 <div class="card-body">
                                     <h2 class="mb-4">Unduh</h2>
-                                    <p class="fs-30 mb-2">0</p>
+                                    <p class="fs-30 mb-2"><?= $count_data_status_unduh ?></p>
                                     <p>Total yang sudah unduh bukti potong</p>
                                 </div>
                             </div>
@@ -48,7 +48,7 @@
                             <div class="card card-light-blue">
                                 <div class="card-body">
                                     <h2 class="mb-4">Unggah</h2>
-                                    <p class="fs-30 mb-2">0</p>
+                                    <p class="fs-30 mb-2"><?= $count_data_status_unggah ?></p>
                                     <p>Total yang sudah unggah bukti bayar</p>
                                 </div>
                             </div>

@@ -63,13 +63,34 @@ class DataModel extends Model
         return $result;
     }
 
-
     public function updateStatusUnduh($npwp, $data)
     {
         $this->db->table('tb_status')
-        ->where('npwp', $npwp)
+            ->where('npwp', $npwp)
             ->update($data);
     }
 
+    //For DASHBOARD
+    public function getCountData()
+    {
+        $this->builder->select('count(*) as count');
+        $result = $this->builder->get()->getResultArray();
+        return $result[0]['count'];
+    }
 
+    public function getCountData_StatusUnduh()
+    {
+        $this->builderStatus->select('count(*) as count');
+        $this->builderStatus->where('status_unduh', 1);
+        $result = $this->builderStatus->get()->getResultArray();
+        return $result[0]['count'];
+    }
+
+    public function getCountData_StatusUnggah()
+    {
+        $this->builderStatus->select('count(*) as count');
+        $this->builderStatus->where('status_bukti_bayar', 1);
+        $result = $this->builderStatus->get()->getResultArray();
+        return $result[0]['count'];
+    }
 }
