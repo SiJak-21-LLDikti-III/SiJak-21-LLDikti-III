@@ -60,6 +60,12 @@ class DataModel extends Model
         return $result;
     }
 
+    public function updateStatusUnduh($npwp, $data)
+    {
+        $this->db->table('tb_status')
+        ->where('npwp', $npwp)
+            ->update($data);
+    }
 
 
 }

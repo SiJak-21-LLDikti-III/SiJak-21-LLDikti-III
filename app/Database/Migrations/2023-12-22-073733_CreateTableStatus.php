@@ -17,10 +17,10 @@ class CreateTableStatus extends Migration
                 'type' => 'VARCHAR',
                 'constraint' => '255',
             ],
-            'bukti_bayar' => [
-                'type' => 'VARCHAR',
-                'constraint' => '255',
-            ],
+            // 'bukti_bayar' => [
+            //     'type' => 'VARCHAR',
+            //     'constraint' => '255',
+            // ],
             'status_unduh' => [
                 'type' => 'VARCHAR',
                 'constraint' => '255',

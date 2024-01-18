@@ -30,6 +30,13 @@ class LayananPajakController extends BaseController
         $userData = $HomeModel->getUserData($npwp, $birthDate, $yearOption);
         $IDPP = $HomeModel->getIDPP();
         log_message('info', 'data: ' . print_r($IDPP, true));
+
+        // Update status in tb_status table
+        $ubahStatusUnduh = '1';
+        $this->updateStatusUnduh($npwp, $ubahStatusUnduh);
+
+        log_message("info", "test klik");
+
         $data = [
             'title' => 'Layanan Pemotongan Pajak Penghasilan LLDikti III',
             'user' => $userData,
@@ -37,6 +44,18 @@ class LayananPajakController extends BaseController
         ];
         return view('pages/templateV2', $data);
     }
+
+    // Add this method to your controller
+    protected function updateStatusUnduh($npwp, $statusUnduh)
+    {
+        $data = [
+            'status_unduh' => $statusUnduh,
+        ];
+
+        $this->DataModel->updateStatusUnduh($npwp, $data);
+    }
+
+
     public function unggah()
     {
         // Mendapatkan nilai dari parameter npwp dan tahun dari URL
