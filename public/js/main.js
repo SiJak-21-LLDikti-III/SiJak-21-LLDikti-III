@@ -24,27 +24,60 @@
       formData.append('excel_file', file);
 
       $.ajax({
-            url: '/excel/upload',  // Sesuaikan dengan URL endpoint Anda
-            type: 'POST',
-            data: formData,
-            processData: false,
-            contentType: false,
-            success: function (response) {
-               if (response.status === 'success') {
-                     // Tampilkan pesan keberhasilan
-                     $('#success-alert').html('<div class="alert alert-success alert-dismissible show fade" role="alert"><div class="alert-body"><button class="close" data-dismiss="alert"></button><b>Berhasil ! </b>' + response.message + '</div></div>');
-               } else {
-                     // Tampilkan pesan kesalahan
-                     $('#error-alert').html('<div class="alert alert-danger alert-dismissible show fade" role="alert"><div class="alert-body"><button class="close" data-dismiss="alert"></button><b>Gagal ! </b>' + response.message + '</div></div>');
+         url: '/excel/upload',  // Sesuaikan dengan URL endpoint Anda
+         type: 'POST',
+         data: formData,
+         processData: false,
+         contentType: false,
+         success: function (response) {
+            if (response.status === 'success' && response.failureCount === 0) {
+               // File berhasil diunggah dan tidak ada data yang gagal
+               $('#success-alert').html('<div class="alert alert-success alert-dismissible show fade" role="alert"><div class="alert-body"><button class="close" data-dismiss="alert"></button><b>Berhasil ! </b>' + response.message + '</div></div>');
+               // Tampilkan jumlah data yang berhasil pada tampilan pengguna
+               if (response.successCount > 0) {
+                     $('#success-alert').append('<p>Data berhasil dimasukkan: ' + response.successCount + '</p>');
                }
-            },
-            error: function (xhr, status, error) {
-               // Tampilkan pesan error jika terjadi kesalahan AJAX
-               $('#error-alert').html('<div class="alert alert-danger alert-dismissible show fade" role="alert"><div class="alert-body"><button class="close" data-dismiss="alert"></button><b>Gagal ! </b>'+status+' '+ error.message + '</div></div>');
+               // Refresh halaman setelah beberapa detik (misalnya 3 detik)
+               setTimeout(function () {
+                     location.reload();
+               }, 3000);
+            } else {
+               // File berhasil diunggah tetapi terdapat data yang gagal
+               let errorHtml = '<div class="alert alert-danger alert-dismissible show fade" role="alert"><div class="alert-body"><button class="close" data-dismiss="alert"></button><b>Gagal ! </b>';
 
+               if (response.successCount > 0) {
+                     errorHtml += 'File telah diunggah, namun ' + response.failureCount + ' data gagal, karena duplikasi. ';
+               } else {
+                     errorHtml += response.message + ' ';
+               }
+
+               errorHtml += 'Rincian data gagal:</div></div>';
+
+               // Tampilkan rincian data yang gagal
+               response.failedData.forEach(function (failedData) {
+                     errorHtml += '<p>Data Gagal - NPWP: ' + failedData.npwp + ', Mperlan: ' + failedData['mperlan_H04-H05'] + '</p>';
+               });
+
+               $('#error-alert').html(errorHtml);
+
+               // Refresh halaman setelah beberapa detik (misalnya 3 detik)
+               setTimeout(function () {
+                     location.reload();
+               }, 3000);
             }
+         },
+
+         error: function (xhr, status, error) {
+            // Tampilkan pesan error jika terjadi kesalahan AJAX
+            $('#error-alert').html('<div class="alert alert-danger alert-dismissible show fade" role="alert"><div class="alert-body"><button class="close" data-dismiss="alert"></button><b>Gagal ! </b>' + status + ' ' + error.message + '</div></div>');
+            // Refresh halaman setelah beberapa detik (misalnya 3 detik)
+            setTimeout(function () {
+               location.reload();
+            }, 3000);
+         }
+
       });
-}
+   }
    function fetchTableData() {
       var selectedYear = document.getElementById('year').value;
       console.log("select: " + selectedYear);

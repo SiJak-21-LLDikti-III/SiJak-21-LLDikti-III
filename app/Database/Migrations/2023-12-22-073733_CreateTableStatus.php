@@ -9,7 +9,18 @@ class CreateTableStatus extends Migration
     public function up()
     {
         $this->forge->addField([
-            'npwp' => [
+            'id' => [
+                'type' => 'BIGINT',
+                'unsigned' => true,
+                'auto_increment' => true,
+                'null' => false,
+            ],
+            'npwp_A1' => [
+                'type' => 'varchar',
+                'constraint' => '255',
+                'null' => false,
+            ],
+            'mperlan_H04-H05' => [
                 'type' => 'VARCHAR',
                 'constraint' => '255',
             ],
@@ -35,7 +46,8 @@ class CreateTableStatus extends Migration
             ],
         ]);
 
-        // $this->forge->addKey('id', true);
+        // Add primary key separately
+        $this->forge->addKey('id', true);
         $this->forge->createTable('tb_status');
     }
 

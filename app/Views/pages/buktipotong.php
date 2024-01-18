@@ -3,24 +3,41 @@
 <div class="content-wrapper">
 
     <div class="container-fluid">
-        <?php if (session()->getFlashdata('success')) : ?>
-            <div class="alert alert-success alert-dismissible show fade" role="alert">
+        <?php if (session('success') || session('error')) : ?>
+            <div class="alert <?= session('success') ? 'alert-success' : 'alert-danger'; ?> alert-dismissible show fade" role="alert">
                 <div class="alert-body">
                     <button class="close" data-dismiss="alert"></button>
-                    <b>Berhasil !</b>
-                    <?= session()->getFlashdata('success'); ?>
+                    <?php if (session('success')) : ?>
+                        <b>Berhasil !</b>
+                        <?= session('success'); ?>
+                    <?php endif; ?>
+
+                    <?php if (session('error')) : ?>
+                        <b>Gagal !</b>
+                        <?= session('error'); ?>
+
+                        <?php
+                        // Jika ada data yang gagal, tambahkan informasi tentang data yang gagal
+                        $failureCount = session('failureCount');
+                        $failedData = session('failedData');
+
+                        if ($failureCount && $failedData) :
+                        ?>
+                            <div>
+                                <b>Total Data Gagal:</b> <?= $failureCount; ?><br>
+                                <b>Data Gagal:</b>
+                                <ul>
+                                    <?php foreach ($failedData as $data) : ?>
+                                        <li>NPWP: <?= $data['npwp']; ?>, mperlan: <?= $data['mperlan_H04-H05']; ?></li>
+                                    <?php endforeach; ?>
+                                </ul>
+                            </div>
+                        <?php endif; ?>
+                    <?php endif; ?>
                 </div>
             </div>
         <?php endif; ?>
-        <?php if (session()->getFlashdata('error')) : ?>
-            <div class="alert alert-danger alert-dismissible show fade" role="alert">
-                <div class="alert-body">
-                    <button class="close" data-dismiss="alert"></button>
-                    <b>Gagal !</b>
-                    <?= session()->getFlashdata('error'); ?>
-                </div>
-            </div>
-        <?php endif; ?>
+
         <!-- Tempatkan di halaman HTML Anda -->
         <div id="success-alert"></div>
         <div id="error-alert"></div>

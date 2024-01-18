@@ -18,7 +18,7 @@ class BuktiPotongController extends BaseController
     public function index()
     {
         $dataTable = $this->dataModel->getAllDataTable();
-        log_message('info',"data bukti potong :".print_r($dataTable,true));
+        // log_message('info',"data bukti potong :".print_r($dataTable,true));
         $data = [
             'title' => 'Admin - Bukti Potong',
             'dataTable' => $dataTable
@@ -32,6 +32,13 @@ class BuktiPotongController extends BaseController
         if ($file->isValid() && !in_array($file->getClientExtension(), ['xls', 'xlsx'])) {
             return $this->response->setJSON(['status' => 'error', 'message' => 'File yang diunggah harus berformat .xls atau .xlsx']);
         }
+
+
+        // Inisialisasi variabel jumlah data berhasil dan gagal
+        $successCount = 0;
+        $failureCount = 0;
+        $failedData = [];
+
         // log_message("info", "type: " . print_r($file, true));
         if ($file->isValid() && in_array($file->getClientExtension(), ['xls', 'xlsx'])) {
             try {
@@ -88,6 +95,24 @@ class BuktiPotongController extends BaseController
                         }
                     }
 
+                    // Cek apakah kombinasi mperlan_H04-H05 dan npwp_A1 sudah ada di database
+                    $existingData = $this->dataModel->builder->getWhere([
+                        'mperlan_H04-H05' => $data[2],
+                        'npwp_A1' => $data[3],
+                    ])->getRow();
+                    
+                    $existingDataStatus = $this->dataModel->builderStatus->getWhere([
+                        'mperlan_H04-H05' => $data[2],
+                        'npwp_A1' => $data[3],
+                    ])->getRow();
+
+                    if ($existingData || $existingDataStatus) {
+                        // Jika data sudah ada, tambahkan ke jumlah data yang gagal
+                        $failureCount++;
+                        $failedData[] = ['npwp' => $data[3], 'mperlan_H04-H05' => $data[2]];
+                        continue; // Lewati iterasi ini dan lanjutkan ke data berikutnya
+                    }
+
                     $this->dataModel->builder->insert([
                         'no_H01' => $data[0],
                         'spt_H02' => $data[1],
@@ -124,23 +149,35 @@ class BuktiPotongController extends BaseController
                         'pph_ph' => (int)($data[32] ?: 0),
                         'pph_potong' => (int)($data[33] ?: 0),
                         'pph_utang' => (int)($data[34] ?: 0),
-                        // 'pph_potong_lunas' => (int)($data[35] ?: 0),
-                        // 'atas_gaji_23A' => (int)($data[36] ?: 0),
-                        // 'atas_ph_23B' => (int)($data[37] ?: 0),
-                        'status_pegawai' => $data[35] ?: '0', // Jika status_pegawai bertipe varchar, ganti '0' menjadi nilai default yang sesuai
+                        'atas_gaji_23A' => (int)($data[35] ?: 0),
+                        'atas_ph_23B' => (int)($data[36] ?: 0),
+                        'status_pegawai' => $data[37] ?: null,
                     ]);
 
                     $this->dataModel->builderStatus->insert([
-                        'npwp' => $data[3],
+                        'npwp_A1' => $data[3],
+                        'mperlan_H04-H05' => $data[2],
                     ]);
 
+                    // Tambahkan ke jumlah data yang berhasil
+                    $successCount++;
                 }
 
                 // Setelah berhasil mengunggah file
-                return $this->response->setJSON(['status' => 'success', 'message' => 'File Excel berhasil diunggah']);
+                $message = 'File Excel berhasil diunggah';
+                if ($failureCount > 0) {
+                    $message .= " dengan $failureCount data gagal.";
+                }
+
+                // session()->setFlashdata('success', $message);
+                // session()->setFlashdata('failureCount', $failureCount);
+                // session()->setFlashdata('failedData', $failedData);
+
+                return $this->response->setJSON(['status' => 'success', 'message' => $message, 'successCount' => $successCount, 'failureCount' => $failureCount, 'failedData' => $failedData]);
             } catch (\Exception | \Throwable $e) {
                 // Handle kesalahan jika terjadi
                 log_message("info", 'Terjadi kesalahan: ' . print_r($e->getMessage(), true));
+                session()->setFlashdata('error', 'Terjadi kesalahan: ' . $e->getMessage());
                 return $this->response->setJSON(['status' => 'error', 'message' => 'Terjadi kesalahan: ' . $e->getMessage()]);
             }
         }

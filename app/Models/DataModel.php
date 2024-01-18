@@ -23,17 +23,23 @@ class DataModel extends Model
 
     public function getAllDataTable()
     {
-        // return $this->db->table($this->table)->get()->getResult();
-        $this->builder->select('tb_sijak.*, tb_status.*'); // Gantilah 'status_field' dengan nama kolom yang sesuai
-        $this->builder->join('tb_status', 'tb_status.npwp = tb_sijak.npwp_A1', 'inner');
+        $this->builder->select('tb_sijak.*, tb_status.*');
+        $this->builder->join('tb_status', 'tb_status.npwp_A1 = tb_sijak.npwp_A1', 'inner');
         $result = $this->builder->get()->getResult();
+
+        // Log or print the generated SQL query for debugging
+        $sql = $this->builder->getCompiledSelect();
+        // log_message('debug', 'SQL Query: ' . $sql);
+
         return $result;
     }
+
+
 
     public function updateDataByNpwp($npwp, $data)
     {
         // Contoh: $data = ['field1' => 'value1', 'field2' => 'value2', ...]
-        $this->builderStatus->where('npwp', $npwp);
+        $this->builderStatus->where('npwp_A1', $npwp);
         $this->builderStatus->update($data);
 
         return $this->db->affectedRows(); // Mengembalikan jumlah baris yang terpengaruh oleh operasi update
@@ -52,7 +58,7 @@ class DataModel extends Model
     {
         // Tambahkan logika untuk mengambil data dari tabel tb_sijak berdasarkan tahun
         $this->builder->select('tb_sijak.*, tb_status.*'); // Sesuaikan dengan kolom yang diperlukan
-        $this->builder->join('tb_status', 'tb_status.npwp = tb_sijak.npwp_A1', 'inner');
+        $this->builder->join('tb_status', 'tb_status.npwp_A1 = tb_sijak.npwp_A1', 'inner');
 
         if ($year != 'all') {
             $this->builder->like('mperlan_H04-H05', $year, 'after');
@@ -66,7 +72,7 @@ class DataModel extends Model
     public function updateStatusUnduh($npwp, $data)
     {
         $this->db->table('tb_status')
-            ->where('npwp', $npwp)
+            ->where('npwp_A1', $npwp)
             ->update($data);
     }
 
