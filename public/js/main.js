@@ -30,46 +30,48 @@ function uploadFile() {
       processData: false,
       contentType: false,
       success: function (response) {
+         console.log(response.successCount);
          if (response.status === "success" && response.failureCount === 0) {
-         // File berhasil diunggah dan tidak ada data yang gagal
-         $("#success-alert").html(
-            '<div class="alert alert-success alert-dismissible show fade" role="alert"><div class="alert-body"><button class="close" data-dismiss="alert"></button><b>Berhasil ! </b>' + response.message + "</div></div>"
-         );
-         // Tampilkan jumlah data yang berhasil pada tampilan pengguna
-         if (response.successCount > 0) {
-            $("#success-alert").append("<p>Data berhasil dimasukkan: " + response.successCount + "</p>");
-         }
-         // Refresh halaman setelah beberapa detik (misalnya 3 detik)
-         setTimeout(function () {
-            location.reload();
-         }, 3000);
+            // File berhasil diunggah dan tidak ada data yang gagal
+            $("#success-alert").html(
+               '<div class="alert alert-success alert-dismissible show fade" role="alert"><div class="alert-body"><button class="close" data-dismiss="alert"></button><b>Berhasil ! </b>' + response.message + "</div></div>"
+            );
+            // Tampilkan jumlah data yang berhasil pada tampilan pengguna
+            if (response.successCount > 0) {
+               $("#success-alert").append("<p>Data berhasil dimasukkan: " + response.successCount + "</p>");
+            }
+            // Refresh halaman setelah beberapa detik (misalnya 3 detik)
+            setTimeout(function () {
+               location.reload();
+            }, 3000);
          } else {
-         // File berhasil diunggah tetapi terdapat data yang gagal
-         let errorHtml = '<div class="alert alert-danger alert-dismissible show fade" role="alert"><div class="alert-body"><button class="close" data-dismiss="alert"></button><b>Gagal ! </b>';
+            // File berhasil diunggah tetapi terdapat data yang gagal
+            let errorHtml = '<div class="alert alert-danger alert-dismissible show fade" role="alert"><div class="alert-body"><button class="close" data-dismiss="alert"></button><b>Gagal ! </b>';
 
-         if (response.successCount > 0) {
-            errorHtml += "File telah diunggah, namun " + response.failureCount + " data gagal, karena duplikasi. ";
-         } else {
-            errorHtml += response.message + " ";
-         }
+            if (response.successCount > 0) {
+               errorHtml += "File telah diunggah, namun " + response.failureCount + " data gagal, karena duplikasi. ";
+               $("#success-alert").append("<p>Data berhasil dimasukkan: " + response.successCount + "</p>");
+            } else {
+               errorHtml += response.message + " ";
+            }
 
-         errorHtml += "<p>Rincian data gagal:</p> ";
+            errorHtml += "<p>Rincian data gagal:</p> ";
 
-         // Tampilkan rincian data yang gagal
-         response.failedData.forEach(function (failedData) {
-            errorHtml += "<p>Data Gagal - NPWP: " + failedData.npwp + ", Mperlan: " + failedData["mperlan_H04-H05"] + "</p>";
-         });
+            // Tampilkan rincian data yang gagal
+            response.failedData.forEach(function (failedData) {
+               errorHtml += "<p>Data Gagal - NPWP: " + failedData.npwp + ", Mperlan: " + failedData["mperlan_H04-H05"] + "</p>";
+            });
 
-         errorHtml += "</div></div>";
-         $("#error-alert").html(errorHtml);
+            errorHtml += "</div></div>";
+            $("#error-alert").html(errorHtml);
 
-         // Refresh halaman setelah beberapa detik (misalnya 5 detik)
-         setTimeout(function () {
-            location.reload();
-         }, 5000);
-         // console.log('Jumlah Data Berhasil:', response.successCount);
-         // console.log('Jumlah Data Gagal:', response.failureCount);
-         // console.log('Data Gagal:', response.failedData);
+            // Refresh halaman setelah beberapa detik (misalnya 5 detik)
+            setTimeout(function () {
+               location.reload();
+            }, 5000);
+            // console.log('Jumlah Data Berhasil:', response.successCount);
+            // console.log('Jumlah Data Gagal:', response.failureCount);
+            // console.log('Data Gagal:', response.failedData);
          }
       },
 
