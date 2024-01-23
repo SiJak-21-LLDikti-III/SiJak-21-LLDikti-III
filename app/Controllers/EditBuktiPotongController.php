@@ -30,7 +30,7 @@ class EditBuktiPotongController extends BaseController
     {
         // Ambil data dari formulir
         $data = $this->request->getPost();
-        log_message("info", "data: " . print_r($data, true));
+        // log_message("info", "data: " . print_r($data, true));
 
         $dataStatus=[
             'mperlan_H04-H05' => $data['mperlan_H04-H05'],
