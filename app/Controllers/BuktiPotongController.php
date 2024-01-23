@@ -97,66 +97,68 @@ class BuktiPotongController extends BaseController
 
                     // Cek apakah kombinasi mperlan_H04-H05 dan npwp_A1 sudah ada di database
                     $existingData = $this->dataModel->builder->getWhere([
-                        'mperlan_H04-H05' => $data[2],
-                        'npwp_A1' => $data[3],
+                        'mperlan_H04-H05' => $data[3],
+                        'npwp_A1' => $data[4],
                     ])->getRow();
-                    
+
                     $existingDataStatus = $this->dataModel->builderStatus->getWhere([
-                        'mperlan_H04-H05' => $data[2],
-                        'npwp_A1' => $data[3],
+                        'mperlan_H04-H05' => $data[3],
+                        'npwp_A1' => $data[4],
                     ])->getRow();
 
                     if ($existingData || $existingDataStatus) {
                         // Jika data sudah ada, tambahkan ke jumlah data yang gagal
                         $failureCount++;
-                        $failedData[] = ['npwp' => $data[3], 'mperlan_H04-H05' => $data[2]];
+                        $failedData[] = ['npwp' => $data[4], 'mperlan_H04-H05' => $data[3]];
                         continue; // Lewati iterasi ini dan lanjutkan ke data berikutnya
                     }
 
                     $this->dataModel->builder->insert([
                         'no_H01' => $data[0],
-                        'spt_H02' => $data[1],
-                        'mperlan_H04-H05' => $data[2],
-                        'npwp_A1' => $data[3],
-                        'nip_A2' => $data[4],
-                        'nama_A3' => $data[5],
-                        'pangkat_A4' => $data[6],
-                        'tgl_lahir' => date('Y-m-d', strtotime($data[7])),
-                        'nama_jabatan_A5' => $data[8],
-                        'jenis_kelamin_A6' => $data[9],
-                        'nik_A7' => $data[10],
-                        'status_A8' => $data[11],
-                        'kd_pajak' => $data[12],
-                        'gaji_pokok' => $data[13],
-                        'tj_istri' => $data[14],
-                        'tj_anak' => (int)($data[15] ?: 0),
-                        'jml_gaji' => (int)($data[16] ?: 0),
-                        'tj_perbaikan' => (int)($data[17] ?: 0),
-                        'tj_struktural' => (int)($data[18] ?: 0),
-                        'tj_beras' => (int)$data[19],
-                        'jml_bruto_1' => (int)$data[20],
-                        'tj_lain' => (int)($data[21] ?: 0),
-                        'ph_tetap' => (int)($data[22] ?: 0),
-                        'jml_bruto_2' => (int)($data[23] ?: 0),
-                        'biaya_jabatan' => (int)($data[24] ?: 0),
-                        'iuran_pensiun' => (int)($data[25] ?: 0),
-                        'jml_pengurangan' => (int)($data[26] ?: 0),
-                        'jml_ph' => (int)($data[27] ?: 0),
-                        'ph_neto' => (int)($data[28] ?: 0),
-                        'jml_ph_neto' => (int)($data[29] ?: 0),
-                        'ptkp' => (int)($data[30] ?: 0),
-                        'ph_kena_pajak' => (int)($data[31] ?: 0),
-                        'pph_ph' => (int)($data[32] ?: 0),
-                        'pph_potong' => (int)($data[33] ?: 0),
-                        'pph_utang' => (int)($data[34] ?: 0),
-                        'atas_gaji_23A' => (int)($data[35] ?: 0),
-                        'atas_ph_23B' => (int)($data[36] ?: 0),
-                        'status_pegawai' => $data[37] ?: null,
+                        'spt_H02' => $data[1] ?: 0,
+                        'pembatalan_H03' => $data[2] ?: 0,
+                        'mperlan_H04-H05' => $data[3],
+                        'npwp_A1' => $data[4],
+                        // 'nip_A2' => number_format($data[5], 0, '', ''),  // Ubah format mnjdi string
+                        'nip_A2' => $data[5],  // Ubah format mnjdi string
+                        'nama_A3' => $data[6],
+                        'pangkat_A4' => $data[7],
+                        'tgl_lahir' => date('Y-m-d', strtotime($data[8])),
+                        'nama_jabatan_A5' => $data[9],
+                        'jenis_kelamin_A6' => $data[10],
+                        'nik_A7' => $data[11],
+                        'status_A8' => $data[12],
+                        'kd_pajak' => $data[13],
+                        'gaji_pokok' => $data[14],
+                        'tj_istri' => $data[15],
+                        'tj_anak' => (int)($data[16] ?: 0),
+                        'jml_gaji' => (int)($data[17] ?: 0),
+                        'tj_perbaikan' => (int)($data[18] ?: 0),
+                        'tj_struktural' => (int)($data[19] ?: 0),
+                        'tj_beras' => (int)$data[20],
+                        'jml_bruto_1' => (int)$data[21],
+                        'tj_lain' => (int)($data[22] ?: 0),
+                        'ph_tetap' => (int)($data[23] ?: 0),
+                        'jml_bruto_2' => (int)($data[24] ?: 0),
+                        'biaya_jabatan' => (int)($data[25] ?: 0),
+                        'iuran_pensiun' => (int)($data[26] ?: 0),
+                        'jml_pengurangan' => (int)($data[27] ?: 0),
+                        'jml_ph' => (int)($data[28] ?: 0),
+                        'ph_neto' => (int)($data[29] ?: 0),
+                        'jml_ph_neto' => (int)($data[30] ?: 0),
+                        'ptkp' => (int)($data[31] ?: 0),
+                        'ph_kena_pajak' => (int)($data[32] ?: 0),
+                        'pph_ph' => (int)($data[33] ?: 0),
+                        'pph_potong' => (int)($data[34] ?: 0),
+                        'pph_utang' => (int)($data[35] ?: 0),
+                        'atas_gaji_23A' => (int)($data[36] ?: 0),
+                        'atas_ph_23B' => (int)($data[37] ?: 0),
+                        'status_pegawai' => $data[38] ?: null,
                     ]);
 
                     $this->dataModel->builderStatus->insert([
-                        'npwp_A1' => $data[3],
-                        'mperlan_H04-H05' => $data[2],
+                        'mperlan_H04-H05' => $data[3],
+                        'npwp_A1' => $data[4],
                     ]);
 
                     // Tambahkan ke jumlah data yang berhasil
@@ -184,7 +186,7 @@ class BuktiPotongController extends BaseController
     }
     public function fetchData($year)
     {
-        log_message("info", "year:". print_r($year,true));
+        log_message("info", "year:" . print_r($year, true));
         // Ambil data dari tabel tb_sijak berdasarkan tahun
         $data = $this->dataModel->getDataByYear($year);
         // log_message("info", "data:". print_r($data,true));
@@ -192,5 +194,4 @@ class BuktiPotongController extends BaseController
         // Kembalikan data sebagai respons
         return $this->response->setJSON($data);
     }
-
 }

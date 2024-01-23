@@ -24,6 +24,10 @@ class CreateTableSiJak extends Migration
                 'type' => 'INT',
                 'null' => true,
             ],
+            'pembatalan_H03' => [
+                'type' => 'boolean',
+                'null' => true,
+            ],
             'mperlan_H04-H05' => [
                 'type' => 'VARCHAR',
                 'constraint' => '255',

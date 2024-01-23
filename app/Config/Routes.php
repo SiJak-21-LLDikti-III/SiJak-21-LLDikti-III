@@ -19,7 +19,10 @@ $routes->get('/bukti-potong', 'BuktiPotongController::index');
 $routes->get('/bukti-potong/unduh/(:segment)/(:segment)/(:segment)', 'LayananPajakController::unduhAdmin/$1/$2/$3');
 $routes->post('/excel/upload', 'BuktiPotongController::uploadExcel');
 $routes->get('/bukti-potong/filterTanggal/(:segment)', 'BuktiPotongController::fetchData/$1');
-$routes->get('/edit-bukti-potong/(:num)', 'EditBuktiPotongController::index/$1');
+$routes->get('/edit-bukti-potong/update/(:num)', 'EditBuktiPotongController::index/$1');
+$routes->post('/edit-bukti-potong/update/(:num)', 'EditBuktiPotongController::update/$1');
+$routes->post('/delete-bukti-potong/(:num)', 'EditBuktiPotongController::delete/$1');
+
 
 
 $routes->post('/pemotong-pajak/update/(:num)', 'PemotongPajakController::update/$1');

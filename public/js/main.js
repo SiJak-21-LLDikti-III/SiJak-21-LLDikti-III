@@ -23,67 +23,67 @@ function uploadFile() {
   const formData = new FormData();
   formData.append("excel_file", file);
 
-  $.ajax({
-    url: "/excel/upload", // Sesuaikan dengan URL endpoint Anda
-    type: "POST",
-    data: formData,
-    processData: false,
-    contentType: false,
-    success: function (response) {
-      if (response.status === "success" && response.failureCount === 0) {
-        // File berhasil diunggah dan tidak ada data yang gagal
-        $("#success-alert").html(
-          '<div class="alert alert-success alert-dismissible show fade" role="alert"><div class="alert-body"><button class="close" data-dismiss="alert"></button><b>Berhasil ! </b>' + response.message + "</div></div>"
-        );
-        // Tampilkan jumlah data yang berhasil pada tampilan pengguna
-        if (response.successCount > 0) {
-          $("#success-alert").append("<p>Data berhasil dimasukkan: " + response.successCount + "</p>");
-        }
-        // Refresh halaman setelah beberapa detik (misalnya 3 detik)
-        setTimeout(function () {
-          location.reload();
-        }, 3000);
-      } else {
-        // File berhasil diunggah tetapi terdapat data yang gagal
-        let errorHtml = '<div class="alert alert-danger alert-dismissible show fade" role="alert"><div class="alert-body"><button class="close" data-dismiss="alert"></button><b>Gagal ! </b>';
+   $.ajax({
+      url: "/excel/upload", // Sesuaikan dengan URL endpoint Anda
+      type: "POST",
+      data: formData,
+      processData: false,
+      contentType: false,
+      success: function (response) {
+         if (response.status === "success" && response.failureCount === 0) {
+         // File berhasil diunggah dan tidak ada data yang gagal
+         $("#success-alert").html(
+            '<div class="alert alert-success alert-dismissible show fade" role="alert"><div class="alert-body"><button class="close" data-dismiss="alert"></button><b>Berhasil ! </b>' + response.message + "</div></div>"
+         );
+         // Tampilkan jumlah data yang berhasil pada tampilan pengguna
+         if (response.successCount > 0) {
+            $("#success-alert").append("<p>Data berhasil dimasukkan: " + response.successCount + "</p>");
+         }
+         // Refresh halaman setelah beberapa detik (misalnya 3 detik)
+         setTimeout(function () {
+            location.reload();
+         }, 3000);
+         } else {
+         // File berhasil diunggah tetapi terdapat data yang gagal
+         let errorHtml = '<div class="alert alert-danger alert-dismissible show fade" role="alert"><div class="alert-body"><button class="close" data-dismiss="alert"></button><b>Gagal ! </b>';
 
-        if (response.successCount > 0) {
-          errorHtml += "File telah diunggah, namun " + response.failureCount + " data gagal, karena duplikasi. ";
-        } else {
-          errorHtml += response.message + " ";
-        }
+         if (response.successCount > 0) {
+            errorHtml += "File telah diunggah, namun " + response.failureCount + " data gagal, karena duplikasi. ";
+         } else {
+            errorHtml += response.message + " ";
+         }
 
-        errorHtml += "<p>Rincian data gagal:</p> ";
+         errorHtml += "<p>Rincian data gagal:</p> ";
 
-        // Tampilkan rincian data yang gagal
-        response.failedData.forEach(function (failedData) {
-          errorHtml += "<p>Data Gagal - NPWP: " + failedData.npwp + ", Mperlan: " + failedData["mperlan_H04-H05"] + "</p>";
-        });
+         // Tampilkan rincian data yang gagal
+         response.failedData.forEach(function (failedData) {
+            errorHtml += "<p>Data Gagal - NPWP: " + failedData.npwp + ", Mperlan: " + failedData["mperlan_H04-H05"] + "</p>";
+         });
 
-        errorHtml += "</div></div>";
-        $("#error-alert").html(errorHtml);
+         errorHtml += "</div></div>";
+         $("#error-alert").html(errorHtml);
 
-        // Refresh halaman setelah beberapa detik (misalnya 3 detik)
-        setTimeout(function () {
-          location.reload();
-        }, 3000);
-        // console.log('Jumlah Data Berhasil:', response.successCount);
-        // console.log('Jumlah Data Gagal:', response.failureCount);
-        // console.log('Data Gagal:', response.failedData);
-      }
-    },
+         // Refresh halaman setelah beberapa detik (misalnya 5 detik)
+         setTimeout(function () {
+            location.reload();
+         }, 5000);
+         // console.log('Jumlah Data Berhasil:', response.successCount);
+         // console.log('Jumlah Data Gagal:', response.failureCount);
+         // console.log('Data Gagal:', response.failedData);
+         }
+      },
 
-    error: function (xhr, status, error) {
-      // Tampilkan pesan error jika terjadi kesalahan AJAX
-      $("#error-alert").html(
-        '<div class="alert alert-danger alert-dismissible show fade" role="alert"><div class="alert-body"><button class="close" data-dismiss="alert"></button><b>Gagal ! </b>' + status + " " + error.message + "</div></div>"
-      );
-      // Refresh halaman setelah beberapa detik (misalnya 3 detik)
-      setTimeout(function () {
-        location.reload();
-      }, 3000);
-    },
-  });
+      error: function (xhr, status, error) {
+         // Tampilkan pesan error jika terjadi kesalahan AJAX
+         $("#error-alert").html(
+         '<div class="alert alert-danger alert-dismissible show fade" role="alert"><div class="alert-body"><button class="close" data-dismiss="alert"></button><b>Gagal ! </b>' + status + " " + error.message + "</div></div>"
+         );
+         // Refresh halaman setelah beberapa detik (misalnya 3 detik)
+         // setTimeout(function () {
+         // location.reload();
+         // }, 3000);
+      },
+   });
 }
 function fetchTableData() {
   var selectedYear = document.getElementById("year").value;
@@ -246,19 +246,211 @@ function getFileBuktiHtml(base_url, rowData) {
 
 // PROGRESS BAR DI HALAMAN EDIT BUKTI POTONG
 $(document).ready(function () {
-  $(".nav-link").on("shown.bs.tab", function (e) {
-    // Menghitung indeks tab aktif
-    var activeTabIndex = $(e.target).parent().index(); // Menggunakan parent() untuk mendapatkan indeks dari elemen li
+   // Inisialisasi progress bar dengan 20%
+   $(".progress-bar").css("width", "20%").attr("aria-valuenow", 20);
+   $(".progress-text").text("20%");
 
-    // Menghitung persentase berdasarkan bobot 25% untuk setiap tab
-    var progressPercentage = (activeTabIndex + 1) * 25; // Karena indeks dimulai dari 0
+   $(".nav-link").on("shown.bs.tab", function (e) {
+      // Menghitung indeks tab aktif
+      var activeTabIndex = $(e.target).parent().index(); // Menggunakan parent() untuk mendapatkan indeks dari elemen li
+      // console.log("activeTabIndex: " + activeTabIndex);
+      // Menghitung persentase berdasarkan bobot 25% untuk setiap tab
+      var progressPercentage = (activeTabIndex + 1) * 20; // Karena indeks dimulai dari 0
 
-    // Update bar progress dengan persentase yang tepat
-    $(".progress-bar")
-      .css("width", progressPercentage + "%")
-      .attr("aria-valuenow", progressPercentage);
+      // Update bar progress dengan persentase yang tepat
+      $(".progress-bar")
+         .css("width", progressPercentage + "%")
+         .attr("aria-valuenow", progressPercentage);
 
-    // Update teks persentase di dalam bar progress
-    $(".progress-text").text(progressPercentage + "%");
-  });
+      // Update teks persentase di dalam bar progress
+      $(".progress-text").text(progressPercentage + "%");
+   });
 });
+
+
+// button edit bukti potong
+var updateButton = document.getElementById('updateData');
+
+// Tambahkan event listener untuk menghandle klik tombol
+updateButton.addEventListener('click', function () {
+   // Ambil nilai dari input atau elemen formulir lainnya
+   var noPendaftaran = $('#no_pendaftaran').val();
+   var sptPembetulan = $('#spt_pembetulan').val();
+   var pembatalanH03 = $('#pembatalan_H03').prop('checked') ? '1' : '0';
+   var month1 = $('#month1').val();
+   var month2 = $('#month2').val();
+   var year = $('#year').val();
+   var mperlan = `${year}-${month1}-${month2}`;
+
+
+
+   // part 2
+   var kdPajak = $('input[name="kd_pajak"]:checked').val();
+
+   //part 3
+   var npwpValue = document.getElementById('npwp').value;
+   var nipValue = document.getElementById('nip').value;
+   var namaValue = document.getElementById('nama').value;
+   var pangkatValue = document.getElementById('pangkat').value;
+   var jabatanValue = document.getElementById('jabatan').value;
+   var jenisKelaminValue = document.querySelector('input[name="jenis_kelamin"]:checked').value;
+   var nikValue = document.getElementById('nik').value;
+
+   // Ambil nilai dari input status tanggungan
+   var statusKValue = document.getElementById('status_k').value;
+   var statusTKValue = document.getElementById('status_tk').value;
+   var statusHBValue = document.getElementById('status_hb').value;
+
+   var status_A8 =`${statusKValue}-${statusTKValue}-${statusHBValue}`;
+
+   //part 4
+   var gajiPokok = document.getElementById('gaji_pokok').value;
+   var tjIstri = document.getElementById('tj_istri').value;
+   var tjAnak = document.getElementById('tj_anak').value;
+   var jmlGaji = document.getElementById('jml_gaji').value;
+   var tjPerbaikan = document.getElementById('tj_perbaikan').value;
+   var tjStruktural = document.getElementById('tj_struktural').value;
+   var tjBeras = document.getElementById('tj_beras').value;
+   var jmlBruto1 = document.getElementById('jml_bruto_1').value;
+   var tjLain = document.getElementById('tj_lain').value;
+   var phTetap = document.getElementById('ph_tetap').value;
+   var jmlBruto2 = document.getElementById('jml_bruto_2').value;
+   var biayaJabatan = document.getElementById('biaya_jabatan').value;
+   var iuranPensiun = document.getElementById('iuran_pensiun').value;
+   var jmlPengurangan = document.getElementById('jml_pengurangan').value;
+   var jmlPh = document.getElementById('jml_ph').value;
+   var phNeto = document.getElementById('ph_neto').value;
+   var jmlPhNeto = document.getElementById('jml_ph_neto').value;
+   var ptkp = document.getElementById('ptkp').value;
+   var phKenaPajak = document.getElementById('ph_kena_pajak').value;
+   var pphPasal21 = document.getElementById('pph_pasal_21').value;
+   var pphTelahDipotong = document.getElementById('pph_telah_dipotong').value;
+   var pphTerutang = document.getElementById('pph_terutang').value;
+   var atasGaji23A = document.getElementById('atas_gaji_23A').value;
+   var atasPh23B = document.getElementById('atas_ph_23B').value;
+
+   // part 5
+   // Ambil nilai dari radio button "Status Pegawai"
+   var statusPegawai = $('input[name=status_pegawai]:checked').val();
+
+
+   // Ambil ID dari link url
+   // Mendapatkan URL saat ini
+   var currentURL = window.location.href;
+
+   // Membagi URL berdasarkan karakter "/"
+   var urlParts = currentURL.split('/');
+
+   // Mendapatkan angka yang berada di bagian terakhir setelah karakter "/"
+   var dataId = urlParts[urlParts.length - 1];
+
+   console.log(dataId);
+   // Kirim data ke controller menggunakan Ajax
+   $.ajax({
+      url: '/edit-bukti-potong/update/' + dataId, // Ganti 'url_controller/update/' dengan URL yang sesuai di controller
+      method: 'POST',
+      data: {
+            no_H01: noPendaftaran,
+            spt_H02: sptPembetulan,
+            pembatalan_H03: pembatalanH03,
+            'mperlan_H04-H05': mperlan,
+            kd_pajak: kdPajak,
+            npwp_A1: npwpValue,
+            nip_A2: nipValue,
+            nama_A3: namaValue,
+            pangkat_A4: pangkatValue,
+            nama_jabatan_A5: jabatanValue,
+            jenis_kelamin_A6: jenisKelaminValue,
+            nik_A7: nikValue,
+            status_A8: status_A8,
+            gaji_pokok: gajiPokok,
+            tj_istri: tjIstri,
+            tj_anak: tjAnak,
+            jml_gaji: jmlGaji,
+            tj_perbaikan: tjPerbaikan,
+            tj_struktural: tjStruktural,
+            tj_beras: tjBeras,
+            jml_bruto_1: jmlBruto1,
+            tj_lain: tjLain,
+            ph_tetap: phTetap,
+            jml_bruto_2: jmlBruto2,
+            biaya_jabatan: biayaJabatan,
+            iuran_pensiun: iuranPensiun,
+            jml_pengurangan: jmlPengurangan,
+            jml_ph: jmlPh,
+            ph_neto: phNeto,
+            jml_ph_neto: jmlPhNeto,
+            ptkp: ptkp,
+            ph_kena_pajak: phKenaPajak,
+            pph_ph: pphPasal21,
+            pph_potong: pphTelahDipotong,
+            pph_utang: pphTerutang,
+            atas_gaji_23A: atasGaji23A,
+            atas_ph_23B: atasPh23B,
+            status_pegawai: statusPegawai,
+            // Kirim formulir lainnya sesuai kebutuhan
+      },
+      success: function (response) {
+         $("#success-alert").html(
+            '<div class="alert alert-success alert-dismissible show fade" role="alert"><div class="alert-body"><button class="close" data-dismiss="alert"></button><b>Berhasil ! </b>' + response.message + "</div></div>"
+         );
+         console.log(response);
+         // setTimeout(function () {
+         //    location.reload();
+         // }, 3000);
+
+         //lakukan redirect setelah 3 detik
+         setTimeout(function () {
+         window.location.href = "/bukti-potong";
+         }, 3000);
+
+      },
+
+      error: function (xhr, status, error) {
+         // Tampilkan pesan error jika terjadi kesalahan AJAX
+         $("#error-alert").html(
+         '<div class="alert alert-danger alert-dismissible show fade" role="alert"><div class="alert-body"><button class="close" data-dismiss="alert"></button><b>Gagal ! </b>' + "Data Gagal Diupdate, karena : " + " " + error.message + "</div></div>"
+         );
+         // Refresh halaman setelah beberapa detik (misalnya 3 detik)
+         // setTimeout(function () {
+         // location.reload();
+         // }, 3000);
+      },
+   });
+});
+
+// delete data bukti potong
+function deleteData(id, npwp) {
+   // Konfirmasi pengguna sebelum menghapus
+   var confirmation = confirm('Apakah Anda yakin ingin menghapus data ini?');
+
+   if (confirmation) {
+      // Lakukan pemanggilan Ajax di sini
+      $.ajax({
+            url: '/delete-bukti-potong/' + id,
+            method: 'POST',
+            data: {
+               npwp: npwp
+            },
+            success: function (response) {
+               $("#success-alert").html(
+                           '<div class="alert alert-success alert-dismissible show fade" role="alert"><div class="alert-body"><button class="close" data-dismiss="alert"></button><b>Berhasil ! </b>' + response.message + "</div></div>"
+               );
+               console.log(response);
+               setTimeout(function () {
+                  location.reload();
+               }, 3000);
+            },
+            error: function (xhr, status, error) {
+               // Tampilkan pesan error jika terjadi kesalahan AJAX
+               $("#error-alert").html(
+               '<div class="alert alert-danger alert-dismissible show fade" role="alert"><div class="alert-body"><button class="close" data-dismiss="alert"></button><b>Gagal ! </b>' + "Data Gagal Diupdate, karena : " + " " + error.message + "</div></div>"
+               );
+               // Refresh halaman setelah beberapa detik (misalnya 3 detik)
+               // setTimeout(function () {
+               // location.reload();
+               // }, 3000);
+            },
+      });
+   }
+}
