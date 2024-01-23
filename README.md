@@ -32,7 +32,7 @@ Sebelum Anda mulai menginstal SiJak21-Feature, pastikan Anda telah melakukan lan
 3. Lakukan migrasi database dengan menjalankan perintah di terminal:
 
    ```sh
-   php spark migrate
+   php spark migrate -all
    ```
 
 ## Contoh Penggunaan
