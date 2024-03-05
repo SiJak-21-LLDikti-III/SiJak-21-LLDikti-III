@@ -111,4 +111,79 @@ class DataModel extends Model
         $result = $this->builderStatus->get()->getResultArray();
         return $result[0]['count'];
     }
+
+    public function updateData($id, $data)
+    {
+        // Lakukan operasi update
+        $this->db->table($this->table)->where('id', $id)->update($data);
+
+        // Periksa apakah terdapat kesalahan
+        if ($this->db->error()) {
+            // Jika ada kesalahan, kembalikan array dengan pesan kesalahan
+            return ['error' => $this->db->error()];
+        } else {
+            // Jika tidak ada kesalahan, kembalikan jumlah baris yang terpengaruh
+            return $this->db->affectedRows();
+        }
+    }
+
+    public function updateDataStatus($id, $data)
+    {
+        // Lakukan operasi update
+        $this->db->table($this->tableStatus)->where('id', $id)->update($data);
+
+        // Periksa apakah terdapat kesalahan
+        if ($this->db->error()) {
+            // Jika ada kesalahan, kembalikan array dengan pesan kesalahan
+            return ['error' => $this->db->error()];
+        } else {
+            // Jika tidak ada kesalahan, kembalikan jumlah baris yang terpengaruh
+            return $this->db->affectedRows();
+        }
+    }
+
+
+    public function deleteData($id, $npwp)
+    {
+        // Cek apakah data ditemukan di kedua tabel
+        $dataInSijak = $this->db->table($this->table)->where('npwp_A1', $npwp)->countAllResults();
+        $dataInStatus = $this->db->table($this->tableStatus)->where('npwp_A1', $npwp)->countAllResults();
+
+        // Jika data ditemukan di kedua tabel, lakukan penghapusan
+        if ($dataInSijak > 0 && $dataInStatus > 0) {
+            $this->db->table($this->table)->where('npwp_A1', $npwp)->delete();
+            $this->db->table($this->tableStatus)->where('npwp_A1', $npwp)->delete();
+            return true;
+        } else {
+            // Jika data hanya ditemukan di salah satu tabel, jangan lakukan penghapusan
+            return false;
+        }
+    }
+    public function cekDatabyMperlandanNpwp($mperlan_H05, $npwp)
+    {
+        $mperlan="mperlan_H04-H05";
+        // Cek apakah data ditemukan di kedua tabel
+        $dataInSijak = $this->db->table($this->table)
+                        ->where('npwp_A1', $npwp)
+                        ->where($mperlan, $mperlan_H05)
+                        ->countAllResults();
+        $dataInStatus = $this->db->table($this->tableStatus)
+                        ->where('npwp_A1', $npwp)
+                        ->where($mperlan, $mperlan_H05)
+                        ->countAllResults();
+
+        // Jika data ditemukan di kedua tabel, lakukan penghapusan
+        if ($dataInSijak > 0 && $dataInStatus > 0) {
+            $this->db->table($this->table)->where('npwp_A1', $npwp)->delete();
+            $this->db->table($this->tableStatus)->where('npwp_A1', $npwp)->delete();
+            return true;
+        } else {
+            // Jika data hanya ditemukan di salah satu tabel, jangan lakukan penghapusan
+            return false;
+        }
+    }
+
+
+
+
 }

@@ -5,6 +5,11 @@
     border-radius: 0; /* Menghilangkan sudut border, jika diperlukan */
   }
 
+.status-tanggungan{
+    margin-right: 20px;
+    padding-right: 60px;
+}
+
 .navbar-biru .navbar-brand:hover {
     background-color: #39387c !important; /* Ganti dengan warna biru sesuai kebutuhan Anda */
     border-radius: 10px;

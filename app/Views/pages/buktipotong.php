@@ -192,14 +192,16 @@
                                             </td>
                                             <td>
                                                 <!-- Tombol Edit -->
-                                                <a href="<?= base_url('edit-bukti-potong/' . $row->id); ?>" class="btn btn-success mr-2 p-2">
+                                                <a href="<?= base_url('/edit-bukti-potong/update/' . $row->id); ?>" class="btn btn-success mr-2 p-2">
                                                     <iconify-icon icon="tabler:edit" width="20"></iconify-icon>
                                                 </a>
 
                                                 <!-- Tombol Hapus -->
-                                                <a href="<?= base_url('delete-bukti-potong/' . $row->id); ?>" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')" class="btn btn-danger p-2">
-                                                    <iconify-icon icon="mdi:trash-outline" width="20">
-                                                </a>
+                                                <button type="button" class="btn btn-danger p-2" onclick="deleteData(<?= $row->id; ?>, '<?= $row->npwp_A1; ?>')">
+                                                    <iconify-icon icon="mdi:trash-outline" width="20"></iconify-icon>
+                                                </button>
+
+
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>
