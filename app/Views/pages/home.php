@@ -7,26 +7,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Primary Meta Tags -->
     <meta name="title" content="Layanan Pemotongan Pajak Penghasilan LLDikti III" />
-    <meta name="description"
-        content="SISTEM UNTUK MEMANTAU BUKTI PEMOTONGAN PAJAK PENGHASILAN PASAL 21 BAGI  PEGAWAI NEGERI SIPIL ATAU ANGGOTA TENTARA NASIONAL  INDONESIA ATAU ANGGOTA POLISI REPUBLIK INDONESIA ATAU  PEJABAT NEGARA ATAU PENSIUNNYA. Dibuat oleh Tim MSIB Batch 5 Lembaga Layanan Pendidikan Tinggi Wilayah III" />
+    <meta name="description" content="SISTEM UNTUK MEMANTAU BUKTI PEMOTONGAN PAJAK PENGHASILAN PASAL 21 BAGI  PEGAWAI NEGERI SIPIL ATAU ANGGOTA TENTARA NASIONAL  INDONESIA ATAU ANGGOTA POLISI REPUBLIK INDONESIA ATAU  PEJABAT NEGARA ATAU PENSIUNNYA. Dibuat oleh Tim MSIB Batch 5 Lembaga Layanan Pendidikan Tinggi Wilayah III" />
     <meta name="image" content="https://sijak21.arizkinewbie.com/public/skydash-template/images/favicon.png" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://sijak21.arizkinewbie.com/" />
     <meta property="og:title" content="Layanan Pemotongan Pajak Penghasilan LLDikti III" />
-    <meta property="og:description"
-        content="SISTEM UNTUK MEMANTAU BUKTI PEMOTONGAN PAJAK PENGHASILAN PASAL 21 BAGI  PEGAWAI NEGERI SIPIL ATAU ANGGOTA TENTARA NASIONAL  INDONESIA ATAU ANGGOTA POLISI REPUBLIK INDONESIA ATAU  PEJABAT NEGARA ATAU PENSIUNNYA. Dibuat oleh Tim MSIB Batch 5 Lembaga Layanan Pendidikan Tinggi Wilayah III" />
+    <meta property="og:description" content="SISTEM UNTUK MEMANTAU BUKTI PEMOTONGAN PAJAK PENGHASILAN PASAL 21 BAGI  PEGAWAI NEGERI SIPIL ATAU ANGGOTA TENTARA NASIONAL  INDONESIA ATAU ANGGOTA POLISI REPUBLIK INDONESIA ATAU  PEJABAT NEGARA ATAU PENSIUNNYA. Dibuat oleh Tim MSIB Batch 5 Lembaga Layanan Pendidikan Tinggi Wilayah III" />
     <meta property="og:image" content="https://sijak21.arizkinewbie.com/public/skydash-template/images/favicon.png" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="https://sijak21.arizkinewbie.com/" />
     <meta property="twitter:title" content="Layanan Pemotongan Pajak Penghasilan LLDikti III" />
-    <meta property="twitter:description"
-        content="SISTEM UNTUK MEMANTAU BUKTI PEMOTONGAN PAJAK PENGHASILAN PASAL 21 BAGI  PEGAWAI NEGERI SIPIL ATAU ANGGOTA TENTARA NASIONAL  INDONESIA ATAU ANGGOTA POLISI REPUBLIK INDONESIA ATAU  PEJABAT NEGARA ATAU PENSIUNNYA. Dibuat oleh Tim MSIB Batch 5 Lembaga Layanan Pendidikan Tinggi Wilayah III" />
-    <meta property="twitter:image"
-        content="https://sijak21.arizkinewbie.com/public/skydash-template/images/favicon.png" />
+    <meta property="twitter:description" content="SISTEM UNTUK MEMANTAU BUKTI PEMOTONGAN PAJAK PENGHASILAN PASAL 21 BAGI  PEGAWAI NEGERI SIPIL ATAU ANGGOTA TENTARA NASIONAL  INDONESIA ATAU ANGGOTA POLISI REPUBLIK INDONESIA ATAU  PEJABAT NEGARA ATAU PENSIUNNYA. Dibuat oleh Tim MSIB Batch 5 Lembaga Layanan Pendidikan Tinggi Wilayah III" />
+    <meta property="twitter:image" content="https://sijak21.arizkinewbie.com/public/skydash-template/images/favicon.png" />
     <title><?= $title ?></title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="<?= base_url('skydash-template/vendors/feather/feather.css'); ?>">
@@ -34,8 +30,7 @@
     <link rel="stylesheet" href="<?= base_url('skydash-template/vendors/css/vendor.bundle.base.css'); ?>">
     <!-- endinject -->
     <!-- Plugin css for this page -->
-    <link rel="stylesheet"
-        href="<?= base_url('skydash-template/vendors/datatables.net-bs4/dataTables.bootstrap4.css'); ?>">
+    <link rel="stylesheet" href="<?= base_url('skydash-template/vendors/datatables.net-bs4/dataTables.bootstrap4.css'); ?>">
     <link rel="stylesheet" href="<?= base_url('skydash-template/vendors/ti-icons/css/themify-icons.css'); ?>">
     <link rel="stylesheet" type="text/css" href="<?= base_url('skydash-template/js/select.dataTables.min.css'); ?>">
     <!-- End plugin css for this page -->
@@ -56,8 +51,7 @@
     <nav class="navbar navbar-light bg-light">
         <div class="mx-auto">
             <a class="navbar-brand" href="#">
-                <img src="<?= base_url('skydash-template/images/LogoDikbud.svg'); ?>" width="30" height="30"
-                    class="d-inline-block align-top mr-3" alt="">
+                <img src="<?= base_url('skydash-template/images/LogoDikbud.svg'); ?>" width="30" height="30" class="d-inline-block align-top mr-3" alt="">
                 <span class="font-weight-bold">DASHBOARD LLDIKTI III</span>
             </a>
         </div>
@@ -107,8 +101,7 @@
                             <div class="form-group row">
                                 <label for="input" class="col-sm-2 col-form-label">NPWP</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control p-0" id="npwp" name="npwp" placeholder=""
-                                        required>
+                                    <input type="text" class="form-control p-0" id="npwp" name="npwp" placeholder="" required>
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -168,57 +161,57 @@
                             <button type="submit" class="btn btn-primary w-75 mt-4">Masuk</button>
                         </form>
                         <script>
-                        document.getElementById("form").addEventListener("submit", function(event) {
-                            event.preventDefault();
+                            document.getElementById("form").addEventListener("submit", function(event) {
+                                event.preventDefault();
 
-                            const npwp = document.getElementById("npwp").value;
-                            const day = document.getElementById("day").value;
-                            const month = document.getElementById("month").value;
-                            const year = document.getElementById("year").value;
-                            const yearOption = document.getElementById("yearOption").value;
-                            const birth = year + '-' + month.padStart(2, '0') + '-' + day.padStart(2, '0');
+                                const npwp = document.getElementById("npwp").value;
+                                const day = document.getElementById("day").value;
+                                const month = document.getElementById("month").value;
+                                const year = document.getElementById("year").value;
+                                const yearOption = document.getElementById("yearOption").value;
+                                const birth = year + '-' + month.padStart(2, '0') + '-' + day.padStart(2, '0');
 
-                            // Use AJAX to send data to the server
-                            $.ajax({
-                                type: 'POST', // or 'GET' depending on your needs
-                                url: '/checkData', // The method in HomeController to handle data checking
-                                data: {
-                                    npwp: npwp,
-                                    birth: birth,
-                                    yearOption: yearOption
-                                },
-                                dataType: 'json',
-                                success: function(response) {
-                                    // Data found, display success message
-                                    Swal.fire({
-                                        icon: 'success',
-                                        title: 'Data ditemukan!',
-                                        text: 'Anda dapat melanjutkan ke layanan Pajak.',
-                                        confirmButtonColor: '#3085d6',
-                                        confirmButtonText: 'OK'
-                                    }).then((result) => {
-                                        // If the user clicks "OK," proceed to the specified URL
-                                        if (result.isConfirmed) {
-                                            const url = 'layanan-pajak?npwp=' +
-                                                encodeURIComponent(npwp) + '&birth=' +
-                                                encodeURIComponent(birth) + '&yearOption=' +
-                                                encodeURIComponent(yearOption);
-                                            window.location.href = url;
-                                        }
-                                    });
-                                },
-                                error: function(response) {
-                                    // Data not found, display error message
-                                    Swal.fire({
-                                        icon: 'error',
-                                        title: 'Data tidak ditemukan!',
-                                        text: 'Silahkan periksa kembali data Anda. Jika Anda memerlukan bantuan, silahkan hubungi Admin LLDikti 3.',
-                                        confirmButtonColor: '#3085d6',
-                                        confirmButtonText: 'OK'
-                                    });
-                                }
+                                // Use AJAX to send data to the server
+                                $.ajax({
+                                    type: 'POST', // or 'GET' depending on your needs
+                                    url: '/checkData', // The method in HomeController to handle data checking
+                                    data: {
+                                        npwp: npwp,
+                                        birth: birth,
+                                        yearOption: yearOption
+                                    },
+                                    dataType: 'json',
+                                    success: function(response) {
+                                        // Data found, display success message
+                                        Swal.fire({
+                                            icon: 'success',
+                                            title: 'Data ditemukan!',
+                                            text: 'Anda dapat melanjutkan ke layanan Pajak.',
+                                            confirmButtonColor: '#3085d6',
+                                            confirmButtonText: 'OK'
+                                        }).then((result) => {
+                                            // If the user clicks "OK," proceed to the specified URL
+                                            if (result.isConfirmed) {
+                                                const url = 'layanan-pajak?npwp=' +
+                                                    encodeURIComponent(npwp) + '&birth=' +
+                                                    encodeURIComponent(birth) + '&yearOption=' +
+                                                    encodeURIComponent(yearOption);
+                                                window.location.href = url;
+                                            }
+                                        });
+                                    },
+                                    error: function(response) {
+                                        // Data not found, display error message
+                                        Swal.fire({
+                                            icon: 'error',
+                                            title: 'Data tidak ditemukan!',
+                                            text: 'Silahkan periksa kembali data Anda. Jika Anda memerlukan bantuan, silahkan hubungi Admin LLDikti 3.',
+                                            confirmButtonColor: '#3085d6',
+                                            confirmButtonText: 'OK'
+                                        });
+                                    }
+                                });
                             });
-                        });
                         </script>
 
                     </div>
@@ -230,15 +223,8 @@
     <!-- partial:partials/_footer.html -->
     <footer class="footer">
         <div class="d-sm-flex justify-content-center justify-content-sm-between">
-            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2021. Premium <a
-                    href="https://www.bootstrapdash.com/" target="_blank">Bootstrap admin template</a> from
-                BootstrapDash. All rights reserved.</span>
-            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with <i
-                    class="ti-heart text-danger ml-1"></i></span>
-        </div>
-        <div class="d-sm-flex justify-content-center justify-content-sm-between">
-            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Distributed by <a
-                    href="https://www.themewagon.com/" target="_blank">Themewagon</a></span>
+            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2024. <a href="https://www.bootstrapdash.com/" target="_blank">SiJak21</a> from LLDikti Wilayah III. All rights reserved.</span>
+            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with <i class="ti-heart text-danger ml-1"></i></span>
         </div>
     </footer>
     <!-- plugins:js -->
